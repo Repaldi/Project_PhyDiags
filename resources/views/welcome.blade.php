@@ -7,30 +7,30 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('home/assets/img/favicon.ico')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('Front_Home/assets/img/favicon.ico')}}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{asset('home/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/slicknav.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/progressbar_barfiller.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/gijgo.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/animated-headline.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/fontawesome-all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/nice-select.css')}}">
-    <link rel="stylesheet" href="{{asset('home/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/slicknav.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/progressbar_barfiller.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/gijgo.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/animated-headline.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('Front_Home/assets/css/style.css')}}">
     
 </head>
 <body>
 <!-- <body oncontextmenu='return false;' onkeydown='return true;' onmousedown='return true;' ondragstart='return false' onselectstart='return true' style='-moz-user-select: none; cursor: default;'>
 
 <script type='text/javascript'>
-shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!1,disable_in_input:!1,target:document,keycode:!1};if(c)for(var e in d)"undefined"==typeof c[e]&&(c[e]=d[e]);else c=d;d=c.target,"string"==typeof c.target&&(d=document.getElementById(c.target)),a=a.toLowerCase(),e=function(d){d=d||window.event;if(c.disable_in_input){var e;d.target?e=d.target:d.srcElement&&(e=d.srcElement),3==e.nodeType&&(e=e.parentNode);if("INPUT"==e.tagName||"TEXTAREA"==e.tagName)return}d.keyCode?code=d.keyCode:d.which&&(code=d.which),e=String.fromCharCode(code).toLowerCase(),188==code&&(e=","),190==code&&(e=".");var f=a.split("+"),g=0,h={"`":"~",1:"!",2:"@",3:"#",4:"$",5:"%",6:"^",7:"&",8:"*",9:"(",0:")","-":"_","=":"+",";":":","'":'"',",":"<",".":">","/":"?","\\":"|"},i={esc:27,escape:27,tab:9,space:32,"return":13,enter:13,backspace:8,scrolllock:145,scroll_lock:145,scroll:145,capslock:20,caps_lock:20,caps:20,numlock:144,num_lock:144,num:144,pause:19,"break":19,insert:45,home:36,"delete":46,end:35,pageup:33,page_up:33,pu:33,pagedown:34,page_down:34,pd:34,left:37,up:38,right:39,down:40,f1:112,f2:113,f3:114,f4:115,f5:116,f6:117,f7:118,f8:119,f9:120,f10:121,f11:122,f12:123},j=!1,l=!1,m=!1,n=!1,o=!1,p=!1,q=!1,r=!1;d.ctrlKey&&(n=!0),d.shiftKey&&(l=!0),d.altKey&&(p=!0),d.metaKey&&(r=!0);for(var s=0;k=f[s],s<f.length;s++)"ctrl"==k||"control"==k?(g++,m=!0):"shift"==k?(g++,j=!0):"alt"==k?(g++,o=!0):"meta"==k?(g++,q=!0):1<k.length?i[k]==code&&g++:c.keycode?c.keycode==code&&g++:e==k?g++:h[e]&&d.shiftKey&&(e=h[e],e==k&&g++);if(g==f.length&&n==m&&l==j&&p==o&&r==q&&(b(d),!c.propagate))return d.cancelBubble=!0,d.returnValue=!1,d.stopPropagation&&(d.stopPropagation(),d.preventDefault()),!1},this.all_shortcuts[a]={callback:e,target:d,event:c.type},d.addEventListener?d.addEventListener(c.type,e,!1):d.attachEvent?d.attachEvent("on"+c.type,e):d["on"+c.type]=e},remove:function(a){var a=a.toLowerCase(),b=this.all_shortcuts[a];delete this.all_shortcuts[a];if(b){var a=b.event,c=b.target,b=b.callback;c.detachEvent?c.detachEvent("on"+a,b):c.removeEventListener?c.removeEventListener(a,b,!1):c["on"+a]=!1}}},shortcut.add("Ctrl+U",function(){top.location.href="/"});
+shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!1,disable_in_input:!1,target:document,keycode:!1};if(c)for(var e in d)"undefined"==typeof c[e]&&(c[e]=d[e]);else c=d;d=c.target,"string"==typeof c.target&&(d=document.getElementById(c.target)),a=a.toLowerCase(),e=function(d){d=d||window.event;if(c.disable_in_input){var e;d.target?e=d.target:d.srcElement&&(e=d.srcElement),3==e.nodeType&&(e=e.parentNode);if("INPUT"==e.tagName||"TEXTAREA"==e.tagName)return}d.keyCode?code=d.keyCode:d.which&&(code=d.which),e=String.fromCharCode(code).toLowerCase(),188==code&&(e=","),190==code&&(e=".");var f=a.split("+"),g=0,h={"`":"~",1:"!",2:"@",3:"#",4:"$",5:"%",6:"^",7:"&",8:"*",9:"(",0:")","-":"_","=":"+",";":":","'":'"',",":"<",".":">","/":"?","\\":"|"},i={esc:27,escape:27,tab:9,space:32,"return":13,enter:13,backspace:8,scrolllock:145,scroll_lock:145,scroll:145,capslock:20,caps_lock:20,caps:20,numlock:144,num_lock:144,num:144,pause:19,"break":19,insert:45,Front_Home:36,"delete":46,end:35,pageup:33,page_up:33,pu:33,pagedown:34,page_down:34,pd:34,left:37,up:38,right:39,down:40,f1:112,f2:113,f3:114,f4:115,f5:116,f6:117,f7:118,f8:119,f9:120,f10:121,f11:122,f12:123},j=!1,l=!1,m=!1,n=!1,o=!1,p=!1,q=!1,r=!1;d.ctrlKey&&(n=!0),d.shiftKey&&(l=!0),d.altKey&&(p=!0),d.metaKey&&(r=!0);for(var s=0;k=f[s],s<f.length;s++)"ctrl"==k||"control"==k?(g++,m=!0):"shift"==k?(g++,j=!0):"alt"==k?(g++,o=!0):"meta"==k?(g++,q=!0):1<k.length?i[k]==code&&g++:c.keycode?c.keycode==code&&g++:e==k?g++:h[e]&&d.shiftKey&&(e=h[e],e==k&&g++);if(g==f.length&&n==m&&l==j&&p==o&&r==q&&(b(d),!c.propagate))return d.cancelBubble=!0,d.returnValue=!1,d.stopPropagation&&(d.stopPropagation(),d.preventDefault()),!1},this.all_shortcuts[a]={callback:e,target:d,event:c.type},d.addEventListener?d.addEventListener(c.type,e,!1):d.attachEvent?d.attachEvent("on"+c.type,e):d["on"+c.type]=e},remove:function(a){var a=a.toLowerCase(),b=this.all_shortcuts[a];delete this.all_shortcuts[a];if(b){var a=b.event,c=b.target,b=b.callback;c.detachEvent?c.detachEvent("on"+a,b):c.removeEventListener?c.removeEventListener(a,b,!1):c["on"+a]=!1}}},shortcut.add("Ctrl+U",function(){top.location.href="/"});
 </script> -->
 
     <!-- ? Preloader Start -->
@@ -39,7 +39,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{{asset('home/assets/img/logo/loder.png')}}" alt="">
+                    <img src="{{asset('Front_Home/assets/img/logo/loder.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href=""><img src="{{asset('home/assets/img/logo/logo2.png')}}" alt=""></a>
+                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -77,7 +77,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                     </ul>
                                                 </li>
                                                 <li><a href="contact.html">Kontak</a></li>
-                                                <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
+                                                <li class="button-header"><a href="{{ url('/Front_Home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Keluar</a></li>
                                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" 
@@ -150,7 +150,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="single-services mb-30">
                             <div class="features-icon">
-                                <img src="{{asset('home/assets/img/icon/icon1.svg')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/icon/icon1.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
                                 <h3>10 Soal Four-Tier Test</h3>
@@ -161,7 +161,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="single-services mb-30">
                             <div class="features-icon">
-                                <img src="{{asset('home/assets/img/icon/icon2.svg')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/icon/icon2.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
                                 <h3>Fleksibel</h3>
@@ -172,7 +172,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="single-services mb-30">
                             <div class="features-icon">
-                                <img src="{{asset('home/assets/img/icon/icon3.svg')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/icon/icon3.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
                                 <h3>Efisien Waktu</h3>
@@ -198,7 +198,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('home/assets/img/gallery/featured1.png')}}" alt=""></a>
+                                <a href="#"><img src="{{asset('Front_Home/assets/img/gallery/featured1.png')}}" alt=""></a>
                             </div>
                             <div class="properties__caption">
                                 <p>Panduan</p>
@@ -231,7 +231,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('home/assets/img/gallery/featured2.png')}}" alt=""></a>
+                                <a href="#"><img src="{{asset('Front_Home/assets/img/gallery/featured2.png')}}" alt=""></a>
                             </div>
                             <div class="properties__caption">
                                 <p>Panduan</p>
@@ -268,7 +268,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             <div class="support-wrapper align-items-center">
                 <div class="left-content1">
                     <div class="about-icon">
-                        <img src="{{asset('home/assets/img/icon/about.svg')}}" alt="">
+                        <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt="">
                     </div>
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-55">
@@ -281,7 +281,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Tingkat pertama adalah soal pilihan ganda dengan 4 pengecoh dan satu kunci jawaban 
@@ -291,7 +291,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Tingkat ke dua merupakan tingkat keyakinan siswa dalam memilih jawaban</p>
@@ -300,7 +300,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
 
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Tingkat ke tiga merupakan alasan siswa menjawab pertanyaan.</p>
@@ -308,7 +308,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Tingkat ke empat merupakan tingkat keyakinan siswa dalam memilih alasan.</p>
@@ -318,11 +318,11 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="right-content1">
                     <!-- img -->
                     <div class="right-img">
-                        <img src="{{asset('home/assets/img/gallery/about.png')}}" alt="">
+                        <img src="{{asset('Front_Home/assets/img/gallery/about.png')}}" alt="">
 
                         <div class="video-icon" >
                             <!-- <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a> -->
-                            <img src="{{asset('home/assets/img/tentang.jpg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/tentang.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -343,7 +343,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6t" >
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img"  >
-                                <img src="{{asset('home/assets/img/fitur/1.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/1.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Soal Four-Tier Test</a></h3>
@@ -355,7 +355,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/2.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/2.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Data Guru dan Siswa</a></h3>
@@ -367,7 +367,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/3.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/3.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Manajemen Sistem</a></h3>
@@ -379,7 +379,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/4.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/4.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Fleksibilitas Waktu</a></h3>
@@ -391,7 +391,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/5.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/5.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Import Soal</a></h3>
@@ -403,7 +403,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/6.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/6.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Analisis Butir Soal Auto</a></h3>
@@ -415,7 +415,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/7.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/7.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Klasifikasi Pemahaman Konsep Siswa Auto</a></h3>
@@ -427,7 +427,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/fitur/8.png')}}" alt="">
+                                <img src="{{asset('Front_Home/assets/img/fitur/8.png')}}" alt="">
                                 <!-- <div class="topic-content-box">
                                     <div class="topic-content">
                                         <h3><a href="#">Laporan Hasil untuk Siswa</a></h3>
@@ -453,7 +453,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="right-content3">
                     <!-- img -->
                     <div class="right-img">
-                        <img src="{{asset('home/assets/img/gallery/Fungsi1.png')}}" alt="">
+                        <img src="{{asset('Front_Home/assets/img/gallery/Fungsi1.png')}}" alt="">
                     </div>
                 </div>
                 <div class="left-content3">
@@ -465,7 +465,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Mengidentifikasi masalah atau kesulitan yang dialami siswa 
@@ -475,7 +475,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
                             <p>Siswa dapat mengetahui dimana titik kelemahan pemahaman 
@@ -667,46 +667,46 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
 <!-- JS here -->
-<script src="{{asset('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
 <!-- Jquery, Popper, Bootstrap -->
-<script src="{{asset('home/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
-<script src="{{asset('home/assets/js/popper.min.js')}}"></script>
-<script src="{{asset('home/assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/bootstrap.min.js')}}"></script>
 <!-- Jquery Mobile Menu -->
-<script src="{{asset('home/assets/js/jquery.slicknav.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.slicknav.min.js')}}"></script>
 
 <!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="{{asset('home/assets/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('home/assets/js/slick.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/slick.min.js')}}"></script>
 <!-- One Page, Animated-HeadLin -->
-<script src="{{asset('home/assets/js/wow.min.js')}}"></script>
-<script src="{{asset('home/assets/js/animated.headline.js')}}"></script>
-<script src="{{asset('home/assets/js/jquery.magnific-popup.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/wow.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/animated.headline.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.magnific-popup.js')}}"></script>
 
 <!-- Date Picker -->
-<script src="{{asset('home/assets/js/gijgo.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/gijgo.min.js')}}"></script>
 <!-- Nice-select, sticky -->
-<script src="{{asset('home/assets/js/jquery.nice-select.min.js')}}"></script>
-<script src="{{asset('home/assets/js/jquery.sticky.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.sticky.js')}}"></script>
 <!-- Progress -->
-<script src="{{asset('home/assets/js/jquery.barfiller.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.barfiller.js')}}"></script>
 
 <!-- counter , waypoint,Hover Direction -->
-<script src="{{asset('home/ssets/js/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('home/assets/js/waypoints.min.js')}}"></script>
-<script src="{{asset('home/assets/js/jquery.countdown.min.js')}}"></script>
-<script src="{{asset('home/assets/js/hover-direction-snake.min.js')}}"></script>
+<script src="{{asset('Front_Home/ssets/js/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/waypoints.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.countdown.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/hover-direction-snake.min.js')}}"></script>
 
 <!-- contact js -->
-<script src="{{asset('home/assets/js/contact.js')}}"></script>
-<script src="{{asset('home//assets/js/jquery.form.js')}}"></script>
-<script src="{{asset('home/assets/js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('home/assets/js/mail-script.js')}}"></script>
-<script src="{{asset('home/assets/js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/contact.js')}}"></script>
+<script src="{{asset('Front_Home//assets/js/jquery.form.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/mail-script.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/jquery.ajaxchimp.min.js')}}"></script>
 
 <!-- Jquery Plugins, main Jquery -->	
-<script src="{{asset('home/assets/js/plugins.js')}}"></script>
-<script src="{{asset('home/assets/js/main.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/plugins.js')}}"></script>
+<script src="{{asset('Front_Home/assets/js/main.js')}}"></script>
 
 </body>
 </html>

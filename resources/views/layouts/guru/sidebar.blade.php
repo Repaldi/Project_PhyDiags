@@ -63,7 +63,7 @@
             </center>
 
                 <li>
-                    <a href="{{route('home')}}" class="mb-2">
+                    <a href="#" class="mb-2">
                         <i class="metismenu-icon pe-7s-home"></i>
                         <b>Beranda</b>
                     </a>
