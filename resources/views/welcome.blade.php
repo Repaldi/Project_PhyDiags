@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Courses | Education</title>
+    <title>PhyDiags | Education</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -26,8 +26,13 @@
     <link rel="stylesheet" href="{{asset('home/assets/css/style.css')}}">
     
 </head>
-
 <body>
+<!-- <body oncontextmenu='return false;' onkeydown='return true;' onmousedown='return true;' ondragstart='return false' onselectstart='return true' style='-moz-user-select: none; cursor: default;'>
+
+<script type='text/javascript'>
+shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!1,disable_in_input:!1,target:document,keycode:!1};if(c)for(var e in d)"undefined"==typeof c[e]&&(c[e]=d[e]);else c=d;d=c.target,"string"==typeof c.target&&(d=document.getElementById(c.target)),a=a.toLowerCase(),e=function(d){d=d||window.event;if(c.disable_in_input){var e;d.target?e=d.target:d.srcElement&&(e=d.srcElement),3==e.nodeType&&(e=e.parentNode);if("INPUT"==e.tagName||"TEXTAREA"==e.tagName)return}d.keyCode?code=d.keyCode:d.which&&(code=d.which),e=String.fromCharCode(code).toLowerCase(),188==code&&(e=","),190==code&&(e=".");var f=a.split("+"),g=0,h={"`":"~",1:"!",2:"@",3:"#",4:"$",5:"%",6:"^",7:"&",8:"*",9:"(",0:")","-":"_","=":"+",";":":","'":'"',",":"<",".":">","/":"?","\\":"|"},i={esc:27,escape:27,tab:9,space:32,"return":13,enter:13,backspace:8,scrolllock:145,scroll_lock:145,scroll:145,capslock:20,caps_lock:20,caps:20,numlock:144,num_lock:144,num:144,pause:19,"break":19,insert:45,home:36,"delete":46,end:35,pageup:33,page_up:33,pu:33,pagedown:34,page_down:34,pd:34,left:37,up:38,right:39,down:40,f1:112,f2:113,f3:114,f4:115,f5:116,f6:117,f7:118,f8:119,f9:120,f10:121,f11:122,f12:123},j=!1,l=!1,m=!1,n=!1,o=!1,p=!1,q=!1,r=!1;d.ctrlKey&&(n=!0),d.shiftKey&&(l=!0),d.altKey&&(p=!0),d.metaKey&&(r=!0);for(var s=0;k=f[s],s<f.length;s++)"ctrl"==k||"control"==k?(g++,m=!0):"shift"==k?(g++,j=!0):"alt"==k?(g++,o=!0):"meta"==k?(g++,q=!0):1<k.length?i[k]==code&&g++:c.keycode?c.keycode==code&&g++:e==k?g++:h[e]&&d.shiftKey&&(e=h[e],e==k&&g++);if(g==f.length&&n==m&&l==j&&p==o&&r==q&&(b(d),!c.propagate))return d.cancelBubble=!0,d.returnValue=!1,d.stopPropagation&&(d.stopPropagation(),d.preventDefault()),!1},this.all_shortcuts[a]={callback:e,target:d,event:c.type},d.addEventListener?d.addEventListener(c.type,e,!1):d.attachEvent?d.attachEvent("on"+c.type,e):d["on"+c.type]=e},remove:function(a){var a=a.toLowerCase(),b=this.all_shortcuts[a];delete this.all_shortcuts[a];if(b){var a=b.event,c=b.target,b=b.callback;c.detachEvent?c.detachEvent("on"+a,b):c.removeEventListener?c.removeEventListener(a,b,!1):c["on"+a]=!1}}},shortcut.add("Ctrl+U",function(){top.location.href="/"});
+</script> -->
+
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -50,7 +55,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href=""><img src="{{asset('home/assets/img/logo/logo.png')}}" alt=""></a>
+                                    <a href=""><img src="{{asset('home/assets/img/logo/logo2.png')}}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -58,21 +63,46 @@
                                     <!-- Main-menu -->
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
-                                            <ul id="navigation">                                                                                          
-                                                <li class="active" ><a href="index.html">Home</a></li>
-                                                <li><a href="courses.html">Courses</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="#">Blog</a>
+                                            <ul id="navigation">  
+                                            @if (Route::has('login'))
+                                            @auth
+                                                <li class="active" ><a href="index.html">Beranda</a></li>
+                                                <li><a href="courses.html">Panduan</a></li>
+                                                <li><a href="about.html">Tentang</a></li>
+                                                <li><a href="#">Materi</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <!-- Button -->
-                                                <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
-                                                <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
+                                                <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Keluar</a></li>
+                                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" 
+                                                      style="display: none;">
+                                                    @csrf
+                                                    </form>
+                                            @else
+                                                <li class="active" ><a href="index.html">Beranda</a></li>
+                                                <li><a href="courses.html">Panduan</a></li>
+                                                <li><a href="about.html">Tentang</a></li>
+                                                <li><a href="#">Materi</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="blog.html">Blog</a></li>
+                                                        <li><a href="blog_details.html">Blog Details</a></li>
+                                                        <li><a href="elements.html">Element</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li class="button-header"><a href="{{ route('login') }}" class="btn btn3">Masuk</a></li>
+                                            @if (Route::has('register'))
+                                                <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Daftar</a></li>
+                                            @endif
+                                            @endauth
+                                            @endif                                                                                        
+                                               
                                             </ul>
                                         </nav>
                                     </div>
@@ -99,9 +129,13 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Online learning<br> platform</h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Build skills with courses, certificates, and degrees online from world-class universities and companies</p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join for Free</a>
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">E-Diagnotic<br> Four Tier Test</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">
+                                    Aplikasi berbasis web yang bertujuan untuk mengembangkan tes diagnostik dalam bentuk four-tier yang 
+                                    berguna dalam mengidentifikasi profil konsepsi siswa SMA pada Materi Fluida 
+                                    Statis. 
+                                    </p>
+                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Panduan</a>
                                 </div>
                             </div>
                         </div>
@@ -116,11 +150,11 @@
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="single-services mb-30">
                             <div class="features-icon">
-                                <img src="assets/img/icon/icon1.svg" alt="">
+                                <img src="{{asset('home/assets/img/icon/icon1.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>60+ UX courses</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>10 Soal Four-Tier Test</h3>
+                                <p>Soal berisikan Ppemahaman konsep pada Materi Fluida Statis</p>
                             </div>
                         </div>
                     </div>
@@ -130,8 +164,8 @@
                                 <img src="{{asset('home/assets/img/icon/icon2.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>Expert instructors</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>Fleksibel</h3>
+                                <p>Dapat diakses kapan saja dan dimana saja</p>
                             </div>
                         </div>
                     </div>
@@ -141,8 +175,8 @@
                                 <img src="{{asset('home/assets/img/icon/icon3.svg')}}" alt="">
                             </div>
                             <div class="features-caption">
-                                <h3>Life time access</h3>
-                                <p>The automated process all your website tasks.</p>
+                                <h3>Efisien Waktu</h3>
+                                <p>Mempermuda dalam melakukan proses pembelajaran</p>
                             </div>
                         </div>
                     </div>
@@ -155,7 +189,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
                         <div class="section-tittle text-center mb-55">
-                            <h2>Our featured courses</h2>
+                            <h2>Panduan Penggunaan</h2>
                         </div>
                     </div>
                 </div>
@@ -167,8 +201,8 @@
                                 <a href="#"><img src="{{asset('home/assets/img/gallery/featured1.png')}}" alt=""></a>
                             </div>
                             <div class="properties__caption">
-                                <p>User Experience</p>
-                                <h3><a href="#">Fundamental of UX for Application design</a></h3>
+                                <p>Panduan</p>
+                                <h3><a href="#">Guru</a></h3>
                                 <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
 
                                 </p>
@@ -200,8 +234,8 @@
                                 <a href="#"><img src="{{asset('home/assets/img/gallery/featured2.png')}}" alt=""></a>
                             </div>
                             <div class="properties__caption">
-                                <p>User Experience</p>
-                                <h3><a href="#">Fundamental of UX for Application design</a></h3>
+                                <p>Panduan</p>
+                                <h3><a href="#">Siswa</a></h3>
                                 <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
                                 </p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
@@ -224,72 +258,7 @@
                         </div>
                     </div>
                     <!-- Single -->
-                    <!-- Single -->
-                    <div class="properties pb-20">
-                        <div class="properties__card">
-                            <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('home/assets/img/gallery/featured3.png')}}" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <p>User Experience</p>
-                                <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                                <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-
-                                </p>
-                                <div class="properties__footer d-flex justify-content-between align-items-center">
-                                    <div class="restaurant-name">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half"></i>
-                                        </div>
-                                        <p><span>(4.5)</span> based on 120</p>
-                                    </div>
-                                    <div class="price">
-                                        <span>$135</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="border-btn border-btn2">Find out more</a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Single -->
-                    <!-- Single -->
-                    <div class="properties pb-20">
-                        <div class="properties__card">
-                            <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('home/assets/img/gallery/featured2.png')}}" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <p>User Experience</p>
-                                <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                                <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-
-                                </p>
-                                <div class="properties__footer d-flex justify-content-between align-items-center">
-                                    <div class="restaurant-name">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half"></i>
-                                        </div>
-                                        <p><span>(4.5)</span> based on 120</p>
-                                    </div>
-                                    <div class="price">
-                                        <span>$135</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="border-btn border-btn2">Find out more</a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Single -->
+                   
                 </div>
             </div>
         </div>
@@ -304,10 +273,10 @@
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-55">
                         <div class="front-text">
-                            <h2 class="">Learn new skills online with top educators</h2>
-                            <p>The automated process all your website tasks. Discover tools and 
-                                techniques to engage effectively with vulnerable children and young 
-                            people.</p>
+                            <h2 class="">Tentang Four-Tier Test</h2>
+                            <p>Four Tier Test  merupakan tes diagnostik dengan empat tingkat pilihan. Four Tier Test ini merupakan pengembangan dari tes diagnostik pilihan ganda tiga tingkat, yaitu dengan menambah tingkat keyakinan pada masing-masing jawaban dan 
+                                alasan. Penambahan tingkat keyakinan pada masing-masing jawaban dan alasan dapat mengukur perbedaan tingkat pengetahuan siswa sehingga akan membantu dalam mendeteksi tingkat miskonsepsi siswa. 
+                            </p>
                         </div>
                     </div>
                     <div class="single-features">
@@ -315,7 +284,9 @@
                             <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Techniques to engage effectively with vulnerable children and young people.</p>
+                            <p>Tingkat pertama adalah soal pilihan ganda dengan 4 pengecoh dan satu kunci jawaban 
+                                yang harus dipilih siswa.
+                            </p>
                         </div>
                     </div>
                     <div class="single-features">
@@ -323,7 +294,7 @@
                             <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world  learning together.</p>
+                            <p>Tingkat ke dua merupakan tingkat keyakinan siswa dalam memilih jawaban</p>
                         </div>
                     </div>
 
@@ -332,7 +303,15 @@
                             <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world learning together. Online learning is as easy and natural.</p>
+                            <p>Tingkat ke tiga merupakan alasan siswa menjawab pertanyaan.</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Tingkat ke empat merupakan tingkat keyakinan siswa dalam memilih alasan.</p>
                         </div>
                     </div>
                 </div>
@@ -342,7 +321,8 @@
                         <img src="{{asset('home/assets/img/gallery/about.png')}}" alt="">
 
                         <div class="video-icon" >
-                            <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
+                            <!-- <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a> -->
+                            <img src="{{asset('home/assets/img/tentang.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -355,104 +335,104 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
                         <div class="section-tittle text-center mb-55">
-                            <h2>Explore top subjects</h2>
+                            <h2>Fitur-Fitur PhyDiags</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6t" >
                         <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic1.png')}}" alt="">
-                                <div class="topic-content-box">
+                            <div class="topic-img"  >
+                                <img src="{{asset('home/assets/img/fitur/1.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Soal Four-Tier Test</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic2.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/2.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Data Guru dan Siswa</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic3.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/3.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Manajemen Sistem</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic4.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/4.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Fleksibilitas Waktu</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic5.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/5.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Import Soal</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic6.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/6.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Analisis Butir Soal Auto</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic7.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/7.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Klasifikasi Pemahaman Konsep Siswa Auto</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
-                                <img src="{{asset('home/assets/img/gallery/topic8.png')}}" alt="">
-                                <div class="topic-content-box">
+                                <img src="{{asset('home/assets/img/fitur/8.png')}}" alt="">
+                                <!-- <div class="topic-content-box">
                                     <div class="topic-content">
-                                        <h3><a href="#">Programing</a></h3>
+                                        <h3><a href="#">Laporan Hasil untuk Siswa</a></h3>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -460,7 +440,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-12">
                         <div class="section-tittle text-center mt-20">
-                            <a href="courses.html" class="border-btn">View More Subjects</a>
+                            <a href="courses.html" class="border-btn">View More</a>
                         </div>
                     </div>
                 </div>
@@ -473,42 +453,37 @@
                 <div class="right-content3">
                     <!-- img -->
                     <div class="right-img">
-                        <img src="{{asset('home/assets/img/gallery/about3.png')}}" alt="">
+                        <img src="{{asset('home/assets/img/gallery/Fungsi1.png')}}" alt="">
                     </div>
                 </div>
                 <div class="left-content3">
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-20">
                         <div class="front-text">
-                            <h2 class="">Learner outcomes on courses you will take</h2>
+                            <h2 class="">Fungsi PhyDiags</h2>
                         </div>
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="assets/img/icon/right-icon.svg" alt="">
+                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Techniques to engage effectively with vulnerable children and young people.</p>
+                            <p>Mengidentifikasi masalah atau kesulitan yang dialami siswa 
+                                dengan cepat karna soal four-tier test dirancang dalam website 
+                                    yang dapat menganalisis jawaban siswa tersebut dengan cepat</p>
                         </div>
                     </div>
                     <div class="single-features">
                         <div class="features-icon">
-                            <img src="assets/img/icon/right-icon.svg" alt="">
+                            <img src="{{asset('home/assets/img/icon/right-icon.svg')}}" alt="">
                         </div>
                         <div class="features-caption">
-                            <p>Join millions of people from around the world
-                            learning together.</p>
+                            <p>Siswa dapat mengetahui dimana titik kelemahan pemahaman 
+                                konsep pada suatu materi setelah menyelesaikan soal tersebut
+                            </p>
                         </div>
                     </div>
-                    <div class="single-features">
-                        <div class="features-icon">
-                            <img src="assets/img/icon/right-icon.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <p>Join millions of people from around the world learning together.
-                            Online learning is as easy and natural.</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -586,10 +561,7 @@
                     <!-- section tittle -->
                     <div class="section-tittle section-tittle2 mb-20">
                         <div class="front-text">
-                            <h2 class="">Take the next step
-                                toward your personal
-                                and professional goals
-                            with us.</h2>
+                            <h2 class="">Kelebihan PhyDiags</h2>
                             <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.</p>
                             <a href="#" class="btn">Join now for Free</a>
                         </div>
