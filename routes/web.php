@@ -19,5 +19,13 @@ Auth::routes();
 
 
 Route::group(['middleware' => ['auth','checkRole:2']], function(){
-  Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/userguru/data','UserController@dataGuru')->name('userguruData');
+    Route::get('/userguru/create','UserController@createGuru')->name('userguruCreate');
+    Route::post('/userguru/store','UserController@storeGuru')->name('userguruStore');
+    
+    Route::get('/usersiswa/data','UserController@dataSiswa')->name('usersiswaData');
+    Route::get('/usersiswa/create','UserController@createSiswa')->name('usersiswaCreate');
+    Route::post('/usersiswa/store','UserController@storeSiswa')->name('usersiswaStore');
 });

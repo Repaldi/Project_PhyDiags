@@ -63,13 +63,13 @@
             </center>
 
                 <li>
-                    <a href="{{route('home')}}" class="mb-2">
+                    <a href="/home" class="mb-2">
                         <i class="metismenu-icon pe-7s-home"></i>
                         <b>Beranda</b>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin.profil')}}" class="mb-2 {{(request()->is('admin/profil*')) ? 'mm-active' : ''}} ">
+                    <a href="/admin.profil" class="mb-2 ">
                         <i class="metismenu-icon pe-7s-user"></i>
                         <b>Profil</b>
                     </a>
@@ -83,13 +83,13 @@
                     </a>
                     <ul>
                     <li>
-                        <a href="">
+                        <a href="{{route('userguruCreate')}}">
                           <b>Tambah Data Guru</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('userguruData')}}">
                             <b>Daftar Guru</b>
                             <i class="metismenu-icon pe-7s-monitor"></i>
                         </a>
@@ -98,6 +98,28 @@
                 </ul>
                 </li>
                 
+                <li>
+                    <a href="#" class="mb-2">
+                        <i class="metismenu-icon pe-7s-bookmarks"></i>
+                        <b>Data Siswa</b>
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                    <li>
+                        <a href="{{route('usersiswaCreate')}}">
+                          <b>Tambah Data Siswa</b>
+                            <i class="metismenu-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('usersiswaData')}}">
+                            <b>Daftar Siswa</b>
+                            <i class="metismenu-icon pe-7s-monitor"></i>
+                        </a>
+                    </li>
+
+                </ul>
+                </li>
             </ul>
         </div>
     </div>
