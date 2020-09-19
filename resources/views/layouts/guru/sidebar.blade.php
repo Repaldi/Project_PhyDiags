@@ -46,7 +46,7 @@
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
             <center>
-         
+
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
             <li class="app-sidebar__heading">{{auth()->user()->name}}</li>
 
@@ -106,7 +106,7 @@
                     </a>
                     <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{route('createPaketSoal')}}">
                           <b>Buat Paket Soal</b>
                             <i class="metismenu-icon"></i>
                         </a>
@@ -151,6 +151,5 @@
             </ul>
         </div>
     </div>
-</div>    
+</div>
 <div class="app-main__outer">
-
