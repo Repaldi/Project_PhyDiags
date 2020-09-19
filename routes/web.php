@@ -17,21 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout','UserController@logout')->name('logout');
 
-Route::group(['middleware' => ['auth','checkRole:2']], function(){
+Route::group(['middleware' => ['auth','checkRole:0']], function(){
     Route::get('/home', 'HomeController@index');
-
     Route::get('/userguru/data','UserController@dataGuru')->name('userguruData');
     Route::get('/userguru/create','UserController@createGuru')->name('userguruCreate');
     Route::post('/userguru/store','UserController@storeGuru')->name('userguruStore');
-    
     Route::get('/usersiswa/data','UserController@dataSiswa')->name('usersiswaData');
     Route::get('/usersiswa/create','UserController@createSiswa')->name('usersiswaCreate');
     Route::post('/usersiswa/store','UserController@storeSiswa')->name('usersiswaStore');
 });
 
-Route::group(['middleware' => ['auth','checkRole:0,1']], function(){
+Route::group(['middleware' => ['auth','checkRole:1']], function(){
   Route::get('/home', 'HomeController@index');
+  Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
+  Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
   Route::group(['prefix' => 'paketsoal'], function () {
     Route::get('/','PaketSoalController@getPaketSoal')->name('getPaketSoal');
     Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');

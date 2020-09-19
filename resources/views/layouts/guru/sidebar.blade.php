@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="mb-2">
+                    <a href="{{route('profilGuru')}}" class="mb-2">
                         <i class="metismenu-icon pe-7s-user"></i>
                         <b>Profil</b>
                     </a>
@@ -112,7 +112,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('getPaketSoal')}}">
                             <b>Daftar Paket Soal</b>
                             <i class="metismenu-icon pe-7s-monitor"></i>
                         </a>

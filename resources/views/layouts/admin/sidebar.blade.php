@@ -46,7 +46,7 @@
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
             <center>
-         
+
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
             <li class="app-sidebar__heading">{{auth()->user()->name}}</li>
 
@@ -75,7 +75,7 @@
                     </a>
                 </li>
 
-                <li>
+                <li> 
                     <a href="#" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                         <b>Data Guru</b>
@@ -97,7 +97,7 @@
 
                 </ul>
                 </li>
-                
+
                 <li>
                     <a href="#" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
@@ -123,6 +123,5 @@
             </ul>
         </div>
     </div>
-</div>    
+</div>
 <div class="app-main__outer">
-

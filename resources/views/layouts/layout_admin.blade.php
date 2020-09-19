@@ -15,12 +15,12 @@
     <!-- Jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script defer src="https://unpkg.com/ziggy-js@0.9.x/dist/js/route.min.js"></script>
-    
+
     @yield('linkhead')
     <style media="screen">
     @import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@500&display=swap');
     /* body {font-family: 'Palanquin', sans-serif;} */
-   
+
     @media screen and (max-width: 1000px) {
         .table-inside {
             overflow-y:auto;
@@ -85,7 +85,7 @@
                             <button class="search-icon"><span></span></button>
                         </div>
                         <button class="close"></button>
-                    </div>       
+                    </div>
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -115,10 +115,10 @@
                                         {{auth()->user()->name}}
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                    </div>        
+                    </div>
                 </div>
             </div>
             <!-- INI HEADER -->
@@ -163,6 +163,7 @@
     </div>
     <script type="text/javascript" src="{{asset('assets/scripts/main.js')}}"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('linkfooter')
 </body>
 @yield('js')

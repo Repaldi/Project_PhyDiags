@@ -16,8 +16,10 @@ class CreatePaketSoalTable extends Migration
         Schema::create('paket_soal', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_paket_soal');
+            $table->bigInteger('guru_id')->unsigned();
             $table->boolean('isdelete')->default(false);
             $table->timestamps();
+            $table->foreign('guru_id')->references('id')->on('guru');
         });
     }
 

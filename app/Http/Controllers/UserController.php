@@ -54,7 +54,7 @@ class UserController extends Controller
         return view('admin.data_siswa', compact('siswa'));
     }
 
-    
+
     public function show($id)
     {
         //
@@ -73,5 +73,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout()
+    {
+      auth()->logout();
+
+      return redirect()->route('login')->with('alert','Anda tidak boleh memasuki halaman tersebut');//->route('login')
     }
 }

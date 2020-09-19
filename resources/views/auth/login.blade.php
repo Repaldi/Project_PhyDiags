@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="{{asset('Front_Form/css/style.css')}}">
 </head>
 <body>
-
+    @if(session('alert'))
+      <script>
+        alert('Anda tidak boleh memasuki halaman tersebut');
+      </script>
+    @endif
     <div class="main">
         <!-- Sing in  Form -->
         <section class="sign-in">
