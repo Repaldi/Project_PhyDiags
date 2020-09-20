@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/logout','UserController@logout')->name('logout');
 
-Route::group(['middleware' => ['auth','checkRole:0']], function(){
-    Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['auth','checkRole:3']], function(){
     Route::get('/userguru/data','UserController@dataGuru')->name('userguruData');
     Route::get('/userguru/create','UserController@createGuru')->name('userguruCreate');
     Route::post('/userguru/store','UserController@storeGuru')->name('userguruStore');
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth','checkRole:0']], function(){
 });
 
 Route::group(['middleware' => ['auth','checkRole:1']], function(){
-  Route::get('/home', 'HomeController@index');
+  // Route::get('/home', 'HomeController@index');
   Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
   Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
   Route::group(['prefix' => 'paketsoal'], function () {
@@ -38,4 +38,8 @@ Route::group(['middleware' => ['auth','checkRole:1']], function(){
     Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
     Route::post('/','PaketSoalController@storePaketSoal')->name('storePaketSoal');
   });
+});
+
+Route::group(['middleware' => ['auth','checkRole:2']], function(){
+  // Route::get('/home', 'HomeController@index');
 });
