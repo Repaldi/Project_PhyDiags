@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/logout','UserController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index');
-Route::group(['middleware' => ['auth','checkRole:3']], function(){
+Route::group(['middleware' => ['auth','checkRole:0']], function(){
     Route::get('/userguru/data','UserController@dataGuru')->name('userguruData');
     Route::get('/userguru/create','UserController@createGuru')->name('userguruCreate');
     Route::post('/userguru/store','UserController@storeGuru')->name('userguruStore');
@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth','checkRole:3']], function(){
     Route::post('/usersiswa/store','UserController@storeSiswa')->name('usersiswaStore');
 });
 
-Route::group(['middleware' => ['auth','checkRole:1']], function(){
+Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function(){
   // Route::get('/home', 'HomeController@index');
   Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
   Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth','checkRole:1']], function(){
   });
 });
 
-Route::group(['middleware' => ['auth','checkRole:2']], function(){
+Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
   // Route::get('/home', 'HomeController@index');
+  Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
+  Route::post('/profilxc','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
 });
