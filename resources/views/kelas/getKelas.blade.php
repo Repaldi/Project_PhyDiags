@@ -38,7 +38,7 @@
 
 
                          </div> </div>
-                        <div class="col-md-5"><div class="text-right"><a href="" class="btn btn-info"><i class="metismenu-icon pe-7s-monitor mr-1"></i> Masuk</a></div></div>
+                        <div class="col-md-5"><div class="text-right"><a href="{{route('showKelas',$item->id)}}" class="btn btn-info"><i class="metismenu-icon pe-7s-monitor mr-1"></i> Masuk</a></div></div>
                     </div>
 
                 </div>

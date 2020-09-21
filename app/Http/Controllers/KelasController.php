@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Str;
 use App\Guru;
+use App\AnggotaKelas;
 use App\Kelas;
 use Illuminate\Http\Request;
 
@@ -44,5 +45,15 @@ class KelasController extends Controller
         return redirect()->route('guru.kelas')->with('success','Kelas baru berhasil dibuat');
     }
 
-    
+    public function showKelas($id)
+    {
+        $kelas           = Kelas::find($id);
+        $anggotakelas    = AnggotaKelas::where('kelas_id',$id)->join('siswa','anggota_kelas.siswa_id','=','siswa.id')
+                          ->orderBy('siswa.nama_lengkap')->get();
+
+
+        return view('kelas.showKelas', compact('kelas','anggotakelas'));
+    }
+
+
 }

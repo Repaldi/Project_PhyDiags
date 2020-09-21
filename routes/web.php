@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
       Route::get('/','KelasController@getKelas')->name('getKelas');
       Route::get('/create','KelasController@createKelas')->name('createKelas');
       Route::post('/','KelasController@storeKelas')->name('storeKelas');
+      Route::get('/{id}','KelasController@showKelas')->name('showKelas');
+      
     });
 });
 
