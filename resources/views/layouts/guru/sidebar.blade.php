@@ -83,13 +83,13 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{route('createKelas')}}">
                           <b>Buat Kelas Baru</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('getKelas')}}">
                             <b>Daftar Kelas</b>
                             <i class="metismenu-icon pe-7s-monitor"></i>
                         </a>
