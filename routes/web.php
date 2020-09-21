@@ -30,14 +30,24 @@ Route::group(['middleware' => ['auth','checkRole:3']], function(){
 });
 
 Route::group(['middleware' => ['auth','checkRole:1']], function(){
-  // Route::get('/home', 'HomeController@index');
-  Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
-  Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
-  Route::group(['prefix' => 'paketsoal'], function () {
-    Route::get('/','PaketSoalController@getPaketSoal')->name('getPaketSoal');
-    Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
-    Route::post('/','PaketSoalController@storePaketSoal')->name('storePaketSoal');
-  });
+    // Route::get('/home', 'HomeController@index');
+    Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
+    Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
+    Route::group(['prefix' => 'paketsoal'], function () {
+        Route::get('/','PaketSoalController@getPaketSoal')->name('getPaketSoal');
+        Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
+        Route::post('/','PaketSoalController@storePaketSoal')->name('storePaketSoal');
+        Route::get('/{id}','PaketSoalController@soalSatuan')->name('soalSatuan');
+       
+        Route::group(['prefix' => 'soal_satuan'], function () {
+            Route::post('/','PaketSoalController@storeSoalSatuan')->name('storeSoalSatuan');
+            Route::get('/{id}','PaketSoalController@soalTingkat')->name('soalTingkat');
+            Route::post('/soal_tk1','PaketSoalController@storeSoalTk1')->name('storeSoalTk1');
+            Route::post('/soal_tk2','PaketSoalController@storeSoalTk2')->name('storeSoalTk2');
+            Route::post('/soal_tk3','PaketSoalController@storeSoalTk3')->name('storeSoalTk3');
+            Route::post('/soal_tk4','PaketSoalController@storeSoalTk4')->name('storeSoalTk4');
+        });
+    });
 });
 
 Route::group(['middleware' => ['auth','checkRole:2']], function(){

@@ -56,10 +56,9 @@
                                 <?php $i++; ?>
                                 <td >{{ $item->nama_paket_soal }}</td>
 
-
                                 <td class="text-center">#</td>
                                 <td class="text-center">
-                                  #
+                                    <a href="{{route('soalSatuan',$item->id)}}"><button class="btn btn-warning">Detail Soal</button></a>
                                 </td>
                             </tr>
                             @endforeach

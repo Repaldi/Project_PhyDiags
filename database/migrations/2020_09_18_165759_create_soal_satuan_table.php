@@ -16,7 +16,7 @@ class CreateSoalSatuanTable extends Migration
         Schema::create('soal_satuan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('paket_soal_id')->unsigned();
-            $table->tinyInteger('tingkatan');
+            // $table->tinyInteger('tingkatan');
             $table->text('indikator');
             $table->boolean('isdelete')->default(false);
             $table->timestamps();
