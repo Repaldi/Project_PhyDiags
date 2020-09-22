@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/','PaketSoalController@getPaketSoal')->name('getPaketSoal');
         Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
         Route::post('/','PaketSoalController@storePaketSoal')->name('storePaketSoal');
-        Route::get('/{id}','PaketSoalController@soalSatuan')->name('soalSatuan');   
+        Route::get('/{id}','PaketSoalController@soalSatuan')->name('soalSatuan');
         Route::group(['prefix' => 'soal_satuan'], function () {
             Route::post('/','PaketSoalController@storeSoalSatuan')->name('storeSoalSatuan');
             Route::get('/{id}','PaketSoalController@soalTingkat')->name('soalTingkat');
@@ -47,10 +47,21 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
             Route::post('/soal_tk4','PaketSoalController@storeSoalTk4')->name('storeSoalTk4');
         });
     });
+    Route::group(['prefix' => 'kelas'], function () {
+      Route::get('/','KelasController@getKelas')->name('getKelas');
+      Route::get('/create','KelasController@createKelas')->name('createKelas');
+      Route::post('/','KelasController@storeKelas')->name('storeKelas');
+      Route::get('/{id}','KelasController@showKelas')->name('showKelas');
+      
+    });
 });
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
   // Route::get('/home', 'HomeController@index');
   Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
   Route::post('/profilxc','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
+  Route::group(['prefix' => 'kelas'], function () {
+    Route::get('/','AnggotaKelasController@getKelasSiswa')->name('getKelasSiswa');
+    Route::post('/gabungkelas','AnggotaKelasController@gabungkelas')->name('gabungKelas');
+  });
 });

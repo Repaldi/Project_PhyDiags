@@ -74,13 +74,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="mb-2">
+                    <a href="{{route('getKelasSiswa')}}" class="mb-2">
                         <i class="metismenu-icon pe-7s-monitor"></i>
                         <b>Kelas</b>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="mb-2>
+                    <a href="" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                         <b>Ujian</b>
                     </a>
