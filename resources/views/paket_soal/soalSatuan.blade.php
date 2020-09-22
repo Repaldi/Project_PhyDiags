@@ -9,6 +9,11 @@
 <main class="main">
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success"> <h5><strong>Paket Soal : {{$paket_soal->nama_paket_soal}}</strong></h5> </div>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <button type="submit" class="btn btn-info" data-toggle="modal" data-target=".create_soal_satuan"
@@ -17,13 +22,24 @@
             </button>
         </div>
     </div>
+    <div class="row justify-content-center">
+    @foreach ($soal_satuan as $item)
+        <div class="col-md-3">
+           <div class="card">
+            <div class="card-body"> Soal {{$item->indikator}}
+                <a href="{{route('soalTingkat', $item->id)}}"><button class="btn btn-info">Lihat Soal</button></a>
+            </div>
+           </div>
+        </div>
+    @endforeach
+    </div>
 </div>
 </main>
 
 @endsection
 
-<!-- Create Modal (essay)-->
-<div class="modal fade create_soal_satuan"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Create Modal (soal satuan)-->
+    <div class="modal fade create_soal_satuan"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header ">
@@ -59,7 +75,6 @@
         </div>
     </div>
 <!-- Penutup Create Modal -->
-
 
 @section('js')
 <script>

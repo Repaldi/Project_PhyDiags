@@ -37,7 +37,8 @@ class PaketSoalController extends Controller
     public function soalSatuan($id)
     {
         $paket_soal = PaketSoal::find($id);
-        return view('paket_soal.soalSatuan', compact('paket_soal'));
+        $soal_satuan = SoalSatuan::where('paket_soal_id',$id)->get();
+        return view('paket_soal.soalSatuan', compact('paket_soal','soal_satuan'));
     }
  
     public function storeSoalSatuan(Request $request)
