@@ -41,8 +41,7 @@ class KelasController extends Controller
             'deskripsi' => $request->deskripsi,
             'kode_kelas' => $kode_kelas,
         ]);
-        //dd('oke');
-        return redirect()->route('guru.kelas')->with('success','Kelas baru berhasil dibuat');
+        return redirect()->route('getKelas')->with('success','Kelas baru berhasil dibuat');
     }
 
     public function showKelas($id)
