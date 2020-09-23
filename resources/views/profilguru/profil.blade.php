@@ -60,7 +60,7 @@
                                 <tr>
                                     <td col><b> No. Induk </b> </td>
                                     <td> : </td>
-                                    <td>{{ $guru->nip }}</td>
+                                    <td>{{ $guru->nomor_induk }}</td>
                                 </tr>
                                 <tr>
                                     <td col><b> Nama Lengkap</b> </td>
@@ -72,23 +72,7 @@
                                     <td> : </td>
                                     <td>{{ $guru->jk }}</td>
                                 </tr>
-                                <tr>
-                                    <td col><b> Nomor HP </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $guru->no_hp }}</td>
-                                </tr>
-                                <tr>
-                                    <td col><b> Instansi </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $guru->instansi }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td col><b> Alamat </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $guru->alamat }}</td>
-                                </tr>
-
+                                
                             </table>
                     </div>
                 </div>
@@ -152,9 +136,9 @@
                             <div class="form-row mb-0 mt-0 pt-0">
                                 <div class="form-group col-md-6">
                                     <label for="nomor_induk"><b> No. Induk  : </b></label>
-                                    <input type="text" class="form-control" id="nip" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('nip'))
-                                    <span class="help-block">{{$errors->first('nip')}}</span>
+                                    <input type="text" class="form-control" id="nomor_induk" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('nomor_induk'))
+                                    <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                     @endif
                                 </div>
 

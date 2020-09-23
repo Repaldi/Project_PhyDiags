@@ -198,7 +198,8 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="{{asset('Front_Home/assets/img/gallery/featured1.png')}}" alt=""></a>
+                                <!-- <a href="#"><img src="{{asset('Front_Home/assets/img/gallery/featured1.png')}}" alt=""></a> -->
+                                <iframe width="350" height="210" src="https://www.youtube.com/embed/aHdDLLO9z6w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <div class="properties__caption">
                                 <p>Panduan</p>
@@ -206,22 +207,10 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                 <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
 
                                 </p>
-                                <div class="properties__footer d-flex justify-content-between align-items-center">
-                                    <div class="restaurant-name">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half"></i>
-                                        </div>
-                                        <p><span>(4.5)</span> based on 120</p>
-                                    </div>
-                                    <div class="price">
-                                        <span>$135</span>
-                                    </div>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">  
+                                  &nbsp;
                                 </div>
-                                <a href="#" class="border-btn border-btn2">Find out more</a>
+                                <a href="#" class="border-btn border-btn2">Download</a>
                             </div>
 
                         </div>
@@ -239,7 +228,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                 <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
                                 </p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
-                                    <div class="restaurant-name">
+                                    <!-- <div class="restaurant-name">
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -251,9 +240,9 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                     </div>
                                     <div class="price">
                                         <span>$135</span>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <a href="#" class="border-btn border-btn2">Find out more</a>
+                                <a href="#" class="border-btn border-btn2">Download</a>
                             </div>
                         </div>
                     </div>

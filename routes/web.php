@@ -42,4 +42,6 @@ Route::group(['middleware' => ['auth','checkRole:1']], function(){
 
 Route::group(['middleware' => ['auth','checkRole:2']], function(){
   // Route::get('/home', 'HomeController@index');
+  Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
+  Route::post('/profil','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
 });
