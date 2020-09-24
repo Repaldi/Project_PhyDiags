@@ -21,13 +21,11 @@ class CreateUjianTable extends Migration
             $table->string('nama_ujian');
             $table->string('deskripsi');
             $table->tinyInteger('status');
+            $table->boolean('isdelete')->default(false); 
             $table->timestamps();
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->foreign('guru_id')->references('id')->on('guru');
             $table->foreign('paket_soal_id')->references('id')->on('paket_soal');
-
-
-
         });
     }
 

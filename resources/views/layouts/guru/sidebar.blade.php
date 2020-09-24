@@ -128,7 +128,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{route('createUjian')}}">
                           <b>Buat Ujian</b>
                             <i class="metismenu-icon"></i>
                         </a>

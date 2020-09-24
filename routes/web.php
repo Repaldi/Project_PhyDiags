@@ -48,11 +48,16 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         });
     });
     Route::group(['prefix' => 'kelas'], function () {
-      Route::get('/','KelasController@getKelas')->name('getKelas');
-      Route::get('/create','KelasController@createKelas')->name('createKelas');
-      Route::post('/','KelasController@storeKelas')->name('storeKelas');
-      Route::get('/{id}','KelasController@showKelas')->name('showKelas');
-      
+        Route::get('/','KelasController@getKelas')->name('getKelas');
+        Route::get('/create','KelasController@createKelas')->name('createKelas');
+        Route::post('/','KelasController@storeKelas')->name('storeKelas');
+        Route::get('/{id}','KelasController@showKelas')->name('showKelas');
+    });
+    Route::group(['prefix' => 'ujian'], function () {
+        Route::get('/','UjianController@getUjian')->name('getUjian');
+        Route::get('/create','UjianController@createUjian')->name('createUjian');
+        Route::post('/','UjianController@storeUjian')->name('storeUjian');
+
     });
 });
 

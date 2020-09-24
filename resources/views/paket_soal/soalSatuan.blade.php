@@ -16,6 +16,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <a href="{{route('getPaketSoal')}}"><button class="btn btn-info">Kembali</button></a>
             <button type="submit" class="btn btn-info" data-toggle="modal" data-target=".create_soal_satuan"
                     id="create"
                     data-paket_soal_id = "{{ $paket_soal->id }}"> Tambah Soal
@@ -26,8 +27,11 @@
     @foreach ($soal_satuan as $item)
         <div class="col-md-3">
            <div class="card">
-            <div class="card-body"> Soal {{$item->indikator}}
-                <a href="{{route('soalTingkat', $item->id)}}"><button class="btn btn-info">Lihat Soal</button></a>
+            <div class="card-body"> 
+                <h6><strong>Soal No. </strong></h6> 
+                <p class="mb-2">{{$item->indikator}}</p> 
+                <div class="text-right"> <a href="{{route('soalTingkat', $item->id)}}"><button class="btn btn-info">Lihat Soal</button></a></div>
+               
             </div>
            </div>
         </div>
