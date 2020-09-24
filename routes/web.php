@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/','UjianController@getUjian')->name('getUjian');
         Route::get('/create','UjianController@createUjian')->name('createUjian');
         Route::post('/','UjianController@storeUjian')->name('storeUjian');
-
+        Route::get('/{id}','UjianController@showUjian')->name('showUjian');
     });
 });
 

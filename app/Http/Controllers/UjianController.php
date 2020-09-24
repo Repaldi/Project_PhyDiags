@@ -13,6 +13,11 @@ use App\PesertaUjian;
 
 class UjianController extends Controller
 {
+    public function getUjian()
+    {
+        $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
+        return view('ujian.getUjian',compact('ujian'));
+    }
     public function createUjian()
     {
         $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
@@ -40,7 +45,11 @@ class UjianController extends Controller
 
             PesertaUjian::create($data);
         }
-
         return redirect()->route('createUjian');
     }
+    public function showUjian($id){
+        $ujian          = Ujian::find($id);
+        $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->get();
+        return view('ujian.showUjian',compact(['ujian','peserta_ujian']));
+      }
 }

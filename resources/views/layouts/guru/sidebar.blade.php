@@ -134,7 +134,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('getUjian')}}">
                           <b>Daftar Riwayat Ujian</b>
                             <i class="metismenu-icon"></i>
                         </a>
