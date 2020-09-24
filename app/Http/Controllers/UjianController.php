@@ -13,6 +13,8 @@ use App\PesertaUjian;
 
 class UjianController extends Controller
 {
+
+    //METHOD MILIK GURU -----------------------------------------------------------------------
     public function getUjian()
     {
         $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
@@ -32,7 +34,7 @@ class UjianController extends Controller
         $ujian->kelas_id = $request->kelas_id; 
         $ujian->paket_soal_id = $request->paket_soal_id;
         $ujian->nama_ujian = $request->nama_ujian;
-        $ujian->deskripsi = $request->deskripsi;
+        $ujian->deskripsi = $request->deskripsi; 
         $ujian->status = 0;
         $ujian->isdelete = false;
         $ujian->save();
@@ -51,5 +53,17 @@ class UjianController extends Controller
         $ujian          = Ujian::find($id);
         $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->get();
         return view('ujian.showUjian',compact(['ujian','peserta_ujian']));
-      }
+    }
+
+    public function deleteUjian($id)
+    {
+        $ujian = Ujian::find($id);
+        $ujian->update([
+            'isdelete' => true,
+        ]);
+
+        return redirect()->back()->with('success','Berhasil menghapus ujian');
+    }
+
+    //---------------------------------------------------------------------------------------
 }

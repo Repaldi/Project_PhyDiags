@@ -37,6 +37,7 @@
                                 <td class="text-center">{{ $item->paket_soal->nama_paket_soal}}</td>
                                 <td class="text-center">
                                     <a href="{{route('showUjian',$item->id)}}"><button class="btn btn-info">Detail</button></a>
+                                    <a href="{{route('deleteUjian',$item->id)}}"><button class="btn btn-danger">Hapus</button></a>
                                 </td>
                             </tr>
                             @endforeach
