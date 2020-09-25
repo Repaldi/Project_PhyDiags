@@ -13,4 +13,7 @@ class PaketSoal extends Model
     {
       return $this->hasMany(SoalSatuan::class);
     }
+    public function ujian(){
+      return $this->hasMany(Ujian::class,'paket_soal_id');
+    }
 }

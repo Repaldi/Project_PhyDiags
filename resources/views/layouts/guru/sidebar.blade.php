@@ -137,13 +137,13 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{route('createUjian')}}">
                           <b>Buat Ujian</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('getUjian')}}">
                           <b>Daftar Riwayat Ujian</b>
                             <i class="metismenu-icon"></i>
                         </a>

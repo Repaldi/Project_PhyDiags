@@ -18,23 +18,25 @@
             <div class="card">
                 <div class="card-header">Soal No. </div>
                 <div class="card-body">
+                    <strong>Indikator Soal :</strong>
                     <p>{!! $soal_satuan->indikator !!}</p>
                 </div>
-            </div>        
+            </div>  
+            <a href="{{route('soalSatuan',$soal_satuan->paket_soal->id)}}"> <button class="btn btn-info">Kembali</button> </a>     
         </div>
         <div class="col-md-8 ">
-            <ul class="nav nav-pills mb-3 nav-justified " id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-3  justify-content-center " id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="pills-tk1-tab" data-toggle="pill" href="#pills-tk1" role="tab" aria-controls="pills-tk1" aria-selected="true">Soal Tingkat 1</a>
+                    <a class="nav-link active" id="pills-tk1-tab" data-toggle="pill" href="#pills-tk1" role="tab" aria-controls="pills-tk1" aria-selected="true"> <strong> Soal Tingkat 1</strong></a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-tk2-tab" data-toggle="pill" href="#pills-tk2" role="tab" aria-controls="pills-tk2" aria-selected="false">Soal Tingkat 2</a>
+                    <a class="nav-link" id="pills-tk2-tab" data-toggle="pill" href="#pills-tk2" role="tab" aria-controls="pills-tk2" aria-selected="false"><strong> Soal Tingkat 2</strong></a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-tk3-tab" data-toggle="pill" href="#pills-tk3" role="tab" aria-controls="pills-tk3" aria-selected="false">Soal Tingkat 3</a>
+                    <a class="nav-link" id="pills-tk3-tab" data-toggle="pill" href="#pills-tk3" role="tab" aria-controls="pills-tk3" aria-selected="false"><strong> Soal Tingkat 3</strong></a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-tk4-tab" data-toggle="pill" href="#pills-tk4" role="tab" aria-controls="pills-tk4" aria-selected="false">Soal Tingkat 4</a>
+                    <a class="nav-link" id="pills-tk4-tab" data-toggle="pill" href="#pills-tk4" role="tab" aria-controls="pills-tk4" aria-selected="false"><strong> Soal Tingkat 4</strong></a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -123,14 +125,14 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="alamat"> Pertanyaan </label>
-                                        <textarea class="form-control" id="pertanyaan" rows="2" name="pertanyaan" placeholder=""> </textarea>
+                                        <textarea class="form-control" id="pertanyaan" rows="2" name="pertanyaan" >Apakah anda yakin dengan jawaban yang diberikan sebelumnya ? </textarea>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Jawaban Benar</label>
                                         <select class="custom-select my-1 mr-sm-2" name="kunci" >
                                             <option selected>Choose...</option>
                                             <option value="A" >A</option>
-                                            <option value="B">B</option>
+                                            <option value="B" >B</option>
                                         </select>
                                     </div>
                                 </div>
@@ -141,14 +143,14 @@
                                         <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
                                             <span class="input-group-text" > A </span>
                                         </div>
-                                        <input type="text" name="pil_a" id="pil_a" class="form-control" >
+                                        <input type="text" name="pil_a" id="pil_a" class="form-control"  placeholder="Yakin" >
                                     </div>
                                     <!-- Pilihan B-->
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
                                             <span class="input-group-text"> B </span>
                                         </div>
-                                        <input type="text" name="pil_b" id="pil_b"  class="form-control" >
+                                        <input type="text" name="pil_b" id="pil_b"  class="form-control" placeholder="Tidak Yakin" >
                                     </div>
                                 </div>
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>    
@@ -242,7 +244,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="alamat"> Pertanyaan </label>
-                                        <textarea class="form-control" id="pertanyaan" rows="2" name="pertanyaan" placeholder=""> </textarea>
+                                        <textarea class="form-control" id="pertanyaan" rows="2" name="pertanyaan" placeholder=""> Apakah anda yakin dengan jawaban yang diberikan sebelumnya ?  </textarea>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Jawaban Benar</label>
@@ -260,14 +262,14 @@
                                         <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
                                             <span class="input-group-text" > A </span>
                                         </div>
-                                        <input type="text" name="pil_a" id="pil_a" class="form-control" >
+                                        <input type="text" name="pil_a" id="pil_a" class="form-control" placeholder="Yakin" >
                                     </div>
                                     <!-- Pilihan B-->
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
                                             <span class="input-group-text"> B </span>
                                         </div>
-                                        <input type="text" name="pil_b" id="pil_b"  class="form-control" >
+                                        <input type="text" name="pil_b" id="pil_b"  class="form-control" placeholder="Tidak Yakin" >
                                     </div>
                                 </div>
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>    
