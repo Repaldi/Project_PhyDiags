@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSoalSatuanTable extends Migration
+class CreateSoalTk4Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateSoalSatuanTable extends Migration
      */
     public function up()
     {
-        Schema::create('soal_satuan', function (Blueprint $table) {
+        Schema::create('soal_tk4', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('paket_soal_id')->unsigned();
-            $table->text('indikator');
-            $table->boolean('isdelete')->default(false);
+            $table->bigInteger('soal_satuan_id')->unsigned();
+            $table->text('pertanyaan');
+            $table->string('pil_a');
+            $table->string('pil_b');
+            $table->string('kunci');
             $table->timestamps();
-            $table->foreign('paket_soal_id')->references('id')->on('paket_soal');
-
+            $table->foreign('soal_satuan_id')->references('id')->on('soal_satuan');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateSoalSatuanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soal_satuan');
+        Schema::dropIfExists('soal_tk4');
     }
 }

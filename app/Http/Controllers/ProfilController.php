@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
 use App\User;
 use App\Guru;
+use App\Siswa;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -37,4 +39,75 @@ class ProfilController extends Controller
         return redirect()->back()
         ->with('success','Data Profil berhasil di simpan');
     }
+    public function editProfilGuru()
+    {
+        $guru = Guru::find(Auth::user()->guru->id);
+        return view('profilguru/editProfilGuru',['guru' => $guru]);
+    }
+
+    public function updateProfilGuru(Request $request)
+    {
+        $this->validate($request,[
+            'user_id' => 'required',
+            'nama_lengkap' => 'required',
+            'nomor_induk' => 'required',
+            'jk' => 'required',
+            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $guru = Guru::find(Auth::user()->guru->id); //tampilkan profil
+        $nama_file= $guru->foto; //simpan nama file foto yang sudah ada
+
+        if ($request->hasFile('foto')) {
+        $file = $request->file('foto');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'images';
+        $file->move($tujuan_upload,$nama_file);
+        }
+        $update = [
+            'user_id' => $request->user_id,
+            'nama_lengkap' => $request->nama_lengkap,
+            'nomor_induk' => $request->nomor_induk,
+            'jk' => $request->jk,
+            'foto' => $nama_file,
+        ];
+
+        Guru::whereId($guru->id)->update($update);
+        return redirect()->route('profilGuru')->with('success','Data Profil berhasil di update');
+    }
+
+
+
+// BAGIAN SISWA
+    public function profilSiswa()
+    {
+      return view('profilsiswa.profil');
+    }
+
+    public function storeProfilSiswa(Request $request)
+    {
+      $this->validate($request,[
+            'user_id' => 'required',
+            'nama_lengkap' => 'required',
+            'nomor_induk' => 'required',
+            'jk' => 'required',
+            'foto' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $file = $request->file('foto');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'images';
+        $file->move($tujuan_upload,$nama_file);
+
+        $profil = Siswa::create([
+            'user_id' => $request->user_id,
+            'nama_lengkap' => $request->nama_lengkap,
+            'nomor_induk' => $request->nomor_induk,
+            'jk' => $request->jk,
+            'foto' => $nama_file,
+        ]);
+        return redirect()->back()
+        ->with('success','Data Profil berhasil di simpan');
+    }
+
 }

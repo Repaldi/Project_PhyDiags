@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSoalSatuanTable extends Migration
+class CreateUjianTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,20 @@ class CreateSoalSatuanTable extends Migration
      */
     public function up()
     {
-        Schema::create('soal_satuan', function (Blueprint $table) {
+        Schema::create('ujian', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('kelas_id')->unsigned();
+            $table->bigInteger('guru_id')->unsigned();
             $table->bigInteger('paket_soal_id')->unsigned();
-            $table->text('indikator');
-            $table->boolean('isdelete')->default(false);
+            $table->string('nama_ujian');
+            $table->string('deskripsi');
+            $table->tinyInteger('status');
             $table->timestamps();
+            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreign('guru_id')->references('id')->on('guru');
             $table->foreign('paket_soal_id')->references('id')->on('paket_soal');
+
+
 
         });
     }
@@ -31,6 +38,6 @@ class CreateSoalSatuanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soal_satuan');
+        Schema::dropIfExists('ujian');
     }
 }

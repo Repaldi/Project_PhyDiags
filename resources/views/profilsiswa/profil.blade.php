@@ -1,18 +1,18 @@
-@extends('layouts.layout_guru')
+@extends('layouts.layout_siswa')
 
 @section('title')
     <title>Unbreakable</title>
 @endsection
 
 @section('content')
-<?php  use App\Guru;
-    $guru = Guru::where('user_id', Auth::user()->id )->first();
+<?php  use App\Siswa;
+    $siswa = Siswa::where('user_id', Auth::user()->id )->first();
 ?>
 <main class="main">
 
 
 <div class="container">
-@if ( Guru::where('user_id', Auth::user()->id )->first() != null )
+@if ( Siswa::where('user_id', Auth::user()->id )->first() != null )
     <div class="row">
 
         <div class="col-md-8">
@@ -60,25 +60,41 @@
                                 <tr>
                                     <td col><b> No. Induk </b> </td>
                                     <td> : </td>
-                                    <td>{{ $guru->nomor_induk }}</td>
+                                    <td>{{ $siswa->nip }}</td>
                                 </tr>
                                 <tr>
                                     <td col><b> Nama Lengkap</b> </td>
                                     <td> : </td>
-                                    <td>{{ $guru->nama_lengkap }}</td>
+                                    <td>{{ $siswa->nama_lengkap }}</td>
                                 </tr>
                                 <tr>
                                     <td col><b> Jenis Kelamin </b> </td>
                                     <td> : </td>
-                                    <td>{{ $guru->jk }}</td>
+                                    <td>{{ $siswa->jk }}</td>
                                 </tr>
-                                
+                                <tr>
+                                    <td col><b> Nomor HP </b> </td>
+                                    <td> : </td>
+                                    <td>{{ $siswa->no_hp }}</td>
+                                </tr>
+                                <tr>
+                                    <td col><b> Instansi </b> </td>
+                                    <td> : </td>
+                                    <td>{{ $siswa->instansi }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td col><b> Alamat </b> </td>
+                                    <td> : </td>
+                                    <td>{{ $siswa->alamat }}</td>
+                                </tr>
+
                             </table>
                     </div>
                 </div>
 
                 <div class="card-footer justify-content-center" style="border-radius: 0px 0px 20px 20px ">
-                    <a href="{{route('editProfilGuru')}}"><button class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;"> Edit Profil </button></a>
+                    <a href="#"><button class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;"> Edit Profil </button></a>
                 </div>
 
             </div>
@@ -90,7 +106,7 @@
                 </div>
                 <div class="card-body text-center">
                     <div class="form-group">
-                        <img src="/images/{{$guru->foto}}" class="img-fluid mx-auto ">
+                        <img src="{{url('images/'.$siswa->foto)}}" class="img-fluid mx-auto ">
                     </div>
                 </div>
             </div>
@@ -98,11 +114,9 @@
     </div>
 @else
 
-    <form action="{{route('storeProfilGuru')}}" method="post" enctype="multipart/form-data" >
+    <form action="{{route('storeProfilSiswa')}}" method="post" enctype="multipart/form-data" >
     @csrf
         <div class="row">
-
-
             <div class="col-md-8">
                 <div class="card"  style="box-shadow: 5px 5px 10px rgba(48, 10, 64, 0.5);">
                     <div class="card-header  pt-3 pb-2 text-center"  >
@@ -136,9 +150,9 @@
                             <div class="form-row mb-0 mt-0 pt-0">
                                 <div class="form-group col-md-6">
                                     <label for="nomor_induk"><b> No. Induk  : </b></label>
-                                    <input type="text" class="form-control" id="nomor_induk" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('nomor_induk'))
-                                    <span class="help-block">{{$errors->first('nomor_induk')}}</span>
+                                    <input type="text" class="form-control" id="nip" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('nip'))
+                                    <span class="help-block">{{$errors->first('nip')}}</span>
                                     @endif
                                 </div>
 

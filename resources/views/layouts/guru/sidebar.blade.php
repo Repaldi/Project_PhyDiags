@@ -1,3 +1,7 @@
+<?php  use App\Guru;
+    $guru = Guru::where('user_id', Auth::user()->id )->first();
+?>
+
 <style>
 
 #a-ku:hover{
@@ -46,8 +50,13 @@
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
             <center>
-
+            @if( Guru::where('user_id', Auth::user()->id )->first() != null )
+                <li class="app-sidebar__heading"> 
+                <img src="{{ asset('images/' . $guru->foto) }}" width="150px"  alt="{{ $guru->foto }}">
+                </li>
+            @else
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
+            @endif
             <li class="app-sidebar__heading">{{auth()->user()->name}}</li>
 
                 <a  id="a-ku" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -83,13 +92,13 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{route('createKelas')}}">
                           <b>Buat Kelas Baru</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{route('getKelas')}}">
                             <b>Daftar Kelas</b>
                             <i class="metismenu-icon pe-7s-monitor"></i>
                         </a>
