@@ -1,7 +1,7 @@
 @extends('layouts.layout_siswa')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -60,7 +60,7 @@
                                 <tr>
                                     <td col><b> No. Induk </b> </td>
                                     <td> : </td>
-                                    <td>{{ $siswa->nip }}</td>
+                                    <td>{{ $siswa->nomor_induk }}</td>
                                 </tr>
                                 <tr>
                                     <td col><b> Nama Lengkap</b> </td>
@@ -72,29 +72,13 @@
                                     <td> : </td>
                                     <td>{{ $siswa->jk }}</td>
                                 </tr>
-                                <tr>
-                                    <td col><b> Nomor HP </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $siswa->no_hp }}</td>
-                                </tr>
-                                <tr>
-                                    <td col><b> Instansi </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $siswa->instansi }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td col><b> Alamat </b> </td>
-                                    <td> : </td>
-                                    <td>{{ $siswa->alamat }}</td>
-                                </tr>
 
                             </table>
                     </div>
                 </div>
 
                 <div class="card-footer justify-content-center" style="border-radius: 0px 0px 20px 20px ">
-                    <a href="#"><button class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;"> Edit Profil </button></a>
+                    <a href="{{route('editProfilSiswa')}}"><button class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;"> Edit Profil </button></a>
                 </div>
 
             </div>

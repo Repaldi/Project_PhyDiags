@@ -6,10 +6,13 @@ use Str;
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
+use App\PesertaUjian;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
+
+  //Bagian Guru
     public function getKelas()
     {
       try {
@@ -41,7 +44,8 @@ class KelasController extends Controller
             'deskripsi' => $request->deskripsi,
             'kode_kelas' => $kode_kelas,
         ]);
-        return redirect()->route('getKelas')->with('success','Kelas baru berhasil dibuat');
+        //dd('oke');
+        return redirect()->route('createKelas')->with('success','Kelas baru berhasil dibuat');
     }
 
     public function showKelas($id)
@@ -54,5 +58,49 @@ class KelasController extends Controller
         return view('kelas.showKelas', compact('kelas','anggotakelas'));
     }
 
+    //Bagian Siswa
+    public function getKelasSiswa()
+    {
+      try {
+        $anggotaKelas = AnggotaKelas::where('siswa_id',Auth::user()->siswa->id)->get();
+        return view('anggotakelas.getKelasSiswa',['anggotaKelas' => $anggotaKelas]);
+      } catch (\Exception $e) {
+        return redirect()->route('siswa.profil')->with('error','Mohon lengkapi profil anda');
+      }
+
+    }
+
+    public function gabungKelasSiswa(Request $request)
+    {
+        if (Kelas::where('kode_kelas',$request->kode_kelas)) {
+            $anggotaKelas = new AnggotaKelas;
+            $anggotaKelas->siswa_id = auth()->user()->siswa->id;
+            $idkelas = Kelas::where('kode_kelas',$request->kode_kelas)->get();
+            foreach ($idkelas as $item) {
+                $id = $item->id;
+            }
+            $anggotaKelas->kelas_id = $id;
+
+            if (AnggotaKelas::where('kelas_id',$id)->where('siswa_id',auth()->user()->siswa->id)->exists()) {
+                return redirect()->route('getKelasSiswa')->withSuccess('Kamu sudah tergabung dalam kelas ini');
+            } else {
+                $anggotaKelas->save();
+                return redirect()->route('getKelasSiswa')->withSuccess('Berhasil bergabung ke kelas baru');
+            }
+        }
+
+    }
+    public function showKelasSiswa($id)
+    {
+
+        $kelas              = Kelas::find($id);
+        $anggotakelas       = AnggotaKelas::where('kelas_id',$id)->join('siswa','anggota_kelas.siswa_id','=','siswa.id')
+                            ->orderBy('siswa.nama_lengkap')->get();
+        $siswa_id                   = auth()->user()->siswa->id;
+        $anggota_kelas_id           = AnggotaKelas::where('siswa_id',$siswa_id)->where('kelas_id',$id)->value('id');
+        
+        $hasil_ujian               = PesertaUjian::where('anggota_kelas_id',$anggota_kelas_id)->where('status',1)->get();
+        return view('anggotakelas.showKelasSiswa', ['anggotakelas' => $anggotakelas, 'hasil_ujian'=> $hasil_ujian], compact('kelas'));
+    }
 
 }

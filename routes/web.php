@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
     // Route::get('/home', 'HomeController@index');
     Route::get('/profil','ProfilController@profilGuru')->name('profilGuru');
     Route::post('/profil','ProfilController@storeProfilGuru')->name('storeProfilGuru');
+    Route::get('/edit','ProfilController@editProfilGuru')->name('editProfilGuru');
+    Route::patch('/update','ProfilController@updateProfilGuru')->name('updateProfilGuru');
     Route::group(['prefix' => 'paketsoal'], function () {
         Route::get('/','PaketSoalController@getPaketSoal')->name('getPaketSoal');
         Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
@@ -42,6 +44,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
             Route::post('/','PaketSoalController@storeSoalSatuan')->name('storeSoalSatuan');
             Route::get('/{id}','PaketSoalController@soalTingkat')->name('soalTingkat');
             Route::post('/soal_tk1','PaketSoalController@storeSoalTk1')->name('storeSoalTk1');
+            Route::patch('/soal_tk1/{paket_soal_id}/update','PaketSoalController@updateSoalTk1', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk1');
             Route::post('/soal_tk2','PaketSoalController@storeSoalTk2')->name('storeSoalTk2');
             Route::post('/soal_tk3','PaketSoalController@storeSoalTk3')->name('storeSoalTk3');
             Route::post('/soal_tk4','PaketSoalController@storeSoalTk4')->name('storeSoalTk4');
@@ -65,9 +68,12 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
   // Route::get('/home', 'HomeController@index');
   Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
-  Route::post('/profilxc','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
+  Route::post('/profil','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
+  Route::get('/edit','ProfilController@editProfilSiswa')->name('editProfilSiswa');
+  Route::patch('/update','ProfilController@updateProfilSiswa')->name('updateProfilSiswa');
   Route::group(['prefix' => 'kelas'], function () {
-    Route::get('/','AnggotaKelasController@getKelasSiswa')->name('getKelasSiswa');
-    Route::post('/gabungkelas','AnggotaKelasController@gabungkelas')->name('gabungKelas');
-  });
+    Route::get('/','KelasController@getKelasSiswa')->name('getKelasSiswa');
+    Route::post('/gabungkelas','KelasController@gabungKelasSiswa')->name('gabungKelasSiswa');
+    Route::get('/show/{id}','KelasController@showKelasSiswa')->name('showKelasSiswa');
+});
 });

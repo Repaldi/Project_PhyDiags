@@ -18,4 +18,8 @@ class Siswa extends Model
   {
   	return $this->hasMany(AnggotaKelas::class);
   }
+  public function peserta_ujian()
+  {
+      return $this->hasMany(PesertaUjian::class, 'siswa_id');
+  }
 }
