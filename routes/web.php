@@ -66,14 +66,20 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
 });
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
-  // Route::get('/home', 'HomeController@index');
-  Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
-  Route::post('/profil','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
-  Route::get('/edit','ProfilController@editProfilSiswa')->name('editProfilSiswa');
-  Route::patch('/update','ProfilController@updateProfilSiswa')->name('updateProfilSiswa');
-  Route::group(['prefix' => 'kelas'], function () {
-    Route::get('/','KelasController@getKelasSiswa')->name('getKelasSiswa');
-    Route::post('/gabungkelas','KelasController@gabungKelasSiswa')->name('gabungKelasSiswa');
-    Route::get('/show/{id}','KelasController@showKelasSiswa')->name('showKelasSiswa');
-});
+    // Route::get('/home', 'HomeController@index');
+    Route::get('/profil','ProfilController@profilSiswa')->name('profilSiswa');
+    Route::post('/profil','ProfilController@storeProfilSiswa')->name('storeProfilSiswa');
+    Route::get('/edit','ProfilController@editProfilSiswa')->name('editProfilSiswa');
+    Route::patch('/update','ProfilController@updateProfilSiswa')->name('updateProfilSiswa');
+    Route::group(['prefix' => 'kelas'], function () {
+        Route::get('/','KelasController@getKelasSiswa')->name('getKelasSiswa');
+        Route::post('/gabungkelas','KelasController@gabungKelasSiswa')->name('gabungKelasSiswa');
+        Route::get('/show/{id}','KelasController@showKelasSiswa')->name('showKelasSiswa');
+    });
+    Route::group(['prefix' => 'ujian'], function () {
+        Route::get('/','UjianController@getUjianSiswa')->name('getUjianSiswa');
+        Route::get('/{id}','UjianController@startUjian')->name('startUjian');
+
+    });
+
 });
