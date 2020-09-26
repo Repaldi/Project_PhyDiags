@@ -1,3 +1,6 @@
+<?php  use App\Siswa;
+    $siswa = Siswa::where('user_id', Auth::user()->id )->first();
+?>
 
 <style>
 
@@ -45,9 +48,13 @@
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
             <center>
-
+            @if( Siswa::where('user_id', Auth::user()->id )->first() != null )
+                <li class="app-sidebar__heading"> 
+                <img src="{{ asset('images/' . $siswa->foto) }}" width="150px"  alt="{{ $siswa->foto }}">
+                </li>
+            @else
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
-
+            @endif
             <li class="app-sidebar__heading">{{auth()->user()->name}}</li>
 
                 <a  id="a-ku" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -80,7 +87,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="mb-2">
+                    <a href="#" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                         <b>Ujian</b>
                     </a>

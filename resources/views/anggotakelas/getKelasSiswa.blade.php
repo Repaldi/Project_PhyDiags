@@ -1,7 +1,7 @@
 @extends('layouts.layout_siswa')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
                         @endif
                         <div class="row">
                             <div class="col-md-4 ml-auto  text-right" >
-                            <form method="POST" action="{{ route('gabungKelas') }}">
+                            <form method="POST" action="{{ route('gabungKelasSiswa') }}">
                             @csrf
                                 <div class="input-group">
                                 <input type="kode_kelas" id="kode_kelas" name="kode_kelas" required
@@ -58,7 +58,7 @@
                                         <h5 class="card-title">{{$item->kelas->nama_kelas}}</h5>
                                         <p >{{$item->kelas->deskripsi}}</p>
                                         <p>Pengajar : {{$item->kelas->guru->nama_lengkap}}</p>
-                                        <div class="text-right"><a href="#" class="btn btn-info">Masuk</a></div>
+                                        <div class="text-right"><a href="{{route('showKelasSiswa',$item->kelas->id)}}" class="btn btn-info">Masuk</a></div>
                                     </div>
                                 </div>
                             @endforeach

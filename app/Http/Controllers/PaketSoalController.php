@@ -52,12 +52,16 @@ class PaketSoalController extends Controller
         return redirect()->route('soalTingkat',$soal_satuan_id);
     }
     public function soalTingkat($id)
+    // public function soalTingkat($id, PaketSoal $paket_soal_id)
     {
         $soal_satuan = SoalSatuan::find($id);
         $soal_tk1 = SoalTk1::where('soal_satuan_id',$id)->first();
         $soal_tk2 = SoalTk2::where('soal_satuan_id',$id)->first();
         $soal_tk3 = SoalTk3::where('soal_satuan_id',$id)->first();
         $soal_tk4 = SoalTk4::where('soal_satuan_id',$id)->first();
+        // $paket_soal = PaketSoal::find($paket_soal_id);
+        // $paket_soal_id = $paket_soal->id;
+        // return view('paket_soal.soalTingkat', compact('soal_satuan','soal_tk1','soal_tk2','soal_tk3','soal_tk4','paket_soal','paket_soal_id'));
         return view('paket_soal.soalTingkat', compact('soal_satuan','soal_tk1','soal_tk2','soal_tk3','soal_tk4'));
     }
 
@@ -82,6 +86,26 @@ class PaketSoalController extends Controller
         $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 1 berhasil dibuat');;
     }
+
+    //Ubah Soal TK1
+    public function updateSoalTk1(Request $request, $paket_soal_id){
+        $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        $soal_tk1      = SoalTk1::findorFail($request->id);
+
+        $update_soal_tk1 = [
+            'pertanyaan' => $request->pertanyaan,
+            'pil_a' => $request->pil_a,
+            'pil_b' => $request->pil_b,
+            'pil_c' => $request->pil_c,
+            'pil_d' => $request->pil_d,
+            'kunci' => $request->kunci,
+        ];
+        $soal_tk1->update($update_soal_tk1);
+
+        return redirect()->back()->with('success','Soal berhasil diupdate !');
+    }
+
+    
 
     public function storeSoalTk2(Request $request)
     {
@@ -120,7 +144,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk4(Request $request)
     {
-        $soal_tk4 = SoalTk2::create([
+        $soal_tk4 = SoalTk4::create([
             'soal_satuan_id' => $request->soal_satuan_id,
             'pertanyaan' => $request->pertanyaan,
             'pil_a' => $request->pil_a,

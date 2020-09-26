@@ -1,7 +1,7 @@
 @extends('layouts.layout_guru')
 
 @section('title')
-    <title>PhyDiags</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')

@@ -1,16 +1,16 @@
-@extends('layouts.layout_guru')
+@extends('layouts.layout_siswa')
 
 @section('title')
     <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
-<?php use App\Guru ;
+<?php use App\Siswa ;
 ?>
 <main class="main">
     <div class="container-fluid">
         <div class="animated fadeIn">
-            <form action="{{route('updateProfilGuru')}}" method="post" enctype="multipart/form-data" >
+            <form action="{{route('updateProfilSiswa')}}" method="post" enctype="multipart/form-data" >
             @csrf
             @method('PATCH')
                 <div class="row">
@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <div class="form-group text-center">
                                     <label for="foto"> <b> Foto :  </b></label> <br>
-                                    <img src="{{ asset('images/' . $guru->foto) }}" width="150px"  alt="{{ $guru->foto }}">
+                                    <img src="{{ asset('images/' . $siswa->foto) }}" width="150px"  alt="{{ $siswa->foto }}">
                                     <hr>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="customFile"  name="foto">
@@ -81,7 +81,7 @@
                                     <div class="form-row mb-0 mt-0 pt-0">
                                         <div class="form-group col-md-6">
                                             <label for="nomor_induk"><b> Nomor Induk  : </b></label>
-                                            <input type="text" class="form-control" id="nomor_induk" name="nomor_induk" value="{{$guru->nomor_induk}}" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                            <input type="text" class="form-control" id="nomor_induk" name="nomor_induk" value="{{$siswa->nomor_induk}}" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
                                             @if($errors->has('nip'))
                                             <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                             @endif
@@ -89,7 +89,7 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="nama_lengkap"> <b>Nama Lengkap: </b> </label>
-                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{$guru->nama_lengkap}}"  style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
+                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{$siswa->nama_lengkap}}"  style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
                                             @if($errors->has('nama_lengkap'))
                                             <span class="help-block">{{$errors->first('nama_lengkap')}}</span>
                                             @endif
@@ -99,7 +99,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="jk"> <b> Jenis Kelamin : </b> </label>
-                                            <input type="text" class="form-control" id="jk" name="jk"  value="{{$guru->jk}}"  style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                            <input type="text" class="form-control" id="jk" name="jk"  value="{{$siswa->jk}}"  style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
                                             @if($errors->has('jk'))
                                                 <span class="help-block">{{$errors->first('jk')}}</span>
                                             @endif
