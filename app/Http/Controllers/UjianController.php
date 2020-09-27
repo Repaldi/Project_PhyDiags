@@ -42,12 +42,13 @@ class UjianController extends Controller
         foreach ($anggota_kelas as $e => $anggota) {
             $data['ujian_id'] = $ujian->id;
             $data['anggota_kelas_id'] = $anggota->id;
+            $data['siswa_id'] = $anggota->siswa_id;
             $data['keterangan'] = '';
             $data['status'] = 0;
 
             PesertaUjian::create($data);
         }
-        return redirect()->route('createUjian');
+        return redirect()->route('getUjian');
     }
     public function showUjian($id){
         $ujian          = Ujian::find($id);
@@ -66,4 +67,12 @@ class UjianController extends Controller
     }
 
     //---------------------------------------------------------------------------------------
+    // METHOD UJIAN SISWA
+    public function getUjianSiswa()
+    { 
+        $ujian = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)->get();
+
+        return view('ujian.getUjianSiswa',compact('ujian'));
+    }
+
 }
