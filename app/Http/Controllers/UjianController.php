@@ -25,7 +25,7 @@ class UjianController extends Controller
     {
         $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
         $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
-        return view('ujian.createUjian', compact('kelas','paket_soal'));
+        return view('ujian.guru.createUjian', compact('kelas','paket_soal'));
     }
     public function storeUjian(Request $request)
     {

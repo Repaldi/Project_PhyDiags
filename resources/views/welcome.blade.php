@@ -77,7 +77,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                     </ul>
                                                 </li>
                                                 <li><a href="contact.html">Kontak</a></li>
-                                                <li class="button-header"><a href="{{ url('/Front_Home') }}" class="btn btn3">Dashboard</a></li>
+                                                <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Keluar</a></li>
                                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" 
