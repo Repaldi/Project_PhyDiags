@@ -10,15 +10,15 @@
 
 <div class="container">
     <div class="row">
-        @foreach ($ujian as $item)
+        @foreach ($ujian_saya as $item)
            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">{{$item->ujian->nama_ujian}}</div>
                     <div class="card-body">
                         {{$item->ujian->kelas->nama_kelas}}
                         {{$item->ujian->deskripsi}}
-                    
-                        <a href="{{route('startUjian',$item->id)}}"><button class="btn btn-info">Kerjakan Ujian</button></a>
+
+                        <a href="{{route('runUjian',$item->id)}}"><button class="btn btn-info">Kerjakan Ujian</button></a>
                     </div>
                 </div>
            </div>

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+// use Auth;
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
 use App\PaketSoal;
 use App\Ujian;
+use App\SoalSatuan;
 use App\PesertaUjian;
 
 class UjianController extends Controller
@@ -66,23 +67,39 @@ class UjianController extends Controller
         return redirect()->back()->with('success','Berhasil menghapus ujian');
     }
 
-    public function startUjian($id)
-    {
-        $ujian = Ujian::find($id);
-        $ujian->update([
-            'status'=>2
-        ]);
 
-        return redirect()->back();
-    }
 
     //---------------------------------------------------------------------------------------
     // METHOD UJIAN SISWA
     public function getUjianSiswa()
     {
-        $ujian = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)->get();
+        $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)->get();
 
-        return view('ujian.siswa.getUjianSiswa',compact('ujian'));
+        return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
+    }
+
+    public function runUjian($id)
+    {
+      $peserta_ujian = PesertaUjian::find($id);
+      $ujian = Ujian::where('id',$peserta_ujian->ujian_id)->first();
+      $paket_soal_id = $ujian->paket_soal_id;
+      $paket_soal = PaketSoal::where('id',$paket_soal_id)->get();
+      $soal_satuan = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
+      // dd($soal_satuan->soal_tk1);
+
+      return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
+    }
+
+    public function fetch_data(Request $request){
+        $peserta_ujian = PesertaUjian::find($request->peserta_ujian_id);
+        $ujian = Ujian::where('id',$peserta->ujian_id)->first();
+        $paket_soal_id = $ujian->paket_soal_id;
+        $paket_soal = PaketSoal::where('id',$paket_soal_id)->get();
+        $soal_satuan = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
+        if($request->ajax())
+        {
+            return view('ujian.siswa.pagination_data', ['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'peserta' => $peserta ], compact('paket_soal_id'))->render();
+        }
     }
 
 }
