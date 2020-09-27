@@ -54,7 +54,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalSatuan(Request $request)
     {
-        
+
         $soal_satuan = new SoalSatuan;
         $soal_satuan->paket_soal_id =  $request->paket_soal_id;
         $soal_satuan->indikator     =  $request->indikator;
@@ -76,7 +76,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk1(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg|max:2048']);
+        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif|max:2048']);
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images/soal';
@@ -100,9 +100,9 @@ class PaketSoalController extends Controller
     public function updateSoalTk1(Request $request, $paket_soal_id){
         $paket_soal = PaketSoal::findorFail($paket_soal_id);
         $soal_tk1      = SoalTk1::findorFail($request->id);
-        
+
         $filename = $soal_tk1->gambar; //SIMPAN SEMENTARA NAMA FILE Gambar SAAT INI
-  
+
         //JIKA ADA FILE GAMBAR YANG DIKIRIM
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
@@ -112,7 +112,7 @@ class PaketSoalController extends Controller
               //DAN HAPUS FILE GAMBAR YANG LAMA
             File::delete(storage_path('app/public/images/soal' . $soal_tk1->gambar));
         }
-        
+
         $update_soal_tk1 = [
             'soal_satuan_id' => $request->soal_satuan_id,
             'pertanyaan' => $request->pertanyaan,
@@ -145,7 +145,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk3(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg|max:2048']);
+        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif|max:2048']);
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images';

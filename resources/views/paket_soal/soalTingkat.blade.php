@@ -189,9 +189,9 @@
                 <div class="card">
                         <div class="card-body">
                         @if ( $soal_tk3 != null )
-                            <p> <strong>Pertanyaan :</strong>  {!! $soal_tk1->pertanyaan !!} </p>
+                            <p> <strong>Pertanyaan :</strong>  {!! $soal_tk3->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
-                            <p> <strong>Kunci Jawaban : {!! $soal_tk1->kunci !!} </strong></p>
+                            <p> <strong>Kunci Jawaban : {!! $soal_tk3->kunci !!} </strong></p>
                         @else
                             <form action="{{route('storeSoalTk3')}}" enctype="multipart/form-data" method="post">
                                 @csrf
@@ -363,15 +363,15 @@ function alertUpdate() {
                     @method('PATCH')
                      <div class="modal-body">
                         <div class="container">
-                      
+
                             <input type="hidden" name="id" id="soal_tk1_id_update" value="">
                             <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk1_update" value="">
                             <div class="form-group">
-                          
-                          
+
+
                             <input type="file" id="gambar_tk1_update" name="gambar" value="" class="form-control">
                             <p><strong>Biarkan kosong jika tidak ingin menambah gambar</strong></p>
-                          
+
                             </div>
                             <div class="form-group">
                                 <label for="alamat"> Pertanyaan </label>

@@ -1,6 +1,12 @@
 <?php
 use App\PesertaUjian;
 use App\PilganJawab;
+use App\SoalSatuan;
+use App\SoalTk1;
+use App\SoalTk2;
+use App\SoalTk3;
+use App\SoalTk4;
+
  ?>
 
 <div class="row">
@@ -21,6 +27,84 @@ use App\PilganJawab;
                 </div>
 
                 <hr>
+                <div class="row">
+                  <div class="container">
+                    <table>
+                      @if($item->soal_tk1->gambar != null)
+                      <tr>
+                        <img src="{{asset('images/soal'.$item->soal_tk1->gambar)}}" alt="">
+                      </tr>
+                      @endif
+                      <tr>
+                          <td><b> 1.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
+                      </tr>
+                      <tr>
+                          <td>
+
+
+                            <input type="radio" class="pilihan" name="pilihan_tk1" value="A"> A . {{$item->soal_tk1->pil_a}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk1" value="B" > B . {{$item->soal_tk1->pil_b}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk1" value="C" > C . {{$item->soal_tk1->pil_c}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk1" value="D" > D . {{$item->soal_tk1->pil_d}}  <br>
+                          </td>
+                      </tr>
+
+                    </table>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="container">
+                    <table>
+                      <tr>
+                          <td><b> 1.2 </b> :<br/> <p>{{$item->soal_tk2->pertanyaan}} </p> </td>
+                      </tr>
+                      <tr>
+                          <td>
+                            <input type="radio" class="pilihan" name="pilihan_tk2" value="A"> A . {{$item->soal_tk2->pil_a}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk2" value="B" > B . {{$item->soal_tk2->pil_b}}  <br>
+                          </td>
+                      </tr>
+
+                    </table>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="container">
+                    <table>
+                      <tr>
+                          <td><b> 1.3 </b> :<br/> <p>{{$item->soal_tk3->pertanyaan}} </p> </td>
+                      </tr>
+                      <tr>
+                          <td>
+                            <input type="radio" class="pilihan" name="pilihan_tk3" value="A"> A . {{$item->soal_tk3->pil_a}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk3" value="B" > B . {{$item->soal_tk3->pil_b}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk3" value="C" > C . {{$item->soal_tk3->pil_c}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk3" value="D" > D . {{$item->soal_tk3->pil_d}}  <br>
+                          </td>
+                      </tr>
+
+                    </table>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="container">
+                    <table>
+                      <tr>
+                          <td><b> 1.4 </b> :<br/> <p>{{$item->soal_tk4->pertanyaan}} </p> </td>
+                      </tr>
+                      <tr>
+                          <td>
+                            <input type="radio" class="pilihan" name="pilihan_tk4" value="A"> A . {{$item->soal_tk4->pil_a}}  <br>
+                            <input type="radio" class="pilihan" name="pilihan_tk4" value="B" > B . {{$item->soal_tk4->pil_b}}  <br>
+                          </td>
+                      </tr>
+
+                    </table>
+                  </div>
+                </div>
+
             @endforeach
 
 

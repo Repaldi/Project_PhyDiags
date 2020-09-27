@@ -19,14 +19,14 @@ class SoalSatuan extends Model
     }
     public function soal_tk2()
     {
-      return $this->hasOne(SoalTk1::class);
+      return $this->hasOne(SoalTk2::class);
     }
     public function soal_tk3()
     {
-      return $this->hasOne(SoalTk1::class);
+      return $this->hasOne(SoalTk3::class);
     }
     public function soal_tk4()
     {
-      return $this->hasOne(SoalTk1::class);
+      return $this->hasOne(SoalTk4::class);
     }
 }
