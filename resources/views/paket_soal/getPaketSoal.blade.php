@@ -59,6 +59,8 @@
                                 <td class="text-center">#</td>
                                 <td class="text-center">
                                     <a href="{{route('soalSatuan',$item->id)}}"><button class="btn btn-warning">Detail Soal</button></a>
+                                    <button class="btn btn-danger hapus" data-paket_soal_id="{{$item->id}}" data-nama_paket_soal="{{$item->nama_paket_soal}}">Hapus</button>
+
                                 </td>
                             </tr>
                             @endforeach
@@ -80,5 +82,25 @@
     </div>
 </div>
 
+<script>
+  $(document).ready(function() {
+    $('.hapus').click(function(){
+      const paket_soal_id = $(this).data('paket_soal_id');
+      const nama_paket_soal = $(this).data('nama_paket_soal');
+      swal({
+        title: "Yakin?",
+        text: "Menghapus paket soal "+nama_paket_soal+" ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          window.location = "/guru/paketsoal/delete/"+paket_soal_id;
+        }
+      });
+    });
+  });
 
+</script>
 @endsection

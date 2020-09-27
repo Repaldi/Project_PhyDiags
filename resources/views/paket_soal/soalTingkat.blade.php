@@ -21,10 +21,19 @@
                     <strong>Indikator Soal :</strong>
                     <p>{!! $soal_satuan->indikator !!}</p>
                 </div>
-            </div>  
-            <a href="{{route('soalSatuan',$soal_satuan->paket_soal->id)}}"> <button class="btn btn-info">Kembali</button> </a>     
+            </div>
+            <a href="{{route('soalSatuan',$soal_satuan->paket_soal->id)}}"> <button class="btn btn-info">Kembali</button> </a>
         </div>
         <div class="col-md-8 ">
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
             <ul class="nav nav-pills mb-3  justify-content-center " id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="pills-tk1-tab" data-toggle="pill" href="#pills-tk1" role="tab" aria-controls="pills-tk1" aria-selected="true"> <strong> Soal Tingkat 1</strong></a>
@@ -87,7 +96,7 @@
                                         </div>
                                     </div>
                                 </div>
-                          
+
                                 <div class="form-group">
                                     <!-- Pilihan A-->
                                     <div class="input-group mb-2">
@@ -119,7 +128,7 @@
                                     </div>
                                 </div>
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
-                            
+
                             </form>
                         @endif
                         </div>
@@ -151,7 +160,7 @@
                                         </select>
                                     </div>
                                 </div>
-                          
+
                                 <div class="form-group">
                                     <!-- Pilihan A-->
                                     <div class="input-group mb-2">
@@ -168,7 +177,7 @@
                                         <input type="text" name="pil_b" id="pil_b" class="form-control" value="Tidak Yakin" placeholder="Tidak Yakin" >
                                     </div>
                                 </div>
-                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>    
+                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
                             </form>
                         @endif
                         </div>
@@ -206,7 +215,7 @@
                                         </div>
                                     </div>
                                 </div>
-                          
+
                                 <div class="form-group">
                                     <!-- Pilihan A-->
                                     <div class="input-group mb-2">
@@ -238,7 +247,7 @@
                                     </div>
                                 </div>
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
-                            
+
                             </form>
                         @endif
                         </div>
@@ -270,7 +279,7 @@
                                         </select>
                                     </div>
                                 </div>
-                          
+
                                 <div class="form-group">
                                     <!-- Pilihan A-->
                                     <div class="input-group mb-2">
@@ -287,7 +296,7 @@
                                         <input type="text" name="pil_b" id="pil_b"  class="form-control" value="Tidak Yakin"  placeholder="Tidak Yakin" >
                                     </div>
                                 </div>
-                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>    
+                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
                             </form>
                         @endif
                         </div>
@@ -315,7 +324,7 @@ $(document).ready(function(){
         var kunci_update                = $(this).data('kunci_tk1_update');
         $('#soal_tk1_id_update ').val(soal_tk1_id_update );
         $('#soal_satuan_id_tk1_update').val(soal_satuan_id_tk1_update);
-        $('#pertanyaan_tk1_update').val(pertanyaan_tk1_update); 
+        $('#pertanyaan_tk1_update').val(pertanyaan_tk1_update);
         $('#pil_a_tk1_update').val(pil_a_tk1_update);
         $('#pil_b_tk1_update').val(pil_b_tk1_update);
         $('#pil_c_tk1_update').val(pil_c_tk1_update);

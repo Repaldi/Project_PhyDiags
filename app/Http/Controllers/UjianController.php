@@ -18,7 +18,7 @@ class UjianController extends Controller
     public function getUjian()
     {
         $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
-        return view('ujian.getUjian',compact('ujian'));
+        return view('ujian.guru.getUjian',compact('ujian'));
     }
     public function createUjian()
     {
@@ -31,10 +31,10 @@ class UjianController extends Controller
         $anggota_kelas = AnggotaKelas::where('kelas_id',$request->kelas_id)->get();
         $ujian = new Ujian;
         $ujian->guru_id = auth()->user()->guru->id;
-        $ujian->kelas_id = $request->kelas_id; 
+        $ujian->kelas_id = $request->kelas_id;
         $ujian->paket_soal_id = $request->paket_soal_id;
         $ujian->nama_ujian = $request->nama_ujian;
-        $ujian->deskripsi = $request->deskripsi; 
+        $ujian->deskripsi = $request->deskripsi;
         $ujian->status = 0;
         $ujian->isdelete = false;
         $ujian->save();
@@ -53,7 +53,7 @@ class UjianController extends Controller
     public function showUjian($id){
         $ujian          = Ujian::find($id);
         $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->get();
-        return view('ujian.showUjian',compact(['ujian','peserta_ujian']));
+        return view('ujian.guru.showUjian',compact(['ujian','peserta_ujian']));
     }
 
     public function deleteUjian($id)
@@ -66,13 +66,23 @@ class UjianController extends Controller
         return redirect()->back()->with('success','Berhasil menghapus ujian');
     }
 
+    public function startUjian($id)
+    {
+        $ujian = Ujian::find($id);
+        $ujian->update([
+            'status'=>2
+        ]);
+
+        return redirect()->back();
+    }
+
     //---------------------------------------------------------------------------------------
     // METHOD UJIAN SISWA
     public function getUjianSiswa()
-    { 
+    {
         $ujian = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)->get();
 
-        return view('ujian.getUjianSiswa',compact('ujian'));
+        return view('ujian.siswa.getUjianSiswa',compact('ujian'));
     }
 
 }

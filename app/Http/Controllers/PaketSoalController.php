@@ -14,7 +14,7 @@ class PaketSoalController extends Controller
 {
     public function getPaketSoal()
     {
-        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->paginate(8);
+        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->paginate(8);
         return view('paket_soal.getPaketSoal',compact(['paket_soal']));
       }
 
@@ -34,13 +34,23 @@ class PaketSoalController extends Controller
         return redirect()->route('getPaketSoal')->with('success','Paket Soal baru berhasil dibuat');
     }
 
+    public function deletePaketSoal($id)
+    {
+      $paket_soal = PaketSoal::find($id);
+      $paket_soal->update([
+        'isdelete'=>true
+      ]);
+
+      return redirect()->back();
+    }
+
     public function soalSatuan($id)
     {
         $paket_soal = PaketSoal::find($id);
         $soal_satuan = SoalSatuan::where('paket_soal_id',$id)->get();
         return view('paket_soal.soalSatuan', compact('paket_soal','soal_satuan'));
     }
- 
+
     public function storeSoalSatuan(Request $request)
     {
         $soal_satuan = new SoalSatuan;
@@ -105,7 +115,7 @@ class PaketSoalController extends Controller
         return redirect()->back()->with('success','Soal berhasil diupdate !');
     }
 
-    
+
 
     public function storeSoalTk2(Request $request)
     {
@@ -119,7 +129,7 @@ class PaketSoalController extends Controller
         $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 2 berhasil dibuat');;
     }
-    
+
     public function storeSoalTk3(Request $request)
     {
         $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg|max:2048']);
@@ -154,6 +164,5 @@ class PaketSoalController extends Controller
         $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 4 berhasil dibuat');;
     }
-    
-}
 
+}

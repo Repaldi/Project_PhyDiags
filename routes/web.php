@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/create','PaketSoalController@createPaketSoal')->name('createPaketSoal');
         Route::post('/','PaketSoalController@storePaketSoal')->name('storePaketSoal');
         Route::get('/{id}','PaketSoalController@soalSatuan')->name('soalSatuan');
+        Route::get('/delete/{id}','PaketSoalController@deletePaketSoal')->name('deletePaketSoal');
         Route::group(['prefix' => 'soal_satuan'], function () {
             Route::post('/','PaketSoalController@storeSoalSatuan')->name('storeSoalSatuan');
             Route::get('/{id}','PaketSoalController@soalTingkat')->name('soalTingkat');
