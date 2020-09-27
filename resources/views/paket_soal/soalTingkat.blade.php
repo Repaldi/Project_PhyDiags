@@ -53,6 +53,7 @@
                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target=".update_modal_soaltk1"
                                     id="updatesoaltk1"
                                     data-soal_tk1_id_update="{{ $soal_tk1->id }}"
+                                    data-soal_satuan_id_tk1_update="{{ $soal_tk1->soal_satuan_id }}"
                                     data-pertanyaan_tk1_update="{{ $soal_tk1->pertanyaan }}"
                                     data-pil_a_tk1_update="{{ $soal_tk1->pil_a }}"
                                     data-pil_b_tk1_update="{{ $soal_tk1->pil_b }}"
@@ -348,16 +349,21 @@ function alertUpdate() {
                     </button>
                 </div>
 
-                <form action="#" method="post">
-
+                <form action="{{route('updateSoalTk1',$soal_satuan->paket_soal->id)}}" method="post">
                     @csrf
                     @method('PATCH')
                      <div class="modal-body">
                         <div class="container">
-
+                      
                             <input type="hidden" name="id" id="soal_tk1_id_update" value="">
                             <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk1_update" value="">
-
+                            <div class="form-group">
+                          
+                          
+                            <input type="file" id="gambar_tk1_update" name="gambar" value="" class="form-control">
+                            <p><strong>Biarkan kosong jika tidak ingin menambah gambar</strong></p>
+                          
+                            </div>
                             <div class="form-group">
                                 <label for="alamat"> Pertanyaan </label>
                                 <textarea class="form-control" id="pertanyaan_tk1_update" rows="2" name="pertanyaan" placeholder=""> </textarea>

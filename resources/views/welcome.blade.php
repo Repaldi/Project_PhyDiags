@@ -442,7 +442,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="right-content3">
                     <!-- img -->
                     <div class="right-img">
-                        <img src="{{asset('Front_Home/assets/img/gallery/Fungsi1.png')}}" alt="">
+                        <img src="{{asset('Front_Home/assets/img/gallery/Fungsi1.png')}}" width="15px" alt="">
                     </div>
                 </div>
                 <div class="left-content3">
@@ -483,82 +483,87 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
                         <div class="section-tittle text-center mb-55">
-                            <h2>Community experts</h2>
+                            <h2>Perancang PhyDiags</h2>
                         </div>
                     </div>
                 </div>
                 <div class="team-active">
                     <div class="single-cat text-center">
                         <div class="cat-icon">
-                            <img src="assets/img/gallery/team1.png" alt="">
+                            <img src="{{asset('Front_Home/assets/img/gallery/team1.png')}}" alt="">
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Urela</a></h5>
-                            <p>The automated process all your website tasks.</p>
+                            <h5><a href="#">Agustian</a></h5>
+                            <p>Program Studi Pendidikan Fisika Fakultas Keguruan dan Ilmu Pendidikan Universitas Jambi</p>
                         </div>
                     </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team2.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Uttom</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Shakil</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team4.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. Arafat</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                    <div class="single-cat text-center">
-                        <div class="cat-icon">
-                            <img src="assets/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Mr. saiful</a></h5>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
         <!-- Services End -->
-        <!--? About Area-2 Start -->
-        <section class="about-area2 fix pb-padding">
+         <!--? About Area-1 Start -->
+        <section class="about-area1 fix pt-10">
             <div class="support-wrapper align-items-center">
-                <div class="right-content2">
-                    <!-- img -->
-                    <div class="right-img">
-                        <img src="assets/img/gallery/about2.png" alt="">
+                <div class="left-content1">
+                    <div class="about-icon">
+                        <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt="">
                     </div>
-                </div>
-                <div class="left-content2">
                     <!-- section tittle -->
-                    <div class="section-tittle section-tittle2 mb-20">
+                    <div class="section-tittle section-tittle2 mb-5">
                         <div class="front-text">
                             <h2 class="">Kelebihan PhyDiags</h2>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.</p>
-                            <a href="#" class="btn">Join now for Free</a>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Soal bisa di perbaharui dan di tambah </p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Tidak perlu melakukan instalasi aplikasi</p>
+                        </div>
+                    </div>
+
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Mengkoreksi dan menganalisis soal otomatis Hasil cepat</p>
+                        </div>
+                    </div>
+                    <div class="single-features mb-100">
+                        <div class="features-icon">
+                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Mengklasifikasikan siswa sesuai dengan hasil pemahaman konsep </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-content1 mb-100">
+                    <!-- img -->
+                    <div class="right-img">
+                        <img src="{{asset('Front_Home/assets/img/gallery/about.png')}}" alt="">
+
+                        <div class="video-icon" >
+                            <!-- <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a> -->
+                            <img src="{{asset('Front_Home/assets/img/tentang.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- About Area End -->
+      
     </main>
     <footer>
      <div class="footer-wrappper footer-bg">

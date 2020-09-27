@@ -9,6 +9,7 @@ use App\SoalTk2;
 use App\SoalTk3;
 use App\SoalTk4;
 use Illuminate\Http\Request;
+use File;
 
 class PaketSoalController extends Controller
 {
@@ -43,6 +44,7 @@ class PaketSoalController extends Controller
  
     public function storeSoalSatuan(Request $request)
     {
+        
         $soal_satuan = new SoalSatuan;
         $soal_satuan->paket_soal_id =  $request->paket_soal_id;
         $soal_satuan->indikator     =  $request->indikator;
@@ -51,26 +53,23 @@ class PaketSoalController extends Controller
         $soal_satuan_id = $soal_satuan->id;
         return redirect()->route('soalTingkat',$soal_satuan_id);
     }
-    public function soalTingkat($id)
-    // public function soalTingkat($id, PaketSoal $paket_soal_id)
+    public function soalTingkat($id, PaketSoal $paket_soal)
     {
         $soal_satuan = SoalSatuan::find($id);
         $soal_tk1 = SoalTk1::where('soal_satuan_id',$id)->first();
         $soal_tk2 = SoalTk2::where('soal_satuan_id',$id)->first();
         $soal_tk3 = SoalTk3::where('soal_satuan_id',$id)->first();
         $soal_tk4 = SoalTk4::where('soal_satuan_id',$id)->first();
-        // $paket_soal = PaketSoal::find($paket_soal_id);
-        // $paket_soal_id = $paket_soal->id;
-        // return view('paket_soal.soalTingkat', compact('soal_satuan','soal_tk1','soal_tk2','soal_tk3','soal_tk4','paket_soal','paket_soal_id'));
+
         return view('paket_soal.soalTingkat', compact('soal_satuan','soal_tk1','soal_tk2','soal_tk3','soal_tk4'));
-    }
+        }
 
     public function storeSoalTk1(Request $request)
     {
         $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg|max:2048']);
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = 'images';
+        $tujuan_upload = 'images/soal';
         $file->move($tujuan_upload,$nama_file);
 
         $soal_tk1 = SoalTk1::create([
@@ -91,13 +90,27 @@ class PaketSoalController extends Controller
     public function updateSoalTk1(Request $request, $paket_soal_id){
         $paket_soal = PaketSoal::findorFail($paket_soal_id);
         $soal_tk1      = SoalTk1::findorFail($request->id);
-
+        
+        $filename = $soal_tk1->gambar; //SIMPAN SEMENTARA NAMA FILE Gambar SAAT INI
+  
+        //JIKA ADA FILE GAMBAR YANG DIKIRIM
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time()."_".$file->getClientOriginalName();
+            //MAKA UPLOAD FILE TERSEBUT
+            $file->storeAs('public/images/soal', $filename);
+              //DAN HAPUS FILE GAMBAR YANG LAMA
+            File::delete(storage_path('app/public/images/soal' . $soal_tk1->gambar));
+        }
+        
         $update_soal_tk1 = [
+            'soal_satuan_id' => $request->soal_satuan_id,
             'pertanyaan' => $request->pertanyaan,
             'pil_a' => $request->pil_a,
             'pil_b' => $request->pil_b,
             'pil_c' => $request->pil_c,
             'pil_d' => $request->pil_d,
+            'gambar' => $filename,
             'kunci' => $request->kunci,
         ];
         $soal_tk1->update($update_soal_tk1);
