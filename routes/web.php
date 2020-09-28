@@ -89,3 +89,7 @@ Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], functio
 });
 
 Route::get('pagination/fetch_data', 'UjianController@fetch_data');
+Route::get('store/jawaban_tk1', 'UjianController@storeJawabanTk1');
+Route::get('store/jawaban_tk2', 'UjianController@storeJawabanTk2');
+Route::get('store/jawaban_tk3', 'UjianController@storeJawabanTk3');
+Route::get('store/jawaban_tk4', 'UjianController@storeJawabanTk4');

@@ -11,6 +11,14 @@ use App\PaketSoal;
 use App\Ujian;
 use App\SoalSatuan;
 use App\PesertaUjian;
+use App\SoalTk1;
+use App\SoalTk2;
+use App\SoalTk3;
+use App\SoalTk4;
+use App\JawabanTk1;
+use App\JawabanTk2;
+use App\JawabanTk3;
+use App\JawabanTk4;
 
 class UjianController extends Controller
 {
@@ -85,7 +93,6 @@ class UjianController extends Controller
       $paket_soal_id = $ujian->paket_soal_id;
       $paket_soal = PaketSoal::where('id',$paket_soal_id)->get();
       $soal_satuan = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
-      // dd($soal_satuan->soal_tk1);
 
       return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
     }
@@ -102,4 +109,131 @@ class UjianController extends Controller
         }
     }
 
+    public function storeJawabanTk1(Request $request)
+    {
+        $this->validate($request,[
+            'ujian_id' => 'required',
+            'peserta_ujian_id' => 'required',
+            'soal_tk1_id' => 'required',
+            'jawab_tk1' => 'required',
+            'kode' => 'required',
+        ]);
+        $check_jawaban = JawabanTk1::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                    ->where('soal_tk1_id', $request->soal_tk1_id)->first();
+        if (!$check_jawaban) {
+            $posts = JawabanTk1::create([
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk1_id' => $request->soal_tk1_id,
+                'jawaban' => $request->jawab_tk1,
+                'kode' => $request->kode,
+            ]);
+
+        } elseif ($check_jawaban) {
+            $update_jawaban_tk1 = [
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk1_id' => $request->soal_tk1_id,
+                'jawaban' => $request->jawab_tk1,
+                'kode' => $request->kode,
+            ];
+            $posts = JawabanTk1::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                 ->where('soal_tk1_id', $request->soal_tk1_id)->update($update_jawaban_tk1);
+        }
+        return response()->json($posts);
+    }
+
+    public function storeJawabanTk2(Request $request)
+    {
+        $this->validate($request,[
+            'ujian_id' => 'required',
+            'peserta_ujian_id' => 'required',
+            'soal_tk2_id' => 'required',
+            'jawab_tk2' => 'required',
+            'kode' => 'required',
+        ]);
+        $check_jawaban = JawabanTk2::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                    ->where('soal_tk2_id', $request->soal_tk2_id)->first();
+        if (!$check_jawaban) {
+            $posts = JawabanTk2::create([
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk2_id' => $request->soal_tk2_id,
+                'jawaban' => $request->jawab_tk2,
+                'kode' => $request->kode,
+            ]);
+
+        } elseif ($check_jawaban) {
+            $update_jawaban_tk2 = [
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk2_id' => $request->soal_tk2_id,
+                'jawaban' => $request->jawab_tk2,
+                'kode' => $request->kode,
+            ];
+            $posts = JawabanTk2::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                 ->where('soal_tk2_id', $request->soal_tk2_id)->update($update_jawaban_tk2);
+        }
+        return response()->json($posts);
+    }
+    
+    public function storeJawabanTk3(Request $request)
+    {
+        $this->validate($request,[
+            'ujian_id' => 'required',
+            'peserta_ujian_id' => 'required',
+            'soal_tk3_id' => 'required',
+            'jawab_tk3' => 'required',
+            'kode' => 'required',
+        ]);
+        $check_jawaban = JawabanTk3::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                    ->where('soal_tk3_id', $request->soal_tk3_id)->first();
+        if (!$check_jawaban) {
+            $posts = JawabanTk3::create([
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk3_id' => $request->soal_tk3_id,
+                'jawaban' => $request->jawab_tk3,
+                'kode' => $request->kode,
+            ]);
+
+        } elseif ($check_jawaban) {
+            $update_jawaban_tk3 = [
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk3_id' => $request->soal_tk3_id,
+                'jawaban' => $request->jawab_tk3,
+                'kode' => $request->kode,
+            ];
+            $posts = JawabanTk3::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                 ->where('soal_tk3_id', $request->soal_tk3_id)->update($update_jawaban_tk3);
+        }
+        return response()->json($posts);
+    }
+
+    public function storeJawabanTk4(Request $request)
+    {
+        $this->validate($request,[
+            'ujian_id' => 'required',
+            'peserta_ujian_id' => 'required',
+            'soal_tk4_id' => 'required',
+            'jawab_tk4' => 'required',
+            'kode' => 'required',
+        ]);
+        $check_jawaban = JawabanTk4::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                    ->where('soal_tk4_id', $request->soal_tk4_id)->first();
+        if (!$check_jawaban) {
+            $posts = JawabanTk4::create([
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk4_id' => $request->soal_tk4_id,
+                'jawaban' => $request->jawab_tk4,
+                'kode' => $request->kode,
+            ]);
+
+        } elseif ($check_jawaban) {
+            $update_jawaban_tk4 = [
+                'peserta_ujian_id' => $request->peserta_ujian_id,
+                'soal_tk4_id' => $request->soal_tk4_id,
+                'jawaban' => $request->jawab_tk4,
+                'kode' => $request->kode,
+            ];
+            $posts = JawabanTk4::where('peserta_ujian_id', $request->peserta_ujian_id)
+                                 ->where('soal_tk4_id', $request->soal_tk4_id)->update($update_jawaban_tk4);
+        }
+        return response()->json($posts);
+    }
 }
