@@ -6,6 +6,10 @@ use App\SoalTk1;
 use App\SoalTk2;
 use App\SoalTk3;
 use App\SoalTk4;
+use App\JawabanTk1;
+use App\JawabanTk2;
+use App\JawabanTk3;
+use App\JawabanTk4;
 
  ?>
 
@@ -26,7 +30,7 @@ use App\SoalTk4;
                 </table>
                 </div>
                 <hr>
-                
+
                 <div class="row">
                   <div class="container">
                     <table>
@@ -40,10 +44,38 @@ use App\SoalTk4;
                       </tr>
                       <tr>
                           <td>
+                            <?php
+                            $check_jawaban_tk1 = JawabanTk1::where('peserta_ujian_id', $peserta_ujian->id)
+                                                        ->where('soal_tk1_id', $item->soal_tk1->id)->first();
+                             ?>
+                            @if(!$check_jawaban_tk1)
                             <input type="radio" class="pilihan" name="pilihan_tk1" value="A"> A . {{$item->soal_tk1->pil_a}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk1" value="B" > B . {{$item->soal_tk1->pil_b}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk1" value="C" > C . {{$item->soal_tk1->pil_c}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk1" value="D" > D . {{$item->soal_tk1->pil_d}}  <br>
+                            @else
+                            <input type="radio" class="pilihan" id="jawab_tk1_a" name="pilihan_tk1" value="A"> A . {{$item->soal_tk1->pil_a}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk1_b" name="pilihan_tk1" value="B" > B . {{$item->soal_tk1->pil_b}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk1_c" name="pilihan_tk1" value="C"> C . {{$item->soal_tk1->pil_c}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk1_d" name="pilihan_tk1" value="D" > D . {{$item->soal_tk1->pil_d}}  <br>
+                              @if($check_jawaban_tk1->jawaban == 'A')
+                                <script>
+                                  $('#jawab_tk1_a').prop('checked',true);
+                                </script>
+                              @elseif($check_jawaban_tk1->jawaban == 'B')
+                                <script>
+                                  $('#jawab_tk1_b').prop('checked',true);
+                                </script>
+                              @elseif($check_jawaban_tk1->jawaban == 'C')
+                                <script>
+                                  $('#jawab_tk1_c').prop('checked',true);
+                                </script>
+                              @else
+                                <script>
+                                  $('#jawab_tk1_d').prop('checked',true);
+                                </script>
+                              @endif
+                            @endif
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk1_id" value="{{$item->soal_tk1->id}}">
@@ -60,8 +92,27 @@ use App\SoalTk4;
                       </tr>
                       <tr>
                           <td>
+                            <?php
+                            $check_jawaban_tk2 = JawabanTk2::where('peserta_ujian_id', $peserta_ujian->id)
+                                                        ->where('soal_tk2_id', $item->soal_tk2->id)->first();
+                             ?>
+                            @if(!$check_jawaban_tk2)
                             <input type="radio" class="pilihan" name="pilihan_tk2" value="A"> A . {{$item->soal_tk2->pil_a}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk2" value="B" > B . {{$item->soal_tk2->pil_b}}  <br>
+                            @else
+                            <input type="radio" class="pilihan" id="jawab_tk2_a" name="pilihan_tk2" value="A"> A . {{$item->soal_tk2->pil_a}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk2_b" name="pilihan_tk2" value="B" > B . {{$item->soal_tk2->pil_b}}  <br>
+                              @if($check_jawaban_tk2->jawaban == 'A')
+                                <script>
+                                  $('#jawab_tk2_a').prop('checked',true);
+                                </script>
+                              @else
+                                <script>
+                                  $('#jawab_tk2_b').prop('checked',true);
+                                </script>
+                              @endif
+                            @endif
+
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk2_id" value="{{$item->soal_tk2->id}}">
@@ -78,10 +129,39 @@ use App\SoalTk4;
                       </tr>
                       <tr>
                           <td>
+                            <?php
+                            $check_jawaban_tk3 = JawabanTk3::where('peserta_ujian_id', $peserta_ujian->id)
+                                                        ->where('soal_tk3_id', $item->soal_tk3->id)->first();
+                             ?>
+
+                            @if(!$check_jawaban_tk3)
                             <input type="radio" class="pilihan" name="pilihan_tk3" value="A"> A . {{$item->soal_tk3->pil_a}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk3" value="B" > B . {{$item->soal_tk3->pil_b}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk3" value="C" > C . {{$item->soal_tk3->pil_c}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk3" value="D" > D . {{$item->soal_tk3->pil_d}}  <br>
+                            @else
+                            <input type="radio" class="pilihan" id="jawab_tk3_a" name="pilihan_tk3" value="A"> A . {{$item->soal_tk3->pil_a}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk3_b" name="pilihan_tk3" value="B" > B . {{$item->soal_tk3->pil_b}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk3_c" name="pilihan_tk3" value="C" > C . {{$item->soal_tk3->pil_c}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk3_d" name="pilihan_tk3" value="D" > D . {{$item->soal_tk3->pil_d}}  <br>
+                              @if($check_jawaban_tk3->jawaban == 'A')
+                                <script>
+                                  $('#jawab_tk3_a').prop('checked',true);
+                                </script>
+                              @elseif($check_jawaban_tk3->jawaban == 'B')
+                                <script>
+                                  $('#jawab_tk3_b').prop('checked',true);
+                                </script>
+                              @elseif($check_jawaban_tk3->jawaban == 'C')
+                                <script>
+                                  $('#jawab_tk3_c').prop('checked',true);
+                                </script>
+                              @else
+                                <script>
+                                  $('#jawab_tk3_d').prop('checked',true);
+                                </script>
+                              @endif
+                            @endif
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk3_id" value="{{$item->soal_tk3->id}}">
@@ -98,8 +178,27 @@ use App\SoalTk4;
                       </tr>
                       <tr>
                           <td>
+                            <?php
+                            $check_jawaban_tk4 = JawabanTk4::where('peserta_ujian_id', $peserta_ujian->id)
+                                                        ->where('soal_tk4_id', $item->soal_tk4->id)->first();
+                             ?>
+
+                            @if(!$check_jawaban_tk4)
                             <input type="radio" class="pilihan" name="pilihan_tk4" value="A"> A . {{$item->soal_tk4->pil_a}}  <br>
                             <input type="radio" class="pilihan" name="pilihan_tk4" value="B" > B . {{$item->soal_tk4->pil_b}}  <br>
+                            @else
+                            <input type="radio" class="pilihan" id="jawab_tk4_a" name="pilihan_tk4" value="A"> A . {{$item->soal_tk4->pil_a}}  <br>
+                            <input type="radio" class="pilihan" id="jawab_tk4_b" name="pilihan_tk4" value="B" > B . {{$item->soal_tk4->pil_b}}  <br>
+                              @if($check_jawaban_tk4->jawaban == 'A')
+                                <script>
+                                  $('#jawab_tk4_a').prop('checked',true);
+                                </script>
+                              @else
+                                <script>
+                                  $('#jawab_tk4_b').prop('checked',true);
+                                </script>
+                              @endif
+                            @endif
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk4_id" value="{{$item->soal_tk4->id}}">
@@ -134,8 +233,8 @@ use App\SoalTk4;
 
 <script>
 
-const peserta_ujian_id  = $("#peserta_ujian_id").val();
-const ujian_id          = $('#ujian_id').val();
+var peserta_ujian_id  = $("#peserta_ujian_id").val();
+var ujian_id          = $('#ujian_id').val();
 var soal_satuan_id      = $('#soal_satuan_id').val();
 
 function hasilUjian() {
@@ -168,6 +267,7 @@ $('input[type=radio][name="pilihan_tk1"]').click(function() {
     } else {
         var kode  = 0;
     }
+    console.log(jawab_tk1 + " dan " + kunci);
     $.ajax({
         url: "{{ url('store/jawaban_tk1') }}",
         type: "GET",
@@ -196,7 +296,7 @@ $('input[type=radio][name="pilihan_tk2"]').click(function() {
     var jawab_tk2         = document.querySelector('input[name = "pilihan_tk2"]:checked').value;
     var soal_tk2_id       = $("#soal_tk2_id").val();
     var kunci             = $("#kunci").val();
- 
+
     if ( jawab_tk2 == kunci ) {
         var kode  = 1;
     } else {
@@ -230,7 +330,7 @@ $('input[type=radio][name="pilihan_tk3"]').click(function() {
     var jawab_tk3         = document.querySelector('input[name = "pilihan_tk3"]:checked').value;
     var soal_tk3_id       = $("#soal_tk3_id").val();
     var kunci             = $("#kunci").val();
- 
+
     if ( jawab_tk3 == kunci ) {
         var kode  = 1;
     } else {
@@ -264,7 +364,7 @@ $('input[type=radio][name="pilihan_tk4"]').click(function() {
     var jawab_tk4         = document.querySelector('input[name = "pilihan_tk4"]:checked').value;
     var soal_tk4_id       = $("#soal_tk4_id").val();
     var kunci             = $("#kunci").val();
- 
+
     if ( jawab_tk4 == kunci ) {
         var kode  = 1;
     } else {

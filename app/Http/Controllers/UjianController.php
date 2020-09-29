@@ -182,7 +182,7 @@ class UjianController extends Controller
         }
         return response()->json($posts);
     }
-    
+
     public function storeJawabanTk3(Request $request)
     {
         $this->validate($request,[
@@ -257,11 +257,11 @@ class UjianController extends Controller
         $soal_tk2_id = SoalTk2::where('soal_satuan_id',$request->soal_satuan_id)->value('id');
         $soal_tk3_id = SoalTk3::where('soal_satuan_id',$request->soal_satuan_id)->value('id');
         $soal_tk4_id = SoalTk4::where('soal_satuan_id',$request->soal_satuan_id)->value('id');
-       
-        $jawaban_tk1 = JawabanTk1::where('soal_tk1_id',$soal_tk1_id)->first();
-        $jawaban_tk2 = JawabanTk2::where('soal_tk2_id',$soal_tk2_id)->first();
-        $jawaban_tk3 = JawabanTk3::where('soal_tk3_id',$soal_tk3_id)->first();
-        $jawaban_tk4 = JawabanTk4::where('soal_tk4_id',$soal_tk4_id)->first();
+
+        $jawaban_tk1 = JawabanTk1::where('soal_tk1_id',$soal_tk1_id)->where('peserta_ujian_id',$request->peserta_ujian_id)->first();
+        $jawaban_tk2 = JawabanTk2::where('soal_tk2_id',$soal_tk2_id)->where('peserta_ujian_id',$request->peserta_ujian_id)->first();
+        $jawaban_tk3 = JawabanTk3::where('soal_tk3_id',$soal_tk3_id)->where('peserta_ujian_id',$request->peserta_ujian_id)->first();
+        $jawaban_tk4 = JawabanTk4::where('soal_tk4_id',$soal_tk4_id)->where('peserta_ujian_id',$request->peserta_ujian_id)->first();
 
         if (!$jawaban_tk1) { $jawaban_tk1_kode = 0; $jawaban_tk1_id = null;} else {$jawaban_tk1_kode = $jawaban_tk1->kode; $jawaban_tk1_id = $jawaban_tk1->id; }
         if (!$jawaban_tk2) { $jawaban_tk2_kode = 0; $jawaban_tk2_id = null;} else {$jawaban_tk2_kode = $jawaban_tk2->kode; $jawaban_tk2_id = $jawaban_tk2->id;}
