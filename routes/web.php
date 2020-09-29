@@ -49,10 +49,14 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
             Route::patch('/soal_tk1/{paket_soal_id}/update','PaketSoalController@updateSoalTk1', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk1');
             //Soal Tk2
             Route::post('/soal_tk2','PaketSoalController@storeSoalTk2')->name('storeSoalTk2');
+            Route::patch('/soal_tk2/{paket_soal_id}/update','PaketSoalController@updateSoalTk2', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk2');
             //Soal Tk3
             Route::post('/soal_tk3','PaketSoalController@storeSoalTk3')->name('storeSoalTk3');
+            Route::patch('/soal_tk3/{paket_soal_id}/update','PaketSoalController@updateSoalTk3', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk3');
             //Soal Tk4
             Route::post('/soal_tk4','PaketSoalController@storeSoalTk4')->name('storeSoalTk4');
+            Route::patch('/soal_tk4/{paket_soal_id}/update','PaketSoalController@updateSoalTk4', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk4');
+
         });
     });
     Route::group(['prefix' => 'kelas'], function () {

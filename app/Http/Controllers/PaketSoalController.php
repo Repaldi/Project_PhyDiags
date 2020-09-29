@@ -76,7 +76,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk1(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif|max:2048']);
+        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif']);
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images/soal';
@@ -99,36 +99,32 @@ class PaketSoalController extends Controller
     //Ubah Soal TK1
     public function updateSoalTk1(Request $request, $paket_soal_id){
         $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        
         $soal_tk1      = SoalTk1::findorFail($request->id);
+        $nama_file= $soal_tk1->gambar; //simpan nama file gambar yang sudah ada
 
-        $filename = $soal_tk1->gambar; //SIMPAN SEMENTARA NAMA FILE Gambar SAAT INI
-
-        //JIKA ADA FILE GAMBAR YANG DIKIRIM
         if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time()."_".$file->getClientOriginalName();
-            //MAKA UPLOAD FILE TERSEBUT
-            $file->storeAs('public/images/soal', $filename);
-              //DAN HAPUS FILE GAMBAR YANG LAMA
-            File::delete(storage_path('app/public/images/soal' . $soal_tk1->gambar));
+        $file = $request->file('gambar');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'images/soal';
+        $file->move($tujuan_upload,$nama_file);
+        File::delete('images/soal'.$soal_tk1->gambar);
         }
+            $update = [
+                'soal_satuan_id' => $request->soal_satuan_id,
+                'pertanyaan' => $request->pertanyaan,
+                'pil_a' => $request->pil_a,
+                'pil_b' => $request->pil_b,
+                'pil_c' => $request->pil_c,
+                'pil_d' => $request->pil_d,
+                'gambar' => $nama_file,
+                'kunci' => $request->kunci,
+            ];
+      
+            SoalTk1::whereId($soal_tk1->id)->update($update);
+            return redirect()->back()->with('success','Soal berhasil diupdate !');   
 
-        $update_soal_tk1 = [
-            'soal_satuan_id' => $request->soal_satuan_id,
-            'pertanyaan' => $request->pertanyaan,
-            'pil_a' => $request->pil_a,
-            'pil_b' => $request->pil_b,
-            'pil_c' => $request->pil_c,
-            'pil_d' => $request->pil_d,
-            'gambar' => $filename,
-            'kunci' => $request->kunci,
-        ];
-        $soal_tk1->update($update_soal_tk1);
-
-        return redirect()->back()->with('success','Soal berhasil diupdate !');
     }
-
-
 
     public function storeSoalTk2(Request $request)
     {
@@ -141,6 +137,23 @@ class PaketSoalController extends Controller
         ]);
         $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 2 berhasil dibuat');;
+    }
+    //Ubah Soal TK2
+    public function updateSoalTk2(Request $request, $paket_soal_id){
+        $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        $soal_tk2      = SoalTk2::findorFail($request->id);
+    
+            $update = [
+                'soal_satuan_id' => $request->soal_satuan_id,
+                'pertanyaan' => $request->pertanyaan,
+                'pil_a' => $request->pil_a,
+                'pil_b' => $request->pil_b,
+                'kunci' => $request->kunci,
+            ];
+      
+            SoalTk2::whereId($soal_tk2->id)->update($update);
+            return redirect()->back()->with('success','Soal berhasil diupdate !');   
+
     }
 
     public function storeSoalTk3(Request $request)
@@ -165,6 +178,37 @@ class PaketSoalController extends Controller
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 3 berhasil dibuat');;
     }
 
+    //Ubah Soal TK3
+    public function updateSoalTk3(Request $request, $paket_soal_id){
+        $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        
+        $soal_tk3      = SoalTk3::findorFail($request->id);
+        $nama_file= $soal_tk3->gambar; //simpan nama file gambar yang sudah ada
+
+        if ($request->hasFile('gambar')) {
+        $file = $request->file('gambar');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'images/soal';
+        $file->move($tujuan_upload,$nama_file);
+        File::delete('images/soal'.$soal_tk3->gambar);
+        }
+            $update = [
+                'soal_satuan_id' => $request->soal_satuan_id,
+                'pertanyaan' => $request->pertanyaan,
+                'pil_a' => $request->pil_a,
+                'pil_b' => $request->pil_b,
+                'pil_c' => $request->pil_c,
+                'pil_d' => $request->pil_d,
+                'gambar' => $nama_file,
+                'kunci' => $request->kunci,
+            ];
+      
+            SoalTk3::whereId($soal_tk3->id)->update($update);
+            return redirect()->back()->with('success','Soal berhasil diupdate !');   
+
+    }
+
+
     public function storeSoalTk4(Request $request)
     {
         $soal_tk4 = SoalTk4::create([
@@ -176,6 +220,23 @@ class PaketSoalController extends Controller
         ]);
         $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 4 berhasil dibuat');;
+    }
+    //Ubah Soal TK4
+    public function updateSoalTk4(Request $request, $paket_soal_id){
+        $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        $soal_tk4     = SoalTk4::findorFail($request->id);
+    
+            $update = [
+                'soal_satuan_id' => $request->soal_satuan_id,
+                'pertanyaan' => $request->pertanyaan,
+                'pil_a' => $request->pil_a,
+                'pil_b' => $request->pil_b,
+                'kunci' => $request->kunci,
+            ];
+      
+            SoalTk4::whereId($soal_tk4->id)->update($update);
+            return redirect()->back()->with('success','Soal berhasil diupdate !');   
+
     }
 
 }
