@@ -99,33 +99,31 @@ class PaketSoalController extends Controller
     //Ubah Soal TK1
     public function updateSoalTk1(Request $request, $paket_soal_id){
         $paket_soal = PaketSoal::findorFail($paket_soal_id);
+        
         $soal_tk1      = SoalTk1::findorFail($request->id);
-        
-        $filename = $soal_tk1->gambar; //SIMPAN SEMENTARA NAMA FILE Gambar SAAT INI
-  
-        //JIKA ADA FILE GAMBAR YANG DIKIRIM
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time()."_".$file->getClientOriginalName();
-            //MAKA UPLOAD FILE TERSEBUT
-            $file->storeAs('public/images/soal', $filename);
-              //DAN HAPUS FILE GAMBAR YANG LAMA
-            File::delete(storage_path('app/public/images/soal' . $soal_tk1->gambar));
-        }
-        
-        $update_soal_tk1 = [
-            'soal_satuan_id' => $request->soal_satuan_id,
-            'pertanyaan' => $request->pertanyaan,
-            'pil_a' => $request->pil_a,
-            'pil_b' => $request->pil_b,
-            'pil_c' => $request->pil_c,
-            'pil_d' => $request->pil_d,
-            'gambar' => $filename,
-            'kunci' => $request->kunci,
-        ];
-        $soal_tk1->update($update_soal_tk1);
+        $nama_file= $soal_tk1->gambar; //simpan nama file gambar yang sudah ada
 
-        return redirect()->back()->with('success','Soal berhasil diupdate !');
+        if ($request->hasFile('gambar')) {
+        $file = $request->file('gambar');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'images/soal';
+        $file->move($tujuan_upload,$nama_file);
+        File::delete('images/soal'.$soal_tk1->gambar);
+        }
+            $update = [
+                'soal_satuan_id' => $request->soal_satuan_id,
+                'pertanyaan' => $request->pertanyaan,
+                'pil_a' => $request->pil_a,
+                'pil_b' => $request->pil_b,
+                'pil_c' => $request->pil_c,
+                'pil_d' => $request->pil_d,
+                'gambar' => $nama_file,
+                'kunci' => $request->kunci,
+            ];
+      
+            SoalTk1::whereId($soal_tk1->id)->update($update);
+            return redirect()->back()->with('success','Soal berhasil diupdate !');   
+
     }
 
 
