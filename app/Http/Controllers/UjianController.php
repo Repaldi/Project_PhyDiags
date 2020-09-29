@@ -82,34 +82,43 @@ class UjianController extends Controller
     // METHOD UJIAN SISWA
     public function getUjianSiswa()
     {
-        $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)->get();
-
+        $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
+                      ->where('status',0)->where('isdelete',0)->get();
         return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
     }
 
     public function runUjian($id)
     {
-      $peserta_ujian = PesertaUjian::find($id);
-      $ujian = Ujian::where('id',$peserta_ujian->ujian_id)->first();
-      $paket_soal_id = $ujian->paket_soal_id;
-      $paket_soal = PaketSoal::where('id',$paket_soal_id)->get();
-      $soal_satuan = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
+      $peserta_ujian    = PesertaUjian::find($id);
+      $ujian            = Ujian::where('id',$peserta_ujian->ujian_id)->first();
+      $paket_soal_id    = $ujian->paket_soal_id;
+      $paket_soal       = PaketSoal::where('id',$paket_soal_id)->get();
+      $soal_satuan      = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
 
       return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
     }
 
     public function fetch_data(Request $request){
-        $peserta_ujian = PesertaUjian::find($request->peserta_ujian_id);
-        $ujian = Ujian::where('id',$peserta_ujian->ujian_id)->first();
-        $paket_soal_id = $ujian->paket_soal_id;
-        $paket_soal = PaketSoal::where('id',$paket_soal_id)->get();
-        $soal_satuan = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
+        $peserta_ujian  = PesertaUjian::find($request->peserta_ujian_id);
+        $ujian          = Ujian::where('id',$peserta_ujian->ujian_id)->first();
+        $paket_soal_id  = $ujian->paket_soal_id;
+        $paket_soal     = PaketSoal::where('id',$paket_soal_id)->get();
+        $soal_satuan    = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
         if($request->ajax())
         {
             return view('ujian.siswa.pagination_data', ['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'peserta_ujian' => $peserta_ujian ], compact('paket_soal_id'))->render();
         }
     }
 
+    public function finishUjian($id)
+    {
+        $peserta_ujian          = PesertaUjian::find($id);
+        $update_finish_peserta  = [
+            'status' => 1,
+        ];
+        PesertaUjian::where('id', $id)->update($update_finish_peserta);
+        return redirect()->route('getUjianSiswa')->with('info','Ujian telah diselesaikan, jawaban anda telah tersimpan !');
+    }
     public function storeJawabanTk1(Request $request)
     {
         $this->validate($request,[

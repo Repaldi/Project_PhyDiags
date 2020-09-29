@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], functio
     Route::group(['prefix' => 'ujian'], function () {
         Route::get('/','UjianController@getUjianSiswa')->name('getUjianSiswa');
         Route::get('/room/{id}','UjianController@runUjian')->name('runUjian');
+        Route::get('/finish/{id}','UjianController@finishUjian')->name('finishUjian');
     });
 
 });
