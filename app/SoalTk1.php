@@ -13,4 +13,10 @@ class SoalTk1 extends Model
     {
       return $this->belongsTo(SoalSatuan::class);
     }
+
+    public function jawaban_tk1()
+    {
+      return $this->hasOne(JawabanTk1::class);
+    }
+
 }

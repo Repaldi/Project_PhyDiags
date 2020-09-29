@@ -19,4 +19,8 @@ class JawabanTk1 extends Model
     {
       return $this->belongsTo(PesertaUjian::class);
     }
+    public function hasil_ujian()
+    {
+      return $this->hasOne(HasilUjian::class);
+    }
 }

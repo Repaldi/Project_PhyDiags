@@ -13,4 +13,9 @@ class SoalTk2 extends Model
     {
       return $this->belongsTo(SoalSatuan::class);
     }
+
+    public function jawaban_tk2()
+    {
+      return $this->hasOne(JawabanTk2::class);
+    }
 }

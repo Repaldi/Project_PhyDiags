@@ -49,10 +49,14 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
             Route::patch('/soal_tk1/{paket_soal_id}/update','PaketSoalController@updateSoalTk1', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk1');
             //Soal Tk2
             Route::post('/soal_tk2','PaketSoalController@storeSoalTk2')->name('storeSoalTk2');
+            Route::patch('/soal_tk2/{paket_soal_id}/update','PaketSoalController@updateSoalTk2', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk2');
             //Soal Tk3
             Route::post('/soal_tk3','PaketSoalController@storeSoalTk3')->name('storeSoalTk3');
+            Route::patch('/soal_tk3/{paket_soal_id}/update','PaketSoalController@updateSoalTk3', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk3');
             //Soal Tk4
             Route::post('/soal_tk4','PaketSoalController@storeSoalTk4')->name('storeSoalTk4');
+            Route::patch('/soal_tk4/{paket_soal_id}/update','PaketSoalController@updateSoalTk4', ['$paket_soal_id' =>'paket_soal_id'])->name('updateSoalTk4');
+
         });
     });
     Route::group(['prefix' => 'kelas'], function () {
@@ -83,8 +87,14 @@ Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], functio
     });
     Route::group(['prefix' => 'ujian'], function () {
         Route::get('/','UjianController@getUjianSiswa')->name('getUjianSiswa');
-        Route::get('/{id}','UjianController@startUjian')->name('startUjian');
-
+        Route::get('/room/{id}','UjianController@runUjian')->name('runUjian');
     });
 
 });
+
+Route::get('pagination/fetch_data', 'UjianController@fetch_data');
+Route::get('store/jawaban_tk1', 'UjianController@storeJawabanTk1');
+Route::get('store/jawaban_tk2', 'UjianController@storeJawabanTk2');
+Route::get('store/jawaban_tk3', 'UjianController@storeJawabanTk3');
+Route::get('store/jawaban_tk4', 'UjianController@storeJawabanTk4');
+Route::get('store/hasil_ujian', 'UjianController@storeHasilUjian');
