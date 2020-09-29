@@ -16,7 +16,7 @@ class AdminController extends Controller
             'instansi' => 'required',
             'alamat' => 'required',
             'jk' => 'required',
-            'foto' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
+            'foto' => 'required|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $file = $request->file('foto');

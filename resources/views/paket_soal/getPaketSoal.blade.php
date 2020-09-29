@@ -38,14 +38,14 @@
                 @endif
                 @if($paket_soal->count() != 0)
                 <div class="table-inside">
-                    <table class="table table-striped table-bordered table-sm">
+                    <table class="table table-striped table-bordered table-md">
                         <thead class="text-center bg-dark" style="color:white;">
                             <tr>
                                 <th scope="col" style="width:50px">No</th>
                                 <th scope="col" >Nama Paket Soal </th>
                                 <th scope="col" style="width:130px">Jumlah Soal </th>
                                 <!-- <th scope="col" style="width:150px">Download </th> -->
-                                <th scope="col" style="width:150px">Opsi</th>
+                                <th scope="col" style="width:200px">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +55,10 @@
                                 <td scope="row" class="text-center"><?php   $i++;  echo $i; ?></td>
                                 <?php $i++; ?>
                                 <td >{{ $item->nama_paket_soal }}</td>
-
                                 <td class="text-center">#</td>
                                 <td class="text-center">
-                                    <a href="{{route('soalSatuan',$item->id)}}"><button class="btn btn-warning">Detail Soal</button></a>
-                                    <button class="btn btn-danger hapus" data-paket_soal_id="{{$item->id}}" data-nama_paket_soal="{{$item->nama_paket_soal}}">Hapus</button>
-
+                                    <a href="{{route('soalSatuan',$item->id)}}"><button class="btn btn-warning btn-sm" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-eye"></i> Detail Soal</button></a>
+                                    <button class="btn btn-danger btn-sm hapus" data-paket_soal_id="{{$item->id}}" data-nama_paket_soal="{{$item->nama_paket_soal}}" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>
                             @endforeach
