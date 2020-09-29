@@ -24,14 +24,7 @@
     <div class="row">
       <div class="col-md-8"></div>
       <div class="col-md-4">
-        <a href=""> <button class="btn btn-danger" onclick="closeFullscreen();" peserta_ujian_id="{{$peserta_ujian->id}}"> Akhiri Ujian </button> </a>
-      </div>
-    </div>
-
-
-    <div class="container video">
-      <div  class="row">
-        <video autoplay="true" id="video-webcam" width="160px" height="122px"> </video>
+        <a href="{{route('finishUjian',$peserta_ujian->id)}}"> <button class="btn btn-danger" > Akhiri Ujian </button> </a>
       </div>
     </div>
 
