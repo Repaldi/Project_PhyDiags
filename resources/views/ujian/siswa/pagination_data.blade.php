@@ -134,8 +134,8 @@ use App\SoalTk4;
 
 <script>
 
-const peserta_ujian_id  = $("#peserta_ujian_id").val();
-const ujian_id          = $('#ujian_id').val();
+var peserta_ujian_id  = $("#peserta_ujian_id").val();
+var ujian_id          = $('#ujian_id').val();
 var soal_satuan_id      = $('#soal_satuan_id').val();
 
 function hasilUjian() {

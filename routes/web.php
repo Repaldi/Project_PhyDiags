@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], functio
         Route::get('/','KelasController@getKelasSiswa')->name('getKelasSiswa');
         Route::post('/gabungkelas','KelasController@gabungKelasSiswa')->name('gabungKelasSiswa');
         Route::get('/show/{id}','KelasController@showKelasSiswa')->name('showKelasSiswa');
+        Route::get('/hasilujian/{id}','KelasController@hasilUjian')->name('hasilUjian');
     });
     Route::group(['prefix' => 'ujian'], function () {
         Route::get('/','UjianController@getUjianSiswa')->name('getUjianSiswa');

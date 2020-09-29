@@ -21,7 +21,7 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
+            'foto' => 'required|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $file = $request->file('foto');
@@ -52,7 +52,7 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
+            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $guru = Guru::find(Auth::user()->guru->id); //tampilkan profil
@@ -91,7 +91,7 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'required|file|image|mimes:png,jpg,jpeg|max:2048',
+            'foto' => 'required|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $file = $request->file('foto');
@@ -123,7 +123,7 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg|max:2048',
+            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
         $siswa= Siswa::find(Auth::user()->siswa->id); //tampilkan profil
