@@ -20,4 +20,8 @@ class PesertaUjian extends Model
     public function siswa(){
       return $this->belongsTo(Siswa::class);
     }
+    public function hasil_ujian()
+    {
+      return $this->hasMany(HasilUjian::class);
+    }
 }

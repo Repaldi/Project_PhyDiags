@@ -29,4 +29,8 @@ class SoalSatuan extends Model
     {
       return $this->hasOne(SoalTk4::class);
     }
+    public function hasil_ujian()
+    {
+      return $this->hasMany(HasilUjian::class);
+    }
 }

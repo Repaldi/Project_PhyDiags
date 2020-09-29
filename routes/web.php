@@ -93,3 +93,4 @@ Route::get('store/jawaban_tk1', 'UjianController@storeJawabanTk1');
 Route::get('store/jawaban_tk2', 'UjianController@storeJawabanTk2');
 Route::get('store/jawaban_tk3', 'UjianController@storeJawabanTk3');
 Route::get('store/jawaban_tk4', 'UjianController@storeJawabanTk4');
+Route::get('store/hasil_ujian', 'UjianController@storeHasilUjian');

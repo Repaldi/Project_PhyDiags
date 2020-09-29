@@ -108,6 +108,7 @@ use App\SoalTk4;
                   </div>
                 </div>
 
+                <input type="hidden" value="{{ $item->id }}" id="soal_satuan_id">
             @endforeach
 
           </div>
@@ -133,8 +134,28 @@ use App\SoalTk4;
 
 <script>
 
-var peserta_ujian_id  = $("#peserta_ujian_id").val();
-const ujian_id        = $('#ujian_id').val();
+const peserta_ujian_id  = $("#peserta_ujian_id").val();
+const ujian_id          = $('#ujian_id').val();
+var soal_satuan_id      = $('#soal_satuan_id').val();
+
+function hasilUjian() {
+    $.ajax({
+        url: "{{ url('store/hasil_ujian') }}",
+        type: "GET",
+        dataType: 'json',
+        data: {
+            peserta_ujian_id: peserta_ujian_id,
+            soal_satuan_id: soal_satuan_id,
+        },
+        error: function(xhr, status, error) {
+          var err = eval("(" + xhr.responseText + ")");
+          console.log(err.Message);
+        },
+        success: function(data) {
+					  console.log(data);
+				}
+    });
+}
 
 // Pengaturan JS untuk simpan jawaban soal tingkat 1
 $('input[type=radio][name="pilihan_tk1"]').click(function() {
@@ -164,6 +185,7 @@ $('input[type=radio][name="pilihan_tk1"]').click(function() {
         },
         success: function(data) {
 					  console.log(data);
+            hasilUjian();
 				}
     });
 });
@@ -197,6 +219,7 @@ $('input[type=radio][name="pilihan_tk2"]').click(function() {
         },
         success: function(data) {
 					  console.log(data);
+            hasilUjian();
 				}
     });
 });
@@ -230,6 +253,7 @@ $('input[type=radio][name="pilihan_tk3"]').click(function() {
         },
         success: function(data) {
 					  console.log(data);
+            hasilUjian();
 				}
     });
 });
@@ -263,6 +287,7 @@ $('input[type=radio][name="pilihan_tk4"]').click(function() {
         },
         success: function(data) {
 					  console.log(data);
+            hasilUjian();
 				}
     });
 });
