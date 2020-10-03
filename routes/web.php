@@ -72,7 +72,9 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/{id}','UjianController@showUjian')->name('showUjian');
         Route::patch('/update','UjianController@updateUjian')->name('updateUjian');
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
+        Route::get('/hasil/{id}','UjianController@showHasilUjian')->name('showHasilUjian');
     });
+
 });
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){

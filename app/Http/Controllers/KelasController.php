@@ -8,6 +8,7 @@ use App\AnggotaKelas;
 use App\Kelas;
 use App\PesertaUjian;
 use App\HasilUjian;
+use App\Ujian;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -54,9 +55,9 @@ class KelasController extends Controller
         $kelas           = Kelas::find($id);
         $anggotakelas    = AnggotaKelas::where('kelas_id',$id)->join('siswa','anggota_kelas.siswa_id','=','siswa.id')
                           ->orderBy('siswa.nama_lengkap')->get();
+        $ujian = Ujian::where('kelas_id',$id)->where('isdelete',0)->get();
 
-
-        return view('kelas.showKelas', compact('kelas','anggotakelas'));
+        return view('kelas.showKelas', compact('kelas','anggotakelas','ujian'));
     }
 
     //Bagian Siswa

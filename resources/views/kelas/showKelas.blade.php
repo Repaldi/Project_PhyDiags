@@ -88,16 +88,35 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="ujian-tab" data-toggle="tab" href="#ujian" role="tab" aria-controls="ujian" aria-selected="true">Ujian</a>
                         </li>
-                  
                     </ul>
 
-                    <div class="tab-content mr-3 ml-3">
+                    <div class="tab-content">
                         <!-- ujian -->
-                        <div class="tab-pane" id="ujian" role="tabpanel" aria-labelledby="ujian-tab">
-
-                        </div>
+                        <div class="tab-pane table-inside" id="ujian" role="tabpanel" aria-labelledby="ujian-tab">                     
+                            <table class="table table-striped table-bordered table-sm">
+                                <thead class="text-center bg-dark" style="color:white;">
+                                    <tr>
+                                        <th scope="col" style="width:50px">No</th>
+                                        <th scope="col" >Nama Ujian </th>
+                                        <th scope="col" style="width:70px">Opsi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i = 0; ?>
+                                    @foreach ($ujian as $item)
+                                    <tr>
+                                        <td scope="row" class="text-center"><?php   $i++;  echo $i; ?></td>
+                                        <?php $i++; ?>
+                                        <td class="text-center">{{ $item->nama_ujian}}</td>
+                                        <td class="text-center">
+                                            <a href="{{route('showUjian',$item->id)}}"><button class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;"> <i class="fa fa-eye"></i></button></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>              
                     </div>
-
                 </div>
             </div>
         </div>
@@ -110,9 +129,7 @@
 <script>
   $(function () {
     $('#myTab li:first-child a').tab('show')
-  })
-    $("#start").hide();
-
+  });
   function copy_text() {
         document.getElementById("kode_kelas").select();
         document.execCommand("copy");
@@ -121,8 +138,6 @@
             icon: "success",
         });
     }
-//edit
 
 </script>
 @endsection
-<!-- update Modal (paket)-->

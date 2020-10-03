@@ -31,6 +31,11 @@
                                 <th scope="col" style="width:50px">No</th>
                                 <th scope="col" >Nama Siswa </th>
                                 <th scope="col" >Keterangan</th>
+                                <th>SC</th>
+                                <th>FP</th>
+                                <th>LK</th>
+                                <th>FN</th>
+                                <th>MSC</th>
                                 <th scope="col" style="width:150px">Opsi</th>
                             </tr>
                         </thead>
@@ -42,8 +47,13 @@
                                 <?php $i++; ?>
                                 <td >{{ $item->siswa->nama_lengkap}}</td>
                                 <td >@if ($item->status == 0) Belum dikerjakan @else Telah dikerjakan @endif</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td class="text-center">
-                                    <a href=""><button class="btn btn-warning btn-sm" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-eye"></i>  Detail Hasil</button></a>
+                                <a href="{{route('showHasilUjian',$item->id)}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -68,3 +78,4 @@
 </main>
 
 @endsection
+

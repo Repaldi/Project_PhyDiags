@@ -81,7 +81,12 @@ class UjianController extends Controller
         ]);
         return redirect()->back()->with('success','Berhasil menghapus ujian');
     }
-
+    public function showHasilUjian($id)
+    {
+        $peserta_ujian = PesertaUjian::find($id);
+        $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->get();
+        return view('ujian.guru.showHasilUjian',compact('hasil_ujian','peserta_ujian'));
+    }
 
 
     //---------------------------------------------------------------------------------------
