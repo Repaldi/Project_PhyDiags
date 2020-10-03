@@ -10,17 +10,13 @@
 
 <div class="container">
     <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading mb-0"><strong>Detail Ujian</strong></h4>
-        <h4 class="alert-heading text-center mt-0"><strong>{{$ujian->nama_ujian}}</strong></h4>
-        <p>{{$ujian->deskripsi}}</p>
-        <hr>
-        <p class="mb-0">{{$ujian->kelas->nama_kelas}}</p>
+        <h5 class="alert-heading mb-0"><strong>{{$ujian->kelas->nama_kelas}} </strong></h5>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <strong style="font-size: 18px;">Daftar Hasil Ujian Siswa</strong>
+                    Daftar Hasil {{$ujian->nama_ujian}} 
                 </div>
                 <div class="card-body">
                 @if($peserta_ujian->count() != 0)
@@ -30,7 +26,7 @@
                             <tr>
                                 <th scope="col" style="width:50px">No</th>
                                 <th scope="col" >Nama Siswa </th>
-                                <th scope="col" >Keterangan</th>
+                                <th scope="col" >Status</th>
                                 <th>SC</th>
                                 <th>FP</th>
                                 <th>LK</th>
@@ -73,7 +69,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-2">
+            <div class="alert alert-success" role="alert">
+                <p class="mb-0"></p>
+            </div>
+        </div>
     </div>
+    <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
 </div>
 </main>
 

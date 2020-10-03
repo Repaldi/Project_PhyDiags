@@ -22,7 +22,7 @@
                     <p>{!! $soal_satuan->indikator !!}</p>
                 </div>
             </div>
-            <a href="{{route('soalSatuan',$soal_satuan->paket_soal->id)}}"> <button class="btn btn-info">Kembali</button> </a>
+            <a href="{{route('soalSatuan',$soal_satuan->paket_soal->id)}}"> <button class="btn btn-warning mr-3" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button> </a>
         </div>
         <div class="col-md-8 ">
           @if ($errors->any())
@@ -34,7 +34,9 @@
                 </ul>
             </div>
           @endif
-            <ul class="nav nav-pills mb-3  justify-content-center " id="pills-tab" role="tablist">
+          <div class="card">
+            <div class="card-body">
+            <ul class="nav nav-tabs mb-3  justify-content-center " id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="pills-tk1-tab" data-toggle="pill" href="#pills-tk1" role="tab" aria-controls="pills-tk1" aria-selected="true"> <strong> Soal Tingkat 1</strong></a>
                 </li>
@@ -51,8 +53,7 @@
             <div class="tab-content" id="pills-tabContent">
                 <!-- soal tingkat 1 -->
                 <div class="tab-pane fade show active" id="pills-tk1" role="tabpanel" aria-labelledby="pills-tk1-tab">
-                    <div class="card">
-                        <div class="card-body">
+                    
                         @if ( $soal_tk1 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk1->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -70,7 +71,7 @@
                                     data-pil_d_tk1_update="{{ $soal_tk1->pil_d }}"
                                     data-gambar_tk1_update="{{ $soal_tk1->gambar }}"
                                     data-kunci_tk1_update="{{ $soal_tk1->kunci }}"
-                                    title="Edit">Edit</button>
+                                    title="Edit" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-edit mr-2" ></i>Edit</button>
                                 </div>
                             </div>
                         @else
@@ -128,17 +129,15 @@
                                         <input type="text" name="pil_d" id="pil_d"  class="form-control" >
                                     </div>
                                 </div>
-                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
+                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;">Simpan</button></div></div>
 
                             </form>
                         @endif
-                        </div>
-                    </div>
+                       
                 </div>
                 <!-- soal tingkat 2 -->
                 <div class="tab-pane fade" id="pills-tk2" role="tabpanel" aria-labelledby="pills-tk2-tab">
-                    <div class="card">
-                        <div class="card-body">
+                  
                         @if ( $soal_tk2 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk2->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -153,7 +152,7 @@
                                     data-pil_a_tk2_update="{{ $soal_tk2->pil_a }}"
                                     data-pil_b_tk2_update="{{ $soal_tk2->pil_b }}"
                                     data-kunci_tk2_update="{{ $soal_tk2->kunci }}"
-                                    title="Edit">Edit</button>
+                                    title="Edit" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-edit mr-2" ></i>Edit</button>
                                 </div>
                             </div>
                         @else
@@ -191,16 +190,14 @@
                                         <input type="text" name="pil_b" id="pil_b" class="form-control" value="Tidak Yakin" placeholder="Tidak Yakin" >
                                     </div>
                                 </div>
-                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
+                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info" style="box-shadow: 3px 2px 5px grey;">Simpan</button></div></div>
                             </form>
                         @endif
-                        </div>
-                    </div>
+                       
                 </div>
                 <!-- soal tingkat 3 -->
                 <div class="tab-pane fade" id="pills-tk3" role="tabpanel" aria-labelledby="pills-tk3-tab">
-                <div class="card">
-                        <div class="card-body">
+               
                         @if ( $soal_tk3 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk3->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -218,7 +215,7 @@
                                     data-pil_d_tk3_update="{{ $soal_tk3->pil_d }}"
                                     data-gambar_tk3_update="{{ $soal_tk3->gambar }}"
                                     data-kunci_tk3_update="{{ $soal_tk3->kunci }}"
-                                    title="Edit">Edit</button>
+                                    title="Edit" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-edit mr-2" ></i>Edit</button>
                                 </div>
                             </div>
                         @else
@@ -276,17 +273,15 @@
                                         <input type="text" name="pil_d" id="pil_d"  class="form-control" >
                                     </div>
                                 </div>
-                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
+                                <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info" style="box-shadow: 3px 2px 5px grey;">Simpan</button></div></div>
 
                             </form>
                         @endif
-                        </div>
-                    </div>
+                        
                 </div>
                 <!-- soal tingkat 4 -->
                 <div class="tab-pane fade" id="pills-tk4" role="tabpanel" aria-labelledby="pills-tk4-tab">
-                    <div class="card">
-                        <div class="card-body">
+                  
                         @if ( $soal_tk4 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk4->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -301,7 +296,7 @@
                                     data-pil_a_tk4_update="{{ $soal_tk4->pil_a }}"
                                     data-pil_b_tk4_update="{{ $soal_tk4->pil_b }}"
                                     data-kunci_tk4_update="{{ $soal_tk4->kunci }}"
-                                    title="Edit">Edit</button>
+                                    title="Edit" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-edit mr-2" ></i>Edit</button>
                                 </div>
                             </div>
                         @else
@@ -342,10 +337,12 @@
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
                             </form>
                         @endif
-                        </div>
-                    </div>
+                        
                 </div>
             </div>
+            </div>
+          </div>
+           
         </div>
     </div>
 </div>
@@ -450,7 +447,7 @@ function alertUpdate() {
 
  <!-- Update Modal (SoalTK1)-->
  <div class="modal fade update_modal_soaltk1"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" >
+        <div class="modal-dialog modal-lg" >
             <div class="modal-content">
                 <div class="modal-header ">
                     <h5 class="modal-title " id="exampleModalLabel"> Soal No. </h5>
@@ -458,65 +455,71 @@ function alertUpdate() {
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <form action="{{route('updateSoalTk1',$soal_satuan->paket_soal->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                      <div class="modal-body">
                         <div class="container">
-
-                            <input type="hidden" name="id" id="soal_tk1_id_update" value="">
-                            <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk1_update" value="">
-                            <div class="form-group" >
-                            <img src="" width="200px" id="gambar_tk1_update">
-                            <input type="file" name="gambar">
-                            <p><strong>Biarkan kosong jika tidak ingin menambah gambar</strong></p>
-
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group text-center">
+                                        <img src="" class="mb-3"  height="230px" width="100%"  id="gambar_tk1_update">
+                                        <input type="file" name="gambar">
+                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p> 
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="hidden" name="id" id="soal_tk1_id_update" value="">
+                                    <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk1_update" value="">
+                                   
+                                    <div class="form-group">
+                                        <label > <strong>Pertanyaan </strong> </label>
+                                        <textarea class="form-control" value="" id="pertanyaan_tk1_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label> <strong> Pilihan Jawaban </strong> </label>
+                                        <!-- Pilihan A-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text" > A </span>
+                                            </div>
+                                            <input type="text" name="pil_a" value="" id="pil_a_tk1_update" class="form-control" >
+                                        </div>
+                                        <!-- Pilihan B-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text"> B </span>
+                                            </div>
+                                            <input type="text" name="pil_b" value="" id="pil_b_tk1_update"  class="form-control" >
+                                        </div>
+                                        <!-- Pilihan C-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text" > C </span>
+                                            </div>
+                                            <input type="text" name="pil_c" value="" id="pil_c_tk1_update"  class="form-control" >
+                                        </div>
+                                        <!-- Pilihan D-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text"> D </span>
+                                            </div>
+                                            <input type="text" name="pil_d" id="pil_d_tk1_update" value="" class="form-control" >
+                                        </div>
+                                        <div class="input-group-inline">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref"><strong>Jawaban Benar</strong> </label>
+                                                <select class="custom-select my-1 mr-sm-2" name="kunci" id="kunci_tk1_update" >
+                                                    <option selected  id="kunci_tk1_update"></option>
+                                                    <option value="A" >A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="alamat"> Pertanyaan </label>
-                                <textarea class="form-control" value="" id="pertanyaan_tk1_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
-                            </div>
-                            <div class="form-group" >
-                                <!-- Pilihan A-->
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text" > A </span>
-                                    </div>
-                                    <input type="text" name="pil_a" value="" id="pil_a_tk1_update" class="form-control" >
-                                </div>
-                                <!-- Pilihan B-->
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text"> B </span>
-                                    </div>
-                                    <input type="text" name="pil_b" value="" id="pil_b_tk1_update"  class="form-control" >
-                                </div>
-                                 <!-- Pilihan C-->
-                                 <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text" > C </span>
-                                    </div>
-                                    <input type="text" name="pil_c" value="" id="pil_c_tk1_update"  class="form-control" >
-                                </div>
-                                 <!-- Pilihan D-->
-                                 <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text"> D </span>
-                                    </div>
-                                    <input type="text" name="pil_d" id="pil_d_tk1_update" value="" class="form-control" >
-                                </div>
-                                <div class="input-group-inline">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Jawaban Benar</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="kunci" id="kunci_tk1_update" >
-                                            <option selected  id="kunci_tk1_update"></option>
-                                            <option value="A" >A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                        </select>
-                                </div>
-                            </div>
+                         
                         </div>
                     </div>
 
@@ -592,7 +595,7 @@ function alertUpdate() {
 <!-- Penutup Update Modal Soal TK2 -->
  <!-- Update Modal (SoalTK3)-->
  <div class="modal fade update_modal_soaltk3"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" >
+        <div class="modal-dialog modal-lg" >
             <div class="modal-content">
                 <div class="modal-header ">
                     <h5 class="modal-title " id="exampleModalLabel"> Soal No. </h5>
@@ -606,57 +609,62 @@ function alertUpdate() {
                     @method('PATCH')
                      <div class="modal-body">
                         <div class="container">
-
-                            <input type="hidden" name="id" id="soal_tk3_id_update" value="">
-                            <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk3_update" value="">
-                            <div class="form-group" >
-                            <img src="" width="200px" id="gambar_tk3_update">
-                            <input type="file" name="gambar">
-                            <p><strong>Biarkan kosong jika tidak ingin menambah gambar</strong></p>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="pertanyaan"> Pertanyaan </label>
-                                <textarea class="form-control" value="" id="pertanyaan_tk3_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
-                            </div>
-                            <div class="form-group" >
-                                <!-- Pilihan A-->
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text" > A </span>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group text-center">
+                                        <img src="" class="mb-3" height="230px" width="100%" id="gambar_tk3_update">
+                                        <input type="file" name="gambar">
+                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p> 
                                     </div>
-                                    <input type="text" name="pil_a" value="" id="pil_a_tk3_update" class="form-control" >
                                 </div>
-                                <!-- Pilihan B-->
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text"> B </span>
+                                <div class="col-md-8">
+                                    <input type="hidden" name="id" id="soal_tk3_id_update" value="">
+                                    <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk3_update" value="">
+                                    
+                                    <div class="form-group">
+                                        <label for="pertanyaan"> Pertanyaan </label>
+                                        <textarea class="form-control" value="" id="pertanyaan_tk3_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
                                     </div>
-                                    <input type="text" name="pil_b" value="" id="pil_b_tk3_update"  class="form-control" >
-                                </div>
-                                 <!-- Pilihan C-->
-                                 <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text" > C </span>
+                                    <div class="form-group" >
+                                        <!-- Pilihan A-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text" > A </span>
+                                            </div>
+                                            <input type="text" name="pil_a" value="" id="pil_a_tk3_update" class="form-control" >
+                                        </div>
+                                        <!-- Pilihan B-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text"> B </span>
+                                            </div>
+                                            <input type="text" name="pil_b" value="" id="pil_b_tk3_update"  class="form-control" >
+                                        </div>
+                                        <!-- Pilihan C-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text" > C </span>
+                                            </div>
+                                            <input type="text" name="pil_c" value="" id="pil_c_tk3_update"  class="form-control" >
+                                        </div>
+                                        <!-- Pilihan D-->
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
+                                                <span class="input-group-text"> D </span>
+                                            </div>
+                                            <input type="text" name="pil_d" id="pil_d_tk3_update" value="" class="form-control" >
+                                        </div>
+                                        <div class="input-group-inline">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Jawaban Benar</label>
+                                                <select class="custom-select my-1 mr-sm-2" name="kunci" id="kunci_tk3_update" >
+                                                    <option selected  id="kunci_tk3_update"></option>
+                                                    <option value="A" >A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                        </div>
                                     </div>
-                                    <input type="text" name="pil_c" value="" id="pil_c_tk3_update"  class="form-control" >
-                                </div>
-                                 <!-- Pilihan D-->
-                                 <div class="input-group mb-2">
-                                    <div class="input-group-prepend" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                        <span class="input-group-text"> D </span>
-                                    </div>
-                                    <input type="text" name="pil_d" id="pil_d_tk3_update" value="" class="form-control" >
-                                </div>
-                                <div class="input-group-inline">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Jawaban Benar</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="kunci" id="kunci_tk3_update" >
-                                            <option selected  id="kunci_tk3_update"></option>
-                                            <option value="A" >A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                        </select>
                                 </div>
                             </div>
                         </div>
