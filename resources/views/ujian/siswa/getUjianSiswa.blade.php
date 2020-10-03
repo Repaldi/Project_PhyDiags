@@ -18,7 +18,7 @@
                         {{$item->ujian->kelas->nama_kelas}}
                         {{$item->ujian->deskripsi}}
 
-                        <a href="{{route('runUjian',$item->id)}}"><button class="btn btn-info">Kerjakan Ujian</button></a>
+                        <a href="{{route('runUjian',$item->id)}}"><button class="btn btn-info mt-2">Kerjakan Ujian</button></a>
                     </div>
                 </div>
            </div>

@@ -39,7 +39,7 @@
                     <div class="col-md-8">
                         <div class="card"  style="box-shadow: 5px 5px 10px rgba(48, 10, 64, 0.5);">
                             <div class="card-header  pt-3 pb-2  text-center"  >
-                                <strong style="font-size:18px"> Foto Profil </strong>
+                                <strong style="font-size:18px"> Profil </strong>
                             </div>
                             <div class="card-body">
                                 @if (session('success'))
@@ -77,7 +77,15 @@
                                     </fieldset>
 
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }} ">
-
+                                    <div class="form-row mb-0 mt-0 pt-0">
+                                        <div class="form-group col-md-12">
+                                            <label for="nama_lengkap"> <b>Nama Lengkap: </b> </label>
+                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{$siswa->nama_lengkap}}"  style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
+                                            @if($errors->has('nama_lengkap'))
+                                            <span class="help-block">{{$errors->first('nama_lengkap')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="form-row mb-0 mt-0 pt-0">
                                         <div class="form-group col-md-6">
                                             <label for="nomor_induk"><b> Nomor Induk  : </b></label>
@@ -86,25 +94,14 @@
                                             <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                             @endif
                                         </div>
-
-                                        <div class="form-group col-md-6">
-                                            <label for="nama_lengkap"> <b>Nama Lengkap: </b> </label>
-                                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{$siswa->nama_lengkap}}"  style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
-                                            @if($errors->has('nama_lengkap'))
-                                            <span class="help-block">{{$errors->first('nama_lengkap')}}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="jk"> <b> Jenis Kelamin : </b> </label>
-                                            <input type="text" class="form-control" id="jk" name="jk"  value="{{$siswa->jk}}"  style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;">
-                                            @if($errors->has('jk'))
-                                                <span class="help-block">{{$errors->first('jk')}}</span>
-                                            @endif
-                                        </div>         
-                                    </div>                   
+                                            <select class="form-control" name="jk" id="jk"  value="{{$siswa->jk}}" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;" >
+                                                <option selected disabled >{{$siswa->jk}}</option>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                            </select>
+                                        </div>                  
                                     <div class="text-right"> <button type="submit" onclick="alertUpdate()" class="btn btn-info" style="box-shadow: 3px 2px 5px grey;"> Update Profil </button> </div>
 
                                 </div>

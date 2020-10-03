@@ -20,15 +20,18 @@
 }
 </style>
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert">
+                <h5 class="alert-heading mb-0"><strong>{{$peserta_ujian->ujian->kelas->nama_kelas}} </strong></h5>
+            </div>
+        </div>
+    </div>
+
 <div class="card ">
 
     <div class="card-header" > 
-        <strong style="font-size:18px">Hasil Ujian Peserta</strong>
-        <!-- <div class="col-md-10 text-right">
-          Download HASIL 
-        </div> -->
-       
-
+        Hasil Ujian {{$peserta_ujian->ujian->nama_ujian}}
     </div>
 
     <div class="card-body text-center">
@@ -46,8 +49,12 @@
                 <thead class="thead-dark text-center">
                     <tr>
                         <th scope="col" style="width:50px">No</th>
-                        <th scope="col" style="width:400px">Kategori</th>
-                        <th scope="col" style="width:150px">FeedBack</th>
+                        <th>Tier 1</th>
+                        <th>Tier 2</th>
+                        <th>Tier 3</th>
+                        <th>Tier 4</th>
+                        <th scope="col" >Kategori</th>
+                        <th scope="col">FeedBack</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +62,12 @@
                     @foreach ($hasil_ujian as $item)
                     <tr>
                         <td scope="row"><?php  $i++;  echo $i; ?></td>
+                        <td>@if($item->jawaban_tk1->jawaban == $item->jawaban_tk1->soal_tk1->kunci) 1 @else 0 @endif</td>
+                        <td>@if($item->jawaban_tk2->jawaban == $item->jawaban_tk2->soal_tk2->kunci) 1 @else 0 @endif</td>
+                        <td>@if($item->jawaban_tk3->jawaban == $item->jawaban_tk3->soal_tk3->kunci) 1 @else 0 @endif</td>
+                        <td>@if($item->jawaban_tk4->jawaban == $item->jawaban_tk4->soal_tk4->kunci) 1 @else 0 @endif</td>
                         <td>{{$item->keterangan}}</td>
-                        <td> @if ($item->hasil == 'SC') Anda memahami blabla @else Anda tidak memahami blabla @endif</td>
+                        <td> @if ($item->hasil == 'SC') Anda memahami  @else Anda tidak memahami @endif</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -66,5 +77,7 @@
      
     </div>
 </div>
+<a href="{{route('showKelasSiswa',$peserta_ujian->ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
+
 </div>
 @endsection

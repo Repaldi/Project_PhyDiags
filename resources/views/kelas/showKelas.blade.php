@@ -13,7 +13,7 @@
         <div class="alert alert-success " role="alert">
             <div class="row">
                 <div class="col-md-9">
-                    <h5 class="alert-heading"><strong>{{$kelas->nama_kelas}}</strong> </h5> <hr class="mb-1 mt-3">
+                    <h5 class="alert-heading"><strong>{{$kelas->nama_kelas}}</strong> </h5> <hr class="mb-1 mt-3"> <hr class="mt-1 mb-1">
                     <p><strong>Deskripsi Kelas :</strong> {{$kelas->deskripsi}} </p>
                 </div>
                 <div class="col-md-3">

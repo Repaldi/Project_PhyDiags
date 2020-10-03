@@ -21,12 +21,12 @@
 
 
         <div class="alert alert-success" role="alert">
-            <h5 class="alert-heading"><strong>{{$kelas->nama_kelas}}</strong> </h5>
-            <p>{{$kelas->deskripsi}}</p>
+            <h5 class="alert-heading"><strong>{{$kelas->nama_kelas}}</strong> </h5> <hr class="mb-1 mt-3"> 
+            <p><strong>Deskripsi kelas : </strong> {{$kelas->deskripsi}}</p>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="card mb-3">
+                <div class="card ">
                     <div class="card-header">Daftar Siswa</div>
                     <div class="card-body">
                         @if($anggotakelas->count() != 0)
@@ -58,6 +58,9 @@
                         @endif
                     </div>
                 </div>
+
+                <a href="{{route('getKelasSiswa')}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
+
             </div>
             <div class="col-md-8">
                 <div class="card pt-3 pr-3 pl-3 pb-0">
