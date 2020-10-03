@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/create','UjianController@createUjian')->name('createUjian');
         Route::post('/','UjianController@storeUjian')->name('storeUjian');
         Route::get('/{id}','UjianController@showUjian')->name('showUjian');
+        Route::patch('/update','UjianController@updateUjian')->name('updateUjian');
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
     });
 });

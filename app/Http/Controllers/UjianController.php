@@ -28,7 +28,9 @@ class UjianController extends Controller
     public function getUjian()
     {
         $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
-        return view('ujian.guru.getUjian',compact('ujian'));
+        $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
+        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
+        return view('ujian.guru.getUjian',compact('ujian','kelas','paket_soal'));
     }
     public function createUjian()
     {
@@ -65,14 +67,18 @@ class UjianController extends Controller
         $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->paginate(10);
         return view('ujian.guru.showUjian',compact(['ujian','peserta_ujian']));
     }
-
+    public function updateUjian(Request $request)
+    {
+        $ujian = Ujian::findOrFail($request->id);
+        $ujian->update($request->all());
+        return redirect()->route('getUjian');
+    }
     public function deleteUjian($id)
     {
         $ujian = Ujian::find($id);
         $ujian->update([
             'isdelete' => true,
         ]);
-
         return redirect()->back()->with('success','Berhasil menghapus ujian');
     }
 
@@ -272,7 +278,7 @@ class UjianController extends Controller
             if ($jawaban_tk2_kode == 1) {
                 if ($jawaban_tk3_kode == 1) {
                     if ($jawaban_tk4_kode == 1) {
-                        $hasil = "SC";  $keterangan = "Scientific" ;// 1111
+                        $hasil = "SC";  $keterangan = "Scientific Conception" ;// 1111
                     } else {
                         $hasil = "LK";  $keterangan = "Lack of Knowledge" ;// 1110
                     }

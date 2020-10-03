@@ -68,13 +68,6 @@
                         <b>Beranda</b>
                     </a>
                 </li>
-                <li>
-                    <a href="/admin.profil" class="mb-2 ">
-                        <i class="metismenu-icon pe-7s-user"></i>
-                        <b>Profil</b>
-                    </a>
-                </li>
-
                 <li> 
                     <a href="#" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>

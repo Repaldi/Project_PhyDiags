@@ -86,26 +86,16 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist" >
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pertemuan-tab" data-toggle="tab" href="#ujian" role="tab" aria-controls="pertemuan" aria-selected="true">Ujian</a>
+                            <a class="nav-link" id="ujian-tab" data-toggle="tab" href="#ujian" role="tab" aria-controls="ujian" aria-selected="true">Ujian</a>
                         </li>
-                        <!-- <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="kelompok-tab" data-toggle="tab" href="#" role="tab" aria-controls="kelompok" aria-selected="false">Kelompok</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#tugas" role="tab" aria-controls="tugas" aria-selected="false">Tugas </a>
-                        </li> -->
-
+                  
                     </ul>
 
                     <div class="tab-content mr-3 ml-3">
-                        <!-- pertemuan -->
-                        <div class="tab-pane" id="pertemuan" role="tabpanel" aria-labelledby="pertemuan-tab">
+                        <!-- ujian -->
+                        <div class="tab-pane" id="ujian" role="tabpanel" aria-labelledby="ujian-tab">
 
                         </div>
-                        <!-- kelompok  -->
-
-
-                        <!-- tugas -->
                     </div>
 
                 </div>
