@@ -12,7 +12,6 @@
       <div class="col-md-12">
         <div class="card pt-3 pl-5 pr-5 pb-3 head_exam">
           <div class="text-center"> <h4 style="color:black;"> <strong>{{ $ujian->nama_ujian }}</strong></h4> </div>
-          <div style="color:black; font-weight:bold;" id="teks_durasi"></div>
         </div>
       </div>
     </div>

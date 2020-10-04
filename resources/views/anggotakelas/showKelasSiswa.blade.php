@@ -22,7 +22,7 @@
 
         <div class="alert alert-success" role="alert">
             <h5 class="alert-heading"><strong>{{$kelas->nama_kelas}}</strong> </h5> <hr class="mb-1 mt-3"> 
-            <p><strong>Deskripsi kelas : </strong> {{$kelas->deskripsi}}</p>
+            <p class="mb-1"><strong>Deskripsi kelas : </strong> {{$kelas->deskripsi}}</p>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -67,7 +67,7 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item active" role="presentation">
-                            <a class="nav-link" id="hasil-ujian-tab" data-toggle="tab" href="#hasil-ujian" role="tab" aria-controls="hasil-ujian" aria-selected="false">Hasil Ujian</a>
+                            <a class="nav-link" id="hasil-ujian-tab" data-toggle="tab" href="#hasil-ujian" role="tab" aria-controls="hasil-ujian" aria-selected="false"><strong>Hasil Ujian</strong> </a>
                         </li>
                     </ul>
 
@@ -82,7 +82,6 @@
                                             <th scope="col" style="width:50px">No</th>
                                             <th scope="col" >Nama Ujian </th>
                                             <th scope="col" >Tanggal Ujian </th>
-                                            <th scope="col" >Nilai Ujian </th>
                                             <th scope="col" >Opsi</th>
                                         </tr>
                                     </thead>
@@ -94,11 +93,11 @@
                                             <?php $i++; ?>
                                             <td >{{$item->ujian->nama_ujian}}</td>
                                             <td class="text-center"> {{date("d-m-Y",strtotime($item->ujian->waktu_mulai))}} </td>
-                                            <td class="text-center">  </td>
+                                            
                                             <td class="text-center">
                                                 <a href="{{route('hasilUjian',$item->id)}}">
                                                     <button type="button" class="btn btn-info btn-sm">
-                                                        <i class="fa fa-eye fa-sm"></i> Detail
+                                                        <i class="fa fa-eye fa-sm"></i> Detail Hasil
                                                     </button>
                                                 </a>
 
@@ -108,7 +107,7 @@
                                     </tbody>
                                 </table>
                                 @else
-                                    <div class="row">
+                                    <div class="col-md-12">
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         <strong> Belum ada hasil ujian </strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

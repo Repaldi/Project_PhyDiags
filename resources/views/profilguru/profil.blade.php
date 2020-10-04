@@ -21,18 +21,6 @@
                     <strong style="font-size:18px; "> Profil</strong>
                 </div>
                 <div class="card-body pb-0 ">
-                        <!-- @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>{{ session('success') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
-                        @if (session('error'))
-                            <div class="alert alert-danger">{{ session('error') }}</div>
-                        @endif -->
-
                     <div class="container">
 
                             <div class="form-row ">
@@ -102,15 +90,14 @@
     @csrf
         <div class="row">
 
-
             <div class="col-md-8">
                 <div class="card"  style="box-shadow: 5px 5px 10px rgba(48, 10, 64, 0.5);">
                     <div class="card-header  pt-3 pb-2 text-center"  >
                         <strong style="font-size:18px"> Profil </strong>
                     </div>
-                    <div class="card-body pb-0">
+                    <div class="card-body ">
                         <div class="container">
-
+                            <fieldset disabled>
                                 <div class="form-row ">
                                     <div class="form-group col-md-6">
                                         <label for="disabledTextInput"><b> User Name </b> </label>
@@ -131,18 +118,12 @@
                                         </div>
                                     </div>
                                 </div>
+                            </fieldset>
 
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }} ">
-                            <div class="form-row mb-0 mt-0 pt-0">
-                                <div class="form-group col-md-6">
-                                    <label for="nomor_induk"><b> No. Induk  : </b></label>
-                                    <input type="text" class="form-control" id="nomor_induk" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('nomor_induk'))
-                                    <span class="help-block">{{$errors->first('nomor_induk')}}</span>
-                                    @endif
-                                </div>
 
-                                <div class="form-group col-md-6">
+                            <div class="form-row mb-0 mt-0 pt-0">
+                                <div class="form-group col-md-12">
                                     <label for="nama_lengkap"> <b>Nama Lengkap: </b> </label>
                                     <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
                                     @if($errors->has('nama_lengkap'))
@@ -150,18 +131,24 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-row mb-0 mt-0 pt-0">
 
+                            <div class="form-row mb-0 mt-0 pt-0">
                                 <div class="form-group col-md-6">
-                                    <label for="jk"> <b> Jenis Kelamin : </b> </label>
-                                    <input type="text" class="form-control" id="jk" name="jk" style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('jk'))
-                                    <span class="help-block">{{$errors->first('jk')}}</span>
+                                    <label for="nomor_induk"><b> Nomor Induk  : </b></label>
+                                    <input type="text" class="form-control" id="nomor_induk" name="nomor_induk"  style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('nip'))
+                                    <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                     @endif
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="jk"> <b> Jenis Kelamin : </b> </label>
+                                    <select class="form-control" name="jk" id="jk" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;" >
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div> 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -183,7 +170,6 @@
                               <span class="help-block">{{$errors->first('foto')}}</span>
                             @endif
                         </div>
-
 
                         <div class="text-right" > <button type="submit" onclick="alert()" class="btn btn-info mb-3" style="box-shadow: 3px 2px 5px grey;">Simpan Profil </button> </div>
                     </div>

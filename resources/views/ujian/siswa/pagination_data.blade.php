@@ -21,8 +21,13 @@ use App\JawabanTk4;
             <?php $i=1; ?>
             @foreach($soal_satuan as $item)
                 <div class=" container row" >
-                    <div class="col-md-3"><h6>Soal No. {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}   </h6></div>
-                    <div class="col-md-8 text-right"><h6>Poin : </h6></div>
+                    <div class="col-md-4"><h6>Soal No. {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}   </h6></div>
+                    <div class="col-md-8 text-right">
+                      <button class="btn btn-info btn-sm text-center">Tier 1</button>
+                      <button class="btn btn-info btn-sm text-center">Tier 2</button>
+                      <button class="btn btn-info btn-sm text-center">Tier 3</button>
+                      <button class="btn btn-info btn-sm text-center">Tier 4</button>
+                    </div>
                 </div>
                 <div class="container" >
                 <table >
@@ -216,7 +221,7 @@ use App\JawabanTk4;
 
       <div class="col-md-4">
         <div class="card" style=" border-radius: 0px 0px 20px 20px;">
-          <div class="card-header"  style="border-radius: 0px 0px 0px 0px;">Navigasi</div>
+          <div class="card-header"  style="border-radius: 0px 0px 0px 0px;">Navigasi Soal</div>
           <div class="card-body">
             <div class="row ">
               <div class="col-12 text-center " style=" overflow: Auto;">
