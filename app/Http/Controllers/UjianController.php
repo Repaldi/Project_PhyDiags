@@ -65,7 +65,9 @@ class UjianController extends Controller
     public function showUjian($id){
         $ujian          = Ujian::find($id);
         $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->paginate(6);
-        return view('ujian.guru.showUjian',compact(['ujian','peserta_ujian']));
+        $paket_soal_id  = Ujian::where('id',$id)->value('paket_soal_id');
+        $soal_satuan    = SoalSatuan::where('paket_soal_id', $paket_soal_id)->paginate(6);
+        return view('ujian.guru.showUjian',compact('ujian','peserta_ujian','soal_satuan'));
     }
     public function updateUjian(Request $request)
     {
