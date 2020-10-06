@@ -72,7 +72,8 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/{id}','UjianController@showUjian')->name('showUjian');
         Route::patch('/update','UjianController@updateUjian')->name('updateUjian');
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
-        Route::get('/hasil/{id}','UjianController@showHasilUjian')->name('showHasilUjian');
+        Route::get('/hasil/persiswa/{id}','UjianController@showHasilUjianPersiswa')->name('showHasilUjianPersiswa');
+        Route::get('/hasil/persoal/{ujian_id}/{id}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
     });
 
 });

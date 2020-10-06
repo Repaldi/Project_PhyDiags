@@ -83,13 +83,23 @@ class UjianController extends Controller
         ]);
         return redirect()->back()->with('success','Berhasil menghapus ujian');
     }
-    public function showHasilUjian($id)
+    public function showHasilUjianPersiswa($id)
     {
         $peserta_ujian = PesertaUjian::find($id);
         $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->paginate(6);
-        return view('ujian.guru.showHasilUjian',compact('hasil_ujian','peserta_ujian'));
+        return view('ujian.guru.showHasilUjianPersiswa',compact('hasil_ujian','peserta_ujian'));
     }
+    public function showHasilUjianPersoal($ujian_id,$id)
+    {
 
+        $soal_satuan = SoalSatuan::find($id);
+        $ujian = Ujian::find($ujian_id);
+        $hasil_ujian = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id','=',$ujian_id)->where('soal_satuan_id','=',$id)->get();
+        return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian]);
+        
+    }
 
     //---------------------------------------------------------------------------------------
     // METHOD UJIAN SISWA

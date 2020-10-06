@@ -47,7 +47,7 @@
                                         <td></td>
                                         <td></td>
                                         <td class="text-center">
-                                        <a href=""><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
+                                        <a href="{{route('showHasilUjianPersoal',['id'=> $item->id, 'ujian_id' => $ujian->id])}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -97,7 +97,7 @@
                                         <td></td>
                                         <td></td>
                                         <td class="text-center">
-                                        <a href="{{route('showHasilUjian',$item->id)}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
+                                        <a href="{{route('showHasilUjianPersiswa',$item->id)}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                         </td>
                                     </tr>
                                     @endforeach
