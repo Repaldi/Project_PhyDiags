@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 // use Auth;
+use Illuminate\Http\Request;
+use Excel;
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
@@ -86,6 +87,23 @@ class UjianController extends Controller
         $peserta_ujian = PesertaUjian::find($id);
         $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->paginate(6);
         return view('ujian.guru.showHasilUjian',compact('hasil_ujian','peserta_ujian'));
+    }
+
+    public function exportExcelHasil($id)
+    {
+      $ujian = Ujian::find($id);
+      $peserta_ujian = PesertaUjian::where('ujian_id',$ujian->id)->get();
+      // Excel::create('hasil', function($excel) use($ujian,$peserta_ujian) {
+      //
+      //     // Our first sheet
+      //     $excel->sheet('First sheet', function($sheet) use($ujian,$peserta_ujian) {
+      //       $sheet->loadView('ujian.guru.excel',compact(['ujian','peserta_ujian']));
+      //     });
+      //
+      //
+      // })->export('xls');
+      //dd($ujian->paket_soal->soal_satuan);
+      return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
     }
 
 

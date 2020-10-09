@@ -75,6 +75,8 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/hasil/{id}','UjianController@showHasilUjian')->name('showHasilUjian');
     });
 
+    Route::get('/export/{id}','UjianController@exportExcelHasil')->name('exportExcelHasil');
+
 });
 
 Route::group(['middleware' => ['auth','checkRole:2'],'prefix'=>'siswa'], function(){
@@ -103,4 +105,3 @@ Route::get('store/jawaban_tk2', 'UjianController@storeJawabanTk2');
 Route::get('store/jawaban_tk3', 'UjianController@storeJawabanTk3');
 Route::get('store/jawaban_tk4', 'UjianController@storeJawabanTk4');
 Route::get('store/hasil_ujian', 'UjianController@storeHasilUjian');
- 

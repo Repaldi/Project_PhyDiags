@@ -16,7 +16,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Daftar Hasil {{$ujian->nama_ujian}} 
+                    Daftar Hasil {{$ujian->nama_ujian}}
                 </div>
                 <div class="card-body">
                 @if($peserta_ujian->count() != 0)
@@ -76,9 +76,10 @@
             </div>
         </div>
     </div>
-    <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
+    <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>
+    <a href="{{route('exportExcelHasil',$ujian->id)}}"><button class="btn btn-primary" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-download mr-1" ></i> Excel</button></a>
+
 </div>
 </main>
 
 @endsection
-

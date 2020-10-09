@@ -1,7 +1,7 @@
 @extends('layouts.layout_guru')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags</title>
 @endsection
 
 @section('content')
@@ -52,8 +52,9 @@
                     </div>
                     {{$hasil_ujian->links()}}
                 </div>
-            </div>   
-            <a href="{{route('showUjian',$peserta_ujian->ujian->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
+            </div>
+            <a href="{{route('showUjian',$peserta_ujian->ujian->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>
+
         </div>
 
         <div class="col-md-4">
