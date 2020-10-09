@@ -106,7 +106,7 @@
                     <div class="card-header  pt-3 pb-2 text-center"  >
                         <strong style="font-size:18px"> Profil </strong>
                     </div>
-                    <div class="card-body pb-0">
+                    <div class="card-body">
                         <div class="container">
 
                                 <div class="form-row ">
@@ -131,16 +131,9 @@
                                 </div>
 
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }} ">
+                           
                             <div class="form-row mb-0 mt-0 pt-0">
-                                <div class="form-group col-md-6">
-                                    <label for="nomor_induk"><b> No. Induk  : </b></label>
-                                    <input type="text" class="form-control" id="nip" name="nomor_induk" style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('nip'))
-                                    <span class="help-block">{{$errors->first('nip')}}</span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="nama_lengkap"> <b>Nama Lengkap: </b> </label>
                                     <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
                                     @if($errors->has('nama_lengkap'))
@@ -148,15 +141,22 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-row mb-0 mt-0 pt-0">
 
+                            <div class="form-row mb-0 mt-0 pt-0">
                                 <div class="form-group col-md-6">
-                                    <label for="jk"> <b> Jenis Kelamin : </b> </label>
-                                    <input type="text" class="form-control" id="jk" name="jk" style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
-                                    @if($errors->has('jk'))
-                                    <span class="help-block">{{$errors->first('jk')}}</span>
+                                    <label for="nomor_induk"><b> Nomor Induk  : </b></label>
+                                    <input type="text" class="form-control" id="nomor_induk" name="nomor_induk"  style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('nip'))
+                                    <span class="help-block">{{$errors->first('nomor_induk')}}</span>
                                     @endif
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="jk"> <b> Jenis Kelamin : </b> </label>
+                                    <select class="form-control" name="jk" id="jk" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;" >
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div> 
                             </div>
                         </div>
 

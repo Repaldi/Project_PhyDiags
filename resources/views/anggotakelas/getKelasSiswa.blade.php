@@ -27,26 +27,36 @@
                     </div>
 
                     <div class="card-body pb-0">
-                        @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>{{ session('success') }}</strong>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
                         <div class="row">
-                            <div class="col-md-4 ml-auto  text-right" >
-                            <form method="POST" action="{{ route('gabungKelasSiswa') }}">
-                            @csrf
-                                <div class="input-group">
-                                <input type="kode_kelas" id="kode_kelas" name="kode_kelas" required
-                                placeholder="Masukkan Kode Kelas" class="form-control" autocomplete="off">
-                                    <div class="input-group-append">
-                                        <button type="submit"  onclick="alert()" class="btn btn-secondary"><i class="fa fa-plus mr-2"></i> <strong> Gabung</strong></button>
+                            <div class="col-md-8">
+                                @if($anggotaKelas->count() == 0)
+                                    <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+                                        <strong> Anda belum tergabung dalam kelas manapun. Silahkan gabung kedalam kelas!</strong>
+                                        <button type="button"   class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div>
-                            </form>
+                                @endif
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                                        <strong>{{ session('success') }}</strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-md-4 " >
+                                <form method="POST" action="{{ route('gabungKelasSiswa') }}">
+                                @csrf
+                                    <div class="input-group">
+                                    <input type="kode_kelas" id="kode_kelas" name="kode_kelas" required
+                                    placeholder="Masukkan Kode Kelas" class="form-control" autocomplete="off"  style="box-shadow: 3px 2px 5px grey;">
+                                        <div class="input-group-append">
+                                            <button type="submit"  onclick="alert()" class="btn btn-info"  style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-plus mr-2"></i> <strong> Gabung</strong></button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <hr/>
@@ -55,21 +65,14 @@
                             @foreach ($anggotaKelas as $item)
                                 <div class="col-md-4">
                                     <div class="alert alert-success mb-3">
-                                        <h5 class="card-title">{{$item->kelas->nama_kelas}}</h5>
-                                        <p >{{$item->kelas->deskripsi}}</p>
-                                        <p>Pengajar : {{$item->kelas->guru->nama_lengkap}}</p>
+                                        <h5 class="card-title">{{$item->kelas->nama_kelas}}</h5> <hr class="mb-0 mt-0">
+                                        <p class="mb-0">{{$item->kelas->deskripsi}}</p>
+                                        <p class="mb-2">Pengajar : {{$item->kelas->guru->nama_lengkap}}</p>
                                         <div class="text-right"><a href="{{route('showKelasSiswa',$item->kelas->id)}}" class="btn btn-info">Masuk</a></div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                        @else
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong> Anda belum tergabung dalam kelas manapun. Silahkan gabung kedalam kelas!</strong>
-                                <button type="button"   class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
                         @endif
 
                     </div>
@@ -83,11 +86,11 @@
 
 @section('js')
 <script>
-// function alert() {
-//     swal({
-//         title: "Berhasil gabung ke dalam kelas !",
-//         icon: "success",
-//     });
-// }
+function alert() {
+    swal({
+        title: "Berhasil gabung ke dalam kelas !",
+        icon: "success",
+    });
+}
 </script>
 @endsection

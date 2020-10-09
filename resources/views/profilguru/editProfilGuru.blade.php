@@ -101,7 +101,6 @@
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div> 
-                                        
                                     </div>
                   
                                     <div class="text-right"> <button type="submit" onclick="alertUpdate()" class="btn btn-info" style="box-shadow: 3px 2px 5px grey;"> Update Profil </button> </div>
