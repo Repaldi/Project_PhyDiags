@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 // use Auth;
+
 use Illuminate\Http\Request;
-use Excel;
+// use Excel;
+
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
@@ -21,6 +23,9 @@ use App\JawabanTk2;
 use App\JawabanTk3;
 use App\JawabanTk4;
 use App\HasilUjian;
+use App\Exports\HasilUjianExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class UjianController extends Controller
 {
@@ -115,8 +120,9 @@ class UjianController extends Controller
       //
       //
       // })->export('xls');
-      //dd($ujian->paket_soal->soal_satuan);
-      return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
+      return Excel::download(new HasilUjianExport($id), 'hasil.xlsx');
+      // dd($ujian->paket_soal->soal_satuan);
+      // return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
     }
 
 
