@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 // use Auth;
+
+use Illuminate\Http\Request;
+// use Excel;
+
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
@@ -20,6 +23,9 @@ use App\JawabanTk2;
 use App\JawabanTk3;
 use App\JawabanTk4;
 use App\HasilUjian;
+use App\Exports\HasilUjianExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class UjianController extends Controller
 {
@@ -98,8 +104,27 @@ class UjianController extends Controller
             $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
         })->where('peserta_ujian.ujian_id','=',$ujian_id)->where('soal_satuan_id','=',$id)->get();
         return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian]);
-        
+
     }
+
+    public function exportExcelHasil($id)
+    {
+      $ujian = Ujian::find($id);
+      $peserta_ujian = PesertaUjian::where('ujian_id',$ujian->id)->get();
+      // Excel::create('hasil', function($excel) use($ujian,$peserta_ujian) {
+      //
+      //     // Our first sheet
+      //     $excel->sheet('First sheet', function($sheet) use($ujian,$peserta_ujian) {
+      //       $sheet->loadView('ujian.guru.excel',compact(['ujian','peserta_ujian']));
+      //     });
+      //
+      //
+      // })->export('xls');
+      return Excel::download(new HasilUjianExport($id), 'hasil.xlsx');
+      // dd($ujian->paket_soal->soal_satuan);
+      // return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
+    }
+
 
     //---------------------------------------------------------------------------------------
     // METHOD UJIAN SISWA

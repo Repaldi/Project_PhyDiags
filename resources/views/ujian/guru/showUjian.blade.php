@@ -18,7 +18,7 @@
                 <div class="tab-pane fade show active" id="pills-persoal" role="tabpanel" aria-labelledby="pills-persoal-tab">
                 <div class="card">
                         <div class="card-header">
-                            Daftar Hasil {{$ujian->nama_ujian}} 
+                            Daftar Hasil {{$ujian->nama_ujian}}
                         </div>
                         <div class="card-body">
                         @if($soal_satuan->count() != 0)
@@ -55,7 +55,7 @@
                             </table>
                             {{$soal_satuan->links()}}
                         </div>
-                        
+
                         @endif
 
                         </div>
@@ -64,7 +64,7 @@
                 <div class="tab-pane fade" id="pills-persiswa" role="tabpanel" aria-labelledby="pills-persiswa-tab">
                 <div class="card">
                         <div class="card-header">
-                            Daftar Hasil {{$ujian->nama_ujian}} 
+                            Daftar Hasil {{$ujian->nama_ujian}}
                         </div>
                         <div class="card-body">
                         @if($peserta_ujian->count() != 0)
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="col-md-2">
@@ -135,7 +135,8 @@
             </div>
         </div>
     </div>
-    <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>       
+    <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>
+    <a href="{{route('exportExcelHasil',$ujian->id)}}"><button class="btn btn-primary" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-download mr-1" ></i> Excel</button></a>
 </div>
 </main>
 
@@ -143,6 +144,5 @@
 
 @section('js')
 <script>
-
 </script>
 @endsection

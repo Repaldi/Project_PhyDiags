@@ -30,8 +30,7 @@
                                     <td></td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
-                                   
-                                    <td>{{ $decrypt }}</td>
+                                    <td>{{Crypt::decryptString($item->password)}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

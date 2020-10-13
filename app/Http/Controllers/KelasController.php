@@ -60,7 +60,7 @@ class KelasController extends Controller
         return view('kelas.showKelas', compact('kelas','anggotakelas','ujian'));
     }
 
-    //Bagian Siswa
+    //Bagian Siswa 
     public function getKelasSiswa()
     {
       try {
@@ -100,7 +100,7 @@ class KelasController extends Controller
                             ->orderBy('siswa.nama_lengkap')->get();
         $siswa_id                   = auth()->user()->siswa->id;
         $anggota_kelas_id           = AnggotaKelas::where('siswa_id',$siswa_id)->where('kelas_id',$id)->value('id');
-        
+
         $hasil_ujian               = PesertaUjian::where('anggota_kelas_id',$anggota_kelas_id)->where('status',1)->get();
         return view('anggotakelas.showKelasSiswa', ['anggotakelas' => $anggotakelas, 'hasil_ujian'=> $hasil_ujian], compact('kelas'));
     }
@@ -108,7 +108,7 @@ class KelasController extends Controller
     public function hasilUjian($id){
       $peserta_ujian = PesertaUjian::find($id);
       $hasil_ujian = HasilUjian::where('peserta_ujian_id', $peserta_ujian->id)->get();
-      
+
       return view('anggotakelas.hasilUjian', ['peserta_ujian' => $peserta_ujian, 'hasil_ujian' => $hasil_ujian]);
     }
 
