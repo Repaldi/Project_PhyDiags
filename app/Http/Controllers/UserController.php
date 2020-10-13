@@ -23,14 +23,19 @@ class UserController extends Controller
             'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
+
         $guru = User::where('role',1)->get();
         return redirect()->route('userguruData', compact('guru'));
     }
     public function dataGuru()
     {
         $guru = User::where('role',1)->get();
+        $pass = User::where('role',1)->value('password');
+        $decrypt= Hash::decrypt('pass');   
         return view('admin.data_guru', compact('guru'));
     }
+
+
 
     // KELOLA AKUN SISWA
     public function createSiswa()
