@@ -29,7 +29,6 @@
                                     <td></td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
-                                   
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -41,7 +41,8 @@ use App\JawabanTk4;
                     <table>
                       @if($item->soal_tk1->gambar != null)
                       <tr>
-                        <img src="{{asset('images/soal'.$item->soal_tk1->gambar)}}" alt="">
+                       <td width="100%"> <img src="{{asset('images/soal'.$item->soal_tk1->gambar)}}" width="50px" height="50px" alt="">
+                      </td>
                       </tr>
                       @endif
                       <tr>

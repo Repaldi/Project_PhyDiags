@@ -158,7 +158,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk3(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif|max:2048']);
+        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif']);
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images';

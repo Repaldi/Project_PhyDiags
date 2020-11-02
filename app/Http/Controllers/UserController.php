@@ -22,7 +22,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'password' => Crypt::encryptString($request->password),
+            'password' => bcrypt($request->password),
         ]);
         // $guru = User::where('role',1)->get();
         // dd(dcryp)
