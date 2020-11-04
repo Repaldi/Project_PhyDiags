@@ -21,16 +21,14 @@
                                     <th>No.</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($guru as $item)
                                 <tr>
-                                    <td></td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
-                                    <td>{{Crypt::decryptString($item->password)}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

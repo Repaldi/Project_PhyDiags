@@ -53,8 +53,11 @@
             <div class="tab-content" id="pills-tabContent">
                 <!-- soal tingkat 1 -->
                 <div class="tab-pane fade show active" id="pills-tk1" role="tabpanel" aria-labelledby="pills-tk1-tab">
-                    
+               
                         @if ( $soal_tk1 != null )
+                        @if( $soal_tk1->gambar != null )
+                                <p> <img src="{{asset('images/soal/'.$soal_tk1->gambar)}}" width="250px"> </p>
+                         @endif
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk1->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
                             <p> <strong>Kunci Jawaban : {!! $soal_tk1->kunci !!} </strong></p>

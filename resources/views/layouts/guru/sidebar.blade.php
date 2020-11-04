@@ -53,7 +53,7 @@
             <center>
             @if( Guru::where('user_id', Auth::user()->id )->first() != null )
                 <li class="app-sidebar__heading"> 
-                <img src="{{ asset('images/' . $guru->foto) }}" width="150px"  alt="{{ $guru->foto }}">
+                <img src="{{ asset('images/' . $guru->foto) }}" class="rounded-circle" style="width: 180px; height: 180px; display: block; margin: auto;" alt="{{ $guru->foto }}">
                 </li>
             @else
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
