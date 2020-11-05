@@ -1,7 +1,7 @@
 @extends('layouts.layout_guru')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -107,7 +107,7 @@
                         </div>
                         @else
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong> Belum ada siswa yang mengikuti ujian ini!</strong>
+                                <strong> Belum ada siswa yang mengikuti test ini!</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

@@ -1,7 +1,7 @@
 @extends('layouts.layout_siswa')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
                         {{$item->ujian->kelas->nama_kelas}}
                         {{$item->ujian->deskripsi}}
 
-                        <a href="{{route('runUjian',$item->id)}}"><button class="btn btn-info mt-2">Kerjakan Ujian</button></a>
+                        <a href="{{route('runUjian',$item->id)}}"><button class="btn btn-info mt-2">Kerjakan Test</button></a>
                     </div>
                 </div>
            </div>
@@ -27,7 +27,7 @@
     @else
     <div class="col-md-12">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong> Tidak ada ujian yang harus dikerjakan !</strong>
+            <strong> Tidak ada test yang harus dikerjakan !</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

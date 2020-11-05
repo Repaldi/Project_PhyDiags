@@ -89,7 +89,7 @@
                 <li>
                     <a href="{{route('getUjianSiswa')}}" class="mb-2">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
-                        <b>Ujian</b>
+                        <b>Test</b>
                     </a>
                 </li>
                 <li>

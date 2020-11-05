@@ -1,6 +1,6 @@
 @extends('layouts.layout_ujian')
 @section('title')
-<title>Ujian</title>
+<title>PhyDiags | Education</title>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-md-8"></div>
       <div class="col-md-4">
-        <a href="{{route('finishUjian',$peserta_ujian->id)}}"> <button class="btn btn-danger" > Akhiri Ujian </button> </a>
+        <a href="{{route('finishUjian',$peserta_ujian->id)}}"> <button class="btn btn-danger" > Akhiri Test </button> </a>
       </div>
     </div>
 

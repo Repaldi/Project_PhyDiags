@@ -134,18 +134,18 @@
                 <a href="#" class="md-2">
                      <i class="metismenu-icon pe-7s-display2"></i>
                      <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                     <b>Kelola Ujian</b>
+                     <b>Kelola Test</b>
                 </a>
                 <ul>
                     <li>
                         <a href="{{route('createUjian')}}">
-                          <b>Buat Ujian</b>
+                          <b>Buat Test</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('getUjian')}}">
-                          <b>Daftar Riwayat Ujian</b>
+                          <b>Daftar Riwayat Test</b>
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
