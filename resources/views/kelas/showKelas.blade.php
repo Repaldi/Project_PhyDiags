@@ -88,7 +88,7 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist" >
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="ujian-tab" data-toggle="tab" href="#ujian" role="tab" aria-controls="ujian" aria-selected="true"><strong> Ujian </strong> </a>
+                            <a class="nav-link" id="ujian-tab" data-toggle="tab" href="#ujian" role="tab" aria-controls="ujian" aria-selected="true"><strong> Test </strong> </a>
                         </li>
                     </ul>
 
@@ -100,7 +100,7 @@
                                 <thead class="text-center bg-dark" style="color:white;">
                                     <tr>
                                         <th scope="col" style="width:50px">No</th>
-                                        <th scope="col" >Nama Ujian </th>
+                                        <th scope="col" >Nama Test</th>
                                         <th scope="col" style="width:100px">Opsi</th>
                                     </tr>
                                 </thead>
@@ -121,7 +121,7 @@
                         @else
                             <div class="col-md-12">
                                 <div class="alert alert-warning" role="alert">
-                                    Belum ada ujian yang dilaksanakan untuk kelas ini !
+                                    Belum ada test yang dilaksanakan untuk kelas ini !
                                 </div>
                             </div>
                         @endif

@@ -7,6 +7,9 @@ use Auth;
 use App\PesertaUjian;
 use App\AnggotaKelas;
 use App\Siswa;
+use App\Guru;
+use App\Kelas;
+
 class HomeController extends Controller
 {
     /**
@@ -29,7 +32,24 @@ class HomeController extends Controller
         if (Auth::user()->role == 0){
             return view('home_admin');
         }elseif (Auth::user()->role == 1) {
-            return view('home_guru');
+            // return view('home_guru');
+                if (Guru::where('user_id',auth()->user()->id)->count() != 0) {
+                    //dd("oke");
+                    $guru_id = Guru::where('id',auth()->user()->guru->id)->value('id');
+                    $guru = Guru::find($guru_id);
+                    if (Kelas::where('guru_id',$guru_id)->count() != 0) {
+                        $kelas_guru = Kelas::where('guru_id',$guru_id)->get();
+                        $siswaku = AnggotaKelas::whereIn('kelas_id',$kelas_guru)->count();
+                        //dd($anggota_kelas);
+                        return view('home_guru',compact(['kelas_guru','siswaku']));
+                    }else{
+                        return view('home_guru',compact(['guru']));
+                    }
+    
+                }else{
+                    return view('home_guru');
+                }
+
         }else{
             if(Siswa::Where('user_id', auth()->user()->id)->count() != 0){
                 

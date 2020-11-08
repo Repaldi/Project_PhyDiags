@@ -1,7 +1,7 @@
 @extends('layouts.layout_guru')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <strong style="font-size: 18px;">Daftar Riwayat Ujian</strong>
+                    <strong style="font-size: 18px;">Daftar Riwayat Test</strong>
                 </div>
                 <div class="card-body">
                 @if($ujian->count() != 0)
@@ -22,7 +22,7 @@
                         <thead class="text-center bg-dark" style="color:white;">
                             <tr>
                                 <th scope="col" style="width:50px">No</th>
-                                <th scope="col" >Nama Ujian </th>
+                                <th scope="col" >Nama Test </th>
                                 <th scope="col" >Kelas </th>
                                 <th scope="col" style="width:180px">Opsi</th>
                             </tr>
@@ -45,7 +45,7 @@
                                     data-deskripsi="{{ $item->deskripsi}}"
                                     ><i class="fa fa-eye"></i></button>
 
-                                    <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target=".update_modal_ujian"  style="box-shadow: 3px 2px 5px grey;"
+                                    <!-- <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target=".update_modal_ujian"  style="box-shadow: 3px 2px 5px grey;"
                                     id="updateujian" 
                                     data-ujian_id="{{$item->id}}" 
                                     data-nama_ujian="{{$item->nama_ujian}}"
@@ -56,7 +56,7 @@
                                     data-deskripsi="{{ $item->deskripsi}}"
                                     ><i class="fa fa-edit"></i></button>
 
-                                    <a href="{{route('deleteUjian',$item->id)}}"><button class="btn btn-danger btn-sm" style="box-shadow: 3px 2px 5px grey;"> <i class="fa fa-trash"></i></button></a>
+                                    <a href="{{route('deleteUjian',$item->id)}}"><button class="btn btn-danger btn-sm" style="box-shadow: 3px 2px 5px grey;"> <i class="fa fa-trash"></i></button></a> -->
                                     
                                 </td>
                             </tr>
@@ -67,7 +67,7 @@
                 </div>
                 @else
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong> Belum ada ujian yang di buat. Silahkan buat ujian baru!</strong>
+                        <strong> Belum ada test yang di buat. Silahkan buat test baru!</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -121,7 +121,7 @@
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header ">
-                    <h5 class="modal-title " id="exampleModalLabel"> Detail Ujian </h5>
+                    <h5 class="modal-title " id="exampleModalLabel"> Detail Test</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -131,7 +131,7 @@
                
                     <table class="table table-hover table-sm">
                         <tr>
-                            <td col width="100px"><b> Nama Ujian </b> </td>
+                            <td col width="100px"><b> Nama Test </b> </td>
                             <td> : </td>
                             <td><span class="nama_ujian"></span></td>
                         </tr>
@@ -168,7 +168,7 @@
         <div class="modal-dialog modal-lg" >
             <div class="modal-content">
                 <div class="modal-header ">
-                    <h5 class="modal-title " id="exampleModalLabel"> Update Ujian </h5>
+                    <h5 class="modal-title " id="exampleModalLabel"> Update Test </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -182,7 +182,7 @@
                     <input type="hidden" name="id" id="ujian_id"value="">
                         <div class="form-group row">
                             <label for="nama_ujian" class="col-sm-3 col-form-label">
-                                <table><tr><td width="100%"><strong>Nama Ujian</strong> </td><td> : </td></tr> </table>
+                                <table><tr><td width="100%"><strong>Nama Test</strong> </td><td> : </td></tr> </table>
                             </label>
                             <div class="col-sm-9">
                             <input type="text" class="form-control" id="nama_ujian" name="nama_ujian" style="border-radius:10px;  box-shadow: 2px 0px 3px grey;">
@@ -211,7 +211,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="deskripsi" class="col-sm-3 col-form-label"><table><tr><td width="100%"><strong>Deskripsi Ujian</strong> </td><td> : </td></tr> </table></label>
+                            <label for="deskripsi" class="col-sm-3 col-form-label"><table><tr><td width="100%"><strong>Deskripsi Test</strong> </td><td> : </td></tr> </table></label>
                             <div class="col-sm-9">
                             <textarea class="form-control" id="deskripsi" rows="2" name="deskripsi" style="border-radius:10px;  box-shadow: 2px 0px 3px grey;"> </textarea>
                             </div>

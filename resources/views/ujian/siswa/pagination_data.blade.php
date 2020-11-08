@@ -39,11 +39,11 @@ use App\JawabanTk4;
                 <div class="row">
                   <div class="container">
                     <table>
-                      @if($item->soal_tk1->gambar != null)
-                      <tr>
-                        <img src="{{asset('images/soal'.$item->soal_tk1->gambar)}}" alt="">
+                    @if($item->soal_tk1->gambar != null)
+                    <tr>
+                          <td> <img src="{{asset('images/soal/'.$item->soal_tk1->gambar)}}" width="250px"> </td>
                       </tr>
-                      @endif
+                   @endif
                       <tr>
                           <td><b> 1.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
                       </tr>
@@ -129,6 +129,12 @@ use App\JawabanTk4;
                 <div class="row mt-3">
                   <div class="container">
                     <table>
+                    @if($item->soal_tk3->gambar != null)
+                    <tr>
+                    <td> <img src="{{asset('images/soal/'.$item->soal_tk3->gambar)}}" width="250px"> </td>
+                      </tr>
+                    @else
+                   @endif
                       <tr>
                           <td><b> 1.3 </b> :<br/> <p>{{$item->soal_tk3->pertanyaan}} </p> </td>
                       </tr>

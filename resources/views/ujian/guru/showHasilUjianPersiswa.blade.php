@@ -1,7 +1,7 @@
 @extends('layouts.layout_guru')
 
 @section('title')
-    <title>PhyDiags</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Detail Hasil Ujian {{$peserta_ujian->siswa->nama_lengkap}}</div>
+                <div class="card-header">Detail Hasil Test {{$peserta_ujian->siswa->nama_lengkap}}</div>
                 <div class="card-body">
                     <div class="table-inside">
                         <table class="table table-striped table-bordered table-md">

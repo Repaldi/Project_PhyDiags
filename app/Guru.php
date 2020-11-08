@@ -21,4 +21,14 @@ class Guru extends Model
     public function ujian(){
       return $this->hasMany(Ujian::class,'guru_id');
     }
+    public function jumlah_kelas(){
+      $guru_id  = $this->id;
+      $jumlah_kelas = Kelas::where('guru_id',$guru_id)->count();
+      return $jumlah_kelas;
+  }
+  public function jumlah_ujian(){
+      $guru_id  = $this->id;
+      $jumlah_ujian = Ujian::where('guru_id',$guru_id)->where('isdelete',0)->count();
+      return $jumlah_ujian;
+  }
 }

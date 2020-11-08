@@ -13,7 +13,7 @@
 </style>
 <div class="app-sidebar sidebar-shadow merah" style="background: linear-gradient(180deg, #12C3CE 0%, #D7E8E9 100%); box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);">
     <div class="app-header__logo">
-        <img src="/images/logoa.png" alt="" width="170px">
+        <img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt="" width="170px">
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">

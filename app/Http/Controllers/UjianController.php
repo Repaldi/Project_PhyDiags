@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 // use Auth;
+
 use Illuminate\Http\Request;
-use Excel;
+// use Excel;
+
 use App\Guru;
 use App\AnggotaKelas;
 use App\Kelas;
@@ -21,6 +23,9 @@ use App\JawabanTk2;
 use App\JawabanTk3;
 use App\JawabanTk4;
 use App\HasilUjian;
+use App\Exports\HasilUjianExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class UjianController extends Controller
 {
@@ -28,16 +33,27 @@ class UjianController extends Controller
     //METHOD MILIK GURU -----------------------------------------------------------------------
     public function getUjian()
     {
+        try {
         $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
         $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
         $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
         return view('ujian.guru.getUjian',compact('ujian','kelas','paket_soal'));
+    } catch (\Exception $e) {
+        return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+      }
+
     }
     public function createUjian()
     {
-        $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
-        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
-        return view('ujian.guru.createUjian', compact('kelas','paket_soal'));
+        try {
+            $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
+            $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
+            return view('ujian.guru.createUjian', compact('kelas','paket_soal'));
+          } catch (\Exception $e) {
+            return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+          }
+       
+      
     }
     public function storeUjian(Request $request)
     {
@@ -115,8 +131,9 @@ class UjianController extends Controller
       //
       //
       // })->export('xls');
-      //dd($ujian->paket_soal->soal_satuan);
-      return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
+      return Excel::download(new HasilUjianExport($id), 'hasil.xlsx');
+      // dd($ujian->paket_soal->soal_satuan);
+      // return view('ujian.guru.excel',compact(['ujian','peserta_ujian']));
     }
 
 
@@ -124,9 +141,16 @@ class UjianController extends Controller
     // METHOD UJIAN SISWA
     public function getUjianSiswa()
     {
-        $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
-                      ->where('status',0)->where('isdelete',0)->get();
-        return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
+        try {
+            $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
+            ->where('status',0)->where('isdelete',0)->get();
+           
+            return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
+          } catch (\Exception $e) {
+            return redirect()->route('profilSiswa')->with('error','Mohon lengkapi profil anda');
+          }
+    
+      
     }
 
     public function runUjian($id)
@@ -136,7 +160,7 @@ class UjianController extends Controller
       $paket_soal_id    = $ujian->paket_soal_id;
       $paket_soal       = PaketSoal::where('id',$paket_soal_id)->get();
       $soal_satuan      = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
-
+    
       return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
     }
 

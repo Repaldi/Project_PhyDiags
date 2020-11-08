@@ -22,8 +22,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'password' => Hash::make($request->password),
-            // 'password' => Crypt::encryptString($request->password),
+            'password' => bcrypt($request->password),
         ]);
         $guru = User::where('role',1)->get();
         // dd(dcryp)
@@ -35,6 +34,8 @@ class UserController extends Controller
         $guru = User::where('id','>',5)->where('role',1)->get();
         return view('admin.data_guru', compact('guru'));
     }
+
+
 
     // KELOLA AKUN SISWA
     public function createSiswa()

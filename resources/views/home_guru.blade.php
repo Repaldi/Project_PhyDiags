@@ -3,6 +3,9 @@
 @section('title')
     <title>PhyDiags | Education</title>
 @endsection
+<?php  use App\Guru;
+    $guru = Guru::where('user_id', Auth::user()->id )->first();
+?>
 
 @section('content')
 
@@ -41,7 +44,7 @@
                                 <div class="widget-subheading">Jumlah kelas yang di ajar</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{auth()->user()->guru->jumlah_kelas()}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +58,7 @@
                             </div>
                             <!-- jumlah siswa masih salah -->
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{$siswaku}}</span></div>
                             </div>
                             <!-- jumlah siswa masih salah -->
                         </div>
@@ -65,11 +68,11 @@
                     <div class="card mb-3 widget-content bg-heavy-rain ">
                         <div class="widget-content-wrapper ">
                             <div class="widget-content-left">
-                                <div class="widget-heading">Jumlah Ujian</div>
-                                <div class="widget-subheading">Total ujian yang di buat</div>
+                                <div class="widget-heading">Jumlah Test</div>
+                                <div class="widget-subheading">Total test yang di buat</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{auth()->user()->guru->jumlah_ujian()}}</span></div>
                             </div>
                         </div>
                     </div>

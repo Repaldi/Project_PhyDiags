@@ -34,51 +34,7 @@ use App\Siswa;
             </div>
             </div>
         </div>
-        <div class="divider mt-0" style="margin-bottom: 10px;">&nbsp;</div>
-            <div class="row">
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card mb-3 widget-content bg-heavy-rain">
-                        <div class="widget-content-wrapper">
-                            <div class="widget-content-left">
-                                <div class="widget-heading">Jumlah Kelas</div>
-                                <div class="widget-subheading">Jumlah kelas yang di ikuti</div>
-                            </div>
-                            <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card mb-3 widget-content bg-heavy-rain ">
-                        <div class="widget-content-wrapper ">
-                            <div class="widget-content-left">
-                                <div class="widget-heading">Jumlah Guru</div>
-                                <div class="widget-subheading">Total guru yang mengajar</div>
-                            </div>
-                            <!-- jumlah siswa masih salah -->
-                            <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
-                            </div>
-                            <!-- jumlah siswa masih salah -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="card mb-3 widget-content bg-heavy-rain ">
-                        <div class="widget-content-wrapper ">
-                            <div class="widget-content-left">
-                                <div class="widget-heading">Jumlah Ujian</div>
-                                <div class="widget-subheading">Total ujian yang di kerjakan</div>
-                            </div>
-                            <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
 </main>
 
