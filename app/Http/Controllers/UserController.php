@@ -22,12 +22,13 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'password' => Crypt::encryptString($request->password),
+            'password' => Hash::make($request->password),
+            // 'password' => Crypt::encryptString($request->password),
         ]);
-        // $guru = User::where('role',1)->get();
+        $guru = User::where('role',1)->get();
         // dd(dcryp)
         // dd(dec)
-        return redirect()->route('userguruData');
+        return redirect()->route('userguruData',compact('guru'));
     }
     public function dataGuru()
     {
