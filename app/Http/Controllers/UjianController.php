@@ -377,7 +377,7 @@ class UjianController extends Controller
                         $hasil = "MSC";  $keterangan = "Misconception" ;// 0101
                     } else {
                         $hasil = "LK";  $keterangan = "Lack of Knowledge" ;// 0100
-                    }
+                    } 
                 }
             } else {
                 if ($jawaban_tk3_kode == 1) {

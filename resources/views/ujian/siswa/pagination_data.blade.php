@@ -16,7 +16,7 @@ use App\JawabanTk4;
 <div class="row">
       <div class="col-md-8">
         <div class="card" style=" border-radius: 0px 0px 20px 20px;">
-          <div class="card-header" style=" border-radius: 0px 0px 0px 0px;">Soal Ujian</div>
+          <div class="card-header" style=" border-radius: 0px 0px 0px 0px;">Soal Test</div>
           <div class="card-body " >
             <?php $i=1; ?>
             @foreach($soal_satuan as $item)
@@ -43,6 +43,7 @@ use App\JawabanTk4;
                     <tr>
                           <td> <img src="{{asset('images/soal/'.$item->soal_tk1->gambar)}}" width="250px"> </td>
                       </tr>
+                      @else
                    @endif
                       <tr>
                           <td><b> 1.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
@@ -176,7 +177,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk3_id" value="{{$item->soal_tk3->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk1->kunci}}">
+                      <input type="hidden" id="kunci" value="{{$item->soal_tk3->kunci}}">
                     </table>
                   </div>
                 </div>
@@ -213,7 +214,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk4_id" value="{{$item->soal_tk4->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk1->kunci}}">
+                      <input type="hidden" id="kunci" value="{{$item->soal_tk4->kunci}}">
                     </table>
                   </div>
                 </div>

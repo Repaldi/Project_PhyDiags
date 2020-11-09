@@ -88,7 +88,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk1(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif']);
+        $this->validate($request,['gambar' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
         if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
@@ -185,7 +185,7 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk3(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif']);
+        $this->validate($request,['gambar' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
         if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
