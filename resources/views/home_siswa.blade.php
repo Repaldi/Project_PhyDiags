@@ -23,7 +23,7 @@ use App\Siswa;
             
             <p class="mb-0">Anda telah mendaftar sebagai <b>SISWA</b> </p>
         </div>
-
+        @if(auth()->user()->profil != null)
         <div class="row">
             <div class="col-md-12 ">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -34,6 +34,8 @@ use App\Siswa;
             </div>
             </div>
         </div>
+        @else
+        @endif
        
 
 </main>

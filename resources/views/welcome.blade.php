@@ -69,13 +69,13 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                 <li class="active" ><a href="index.html">Beranda</a></li>
                                                 <li><a href="courses.html">Panduan</a></li>
                                                 <li><a href="about.html">Tentang</a></li>
-                                                <li><a href="#">Materi</a>
+                                                <!-- <li><a href="#">Materi</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
-                                                </li>
+                                                </li> -->
                                                 <li><a href="contact.html">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
@@ -88,13 +88,13 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                 <li class="active" ><a href="index.html">Beranda</a></li>
                                                 <li><a href="courses.html">Panduan</a></li>
                                                 <li><a href="about.html">Tentang</a></li>
-                                                <li><a href="#">Materi</a>
+                                                <!-- <li><a href="#">Materi</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
-                                                </li>
+                                                </li> -->
                                                 <li><a href="contact.html">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ route('login') }}" class="btn btn3">Masuk</a></li>
                                             @if (Route::has('register'))
@@ -426,13 +426,13 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <!-- <div class="row justify-content-center">
                     <div class="col-xl-12">
                         <div class="section-tittle text-center mt-20">
                             <a href="courses.html" class="border-btn">View More</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- top subjects End -->
