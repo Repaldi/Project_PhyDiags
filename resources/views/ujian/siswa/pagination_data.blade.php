@@ -272,7 +272,7 @@ $('input[type=radio][name="pilihan_tk1"]').click(function() {
     } else {
         var kode  = 0;
     }
-    console.log(jawab_tk1 + " dan " + kunci);
+    console.log("jawaban " +jawab_tk1 + " dan kunci " + kunci +" hasil " + kode );
     $.ajax({
         url: "{{ url('store/jawaban_tk1') }}",
         type: "GET",
@@ -307,6 +307,8 @@ $('input[type=radio][name="pilihan_tk2"]').click(function() {
     } else {
         var kode  = 0;
     }
+
+    console.log("jawaban " +jawab_tk1 + " dan kunci " + kunci +" hasil " + kode );
     $.ajax({
         url: "{{ url('store/jawaban_tk2') }}",
         type: "GET",
