@@ -55,7 +55,7 @@ class ProfilController extends Controller
             'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
-        $guru = Guru::find(Auth::user()->guru->id); //tampilkan profil
+        $guru = Guru::FindorFail(Auth::user()->guru->id); //tampilkan profil
         $nama_file= $guru->foto; //simpan nama file foto yang sudah ada
 
         if ($request->hasFile('foto')) {

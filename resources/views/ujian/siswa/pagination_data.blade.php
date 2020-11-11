@@ -16,7 +16,7 @@ use App\JawabanTk4;
 <div class="row">
       <div class="col-md-8">
         <div class="card" style=" border-radius: 0px 0px 20px 20px;">
-          <div class="card-header" style=" border-radius: 0px 0px 0px 0px;">Soal Ujian</div>
+          <div class="card-header" style=" border-radius: 0px 0px 0px 0px;">Soal Test</div>
           <div class="card-body " >
             <?php $i=1; ?>
             @foreach($soal_satuan as $item)
@@ -39,11 +39,12 @@ use App\JawabanTk4;
                 <div class="row">
                   <div class="container">
                     <table>
-                      @if($item->soal_tk1->gambar != null)
-                      <tr>
-                        <img src="{{asset('images/soal'.$item->soal_tk1->gambar)}}" alt="">
+                    @if($item->soal_tk1->gambar != null)
+                    <tr>
+                          <td> <img src="{{asset('images/soal/'.$item->soal_tk1->gambar)}}" width="250px"> </td>
                       </tr>
-                      @endif
+                      @else
+                   @endif
                       <tr>
                           <td><b> 1.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
                       </tr>
@@ -84,7 +85,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk1_id" value="{{$item->soal_tk1->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk1->kunci}}">
+                      <input type="hidden" id="kunci1" value="{{$item->soal_tk1->kunci}}">
 
                     </table>
                   </div>
@@ -121,7 +122,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk2_id" value="{{$item->soal_tk2->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk2->kunci}}">
+                      <input type="hidden" id="kunci2" value="{{$item->soal_tk2->kunci}}">
                     </table>
                   </div>
                 </div>
@@ -129,6 +130,12 @@ use App\JawabanTk4;
                 <div class="row mt-3">
                   <div class="container">
                     <table>
+                    @if($item->soal_tk3->gambar != null)
+                    <tr>
+                    <td> <img src="{{asset('images/soal/'.$item->soal_tk3->gambar)}}" width="250px"> </td>
+                      </tr>
+                    @else
+                   @endif
                       <tr>
                           <td><b> 1.3 </b> :<br/> <p>{{$item->soal_tk3->pertanyaan}} </p> </td>
                       </tr>
@@ -170,7 +177,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk3_id" value="{{$item->soal_tk3->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk1->kunci}}">
+                      <input type="hidden" id="kunci3" value="{{$item->soal_tk3->kunci}}">
                     </table>
                   </div>
                 </div>
@@ -207,7 +214,7 @@ use App\JawabanTk4;
                           </td>
                       </tr>
                       <input type="hidden" id="soal_tk4_id" value="{{$item->soal_tk4->id}}">
-                      <input type="hidden" id="kunci" value="{{$item->soal_tk1->kunci}}">
+                      <input type="hidden" id="kunci4" value="{{$item->soal_tk4->kunci}}">
                     </table>
                   </div>
                 </div>
@@ -265,14 +272,14 @@ function hasilUjian() {
 $('input[type=radio][name="pilihan_tk1"]').click(function() {
     var jawab_tk1         = document.querySelector('input[name = "pilihan_tk1"]:checked').value;
     var soal_tk1_id       = $("#soal_tk1_id").val();
-    var kunci             = $("#kunci").val();
+    var kunci1             = $("#kunci1").val();
 
-    if ( jawab_tk1 == kunci ) {
+    if ( jawab_tk1 == kunci1 ) {
         var kode  = 1;
     } else {
         var kode  = 0;
     }
-    console.log("jawaban " +jawab_tk1 + " dan kunci " + kunci +" hasil " + kode );
+    console.log(jawab_tk1 + " dan " + kunci1);
     $.ajax({
         url: "{{ url('store/jawaban_tk1') }}",
         type: "GET",
@@ -300,15 +307,15 @@ $('input[type=radio][name="pilihan_tk1"]').click(function() {
 $('input[type=radio][name="pilihan_tk2"]').click(function() {
     var jawab_tk2         = document.querySelector('input[name = "pilihan_tk2"]:checked').value;
     var soal_tk2_id       = $("#soal_tk2_id").val();
-    var kunci             = $("#kunci").val();
+    var kunci2             = $("#kunci2").val();
 
-    if ( jawab_tk2 == kunci ) {
+    if ( jawab_tk2 == kunci2 ) {
         var kode  = 1;
     } else {
         var kode  = 0;
     }
-
-    console.log("jawaban " +jawab_tk1 + " dan kunci " + kunci +" hasil " + kode );
+    console.log(jawab_tk2 + " dan " + kunci2);
+    console.log(kode);
     $.ajax({
         url: "{{ url('store/jawaban_tk2') }}",
         type: "GET",
@@ -336,13 +343,15 @@ $('input[type=radio][name="pilihan_tk2"]').click(function() {
 $('input[type=radio][name="pilihan_tk3"]').click(function() {
     var jawab_tk3         = document.querySelector('input[name = "pilihan_tk3"]:checked').value;
     var soal_tk3_id       = $("#soal_tk3_id").val();
-    var kunci             = $("#kunci").val();
+    var kunci3             = $("#kunci3").val();
 
-    if ( jawab_tk3 == kunci ) {
+    if ( jawab_tk3 == kunci3 ) {
         var kode  = 1;
     } else {
         var kode  = 0;
     }
+    console.log(jawab_tk3 + " dan " + kunci3);
+    console.log(kode);
     $.ajax({
         url: "{{ url('store/jawaban_tk3') }}",
         type: "GET",
@@ -370,13 +379,15 @@ $('input[type=radio][name="pilihan_tk3"]').click(function() {
 $('input[type=radio][name="pilihan_tk4"]').click(function() {
     var jawab_tk4         = document.querySelector('input[name = "pilihan_tk4"]:checked').value;
     var soal_tk4_id       = $("#soal_tk4_id").val();
-    var kunci             = $("#kunci").val();
+    var kunci4             = $("#kunci4").val();
 
-    if ( jawab_tk4 == kunci ) {
+    if ( jawab_tk4 == kunci4 ) {
         var kode  = 1;
     } else {
         var kode  = 0;
     }
+    console.log(jawab_tk4 + " dan " + kunci4);
+    console.log(kode);
     $.ajax({
         url: "{{ url('store/jawaban_tk4') }}",
         type: "GET",

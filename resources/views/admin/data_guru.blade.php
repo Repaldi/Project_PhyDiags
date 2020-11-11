@@ -1,7 +1,7 @@
 @extends('layouts.layout_admin')
 
 @section('title')
-    <title>Unbreakable</title>
+    <title>PhyDiags | Education</title>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
                             <tbody>
                                 @foreach ($guru as $item)
                                 <tr>
-                                    <td></td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                 </tr>

@@ -9,19 +9,31 @@ use App\SoalTk2;
 use App\SoalTk3;
 use App\SoalTk4;
 use Illuminate\Http\Request;
+use App\Guru;
 use File;
 
 class PaketSoalController extends Controller
 {
     public function getPaketSoal()
     {
-        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->paginate(8);
-        return view('paket_soal.getPaketSoal',compact(['paket_soal']));
+        try {
+            $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->paginate(8);
+            return view('paket_soal.getPaketSoal',compact(['paket_soal']));
+          } catch (\Exception $e) {
+            return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+          }
+        
       }
 
     public function createPaketSoal()
     {
-        return view('paket_soal.createPaketSoal');
+        try {
+            $guru = Guru::where('guru_id',auth()->user()->guru->id);
+            return view('paket_soal.createPaketSoal');
+          } catch (\Exception $e) {
+            return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+          }
+       
     }
 
     public function storePaketSoal(Request $request)
@@ -76,7 +88,8 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk1(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif']);
+        $this->validate($request,['gambar' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
+        if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images/soal';
@@ -93,7 +106,21 @@ class PaketSoalController extends Controller
             'gambar' => $nama_file,
         ]);
         $soal_satuan_id = $request->soal_satuan_id;
-        return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 1 berhasil dibuat');;
+        return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 1 berhasil dibuat');
+    }else{
+        $soal_tk1 = SoalTk1::create([
+            'soal_satuan_id' => $request->soal_satuan_id,
+            'pertanyaan' => $request->pertanyaan,
+            'pil_a' => $request->pil_a,
+            'pil_b' => $request->pil_b,
+            'pil_c' => $request->pil_c,
+            'pil_d' => $request->pil_d,
+            'kunci' => $request->kunci,
+        ]);
+        $soal_satuan_id = $request->soal_satuan_id;
+        return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 1 berhasil dibuat');
+        }
+
     }
 
     //Ubah Soal TK1
@@ -158,10 +185,11 @@ class PaketSoalController extends Controller
 
     public function storeSoalTk3(Request $request)
     {
-        $this->validate($request,['gambar' => 'required|file|image|mimes:png,jpg,jpeg,gif|max:2048']);
+        $this->validate($request,['gambar' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
+        if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = 'images';
+        $tujuan_upload = 'images/soal';
         $file->move($tujuan_upload,$nama_file);
 
         $soal_tk3 = SoalTk3::create([
@@ -175,7 +203,22 @@ class PaketSoalController extends Controller
             'gambar' => $nama_file,
         ]);
         $soal_satuan_id = $request->soal_satuan_id;
+        return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 3 berhasil dibuat');
+    }else{
+        $soal_tk3 = SoalTk3::create([
+            'soal_satuan_id' => $request->soal_satuan_id,
+            'pertanyaan' => $request->pertanyaan,
+            'pil_a' => $request->pil_a,
+            'pil_b' => $request->pil_b,
+            'pil_c' => $request->pil_c,
+            'pil_d' => $request->pil_d,
+            'kunci' => $request->kunci,
+        ]);
+        $soal_satuan_id = $request->soal_satuan_id;
         return redirect()->route('soalTingkat',$soal_satuan_id)->with('success','Soal Tingkat 3 berhasil dibuat');;
+    
+    }
+
     }
 
     //Ubah Soal TK3

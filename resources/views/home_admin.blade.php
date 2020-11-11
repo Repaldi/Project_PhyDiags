@@ -3,7 +3,11 @@
 @section('title')
     <title>PhyDiags | Education</title>
 @endsection
-
+        <?php
+                $kelas	= \DB::select("SELECT * FROM kelas");
+                $siswa	= \DB::select("SELECT * FROM siswa");
+                $guru	= \DB::select("SELECT * FROM guru");
+            ?>
 @section('content')
 
 
@@ -20,7 +24,7 @@
         
         <p class="mb-0">Anda telah mendaftar sebagai <b>Admin</b> </p>
     </div>
-
+    @if(auth()->user()->profil != null)
         <div class="row">
             <div class="col-md-12 ">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -31,6 +35,8 @@
             </div>
             </div>
         </div>
+        @else
+        @endif
         <div class="divider mt-0" style="margin-bottom: 10px;">&nbsp;</div>
             <div class="row">
                 <div class="col-lg-6 col-xl-4">
@@ -38,10 +44,10 @@
                         <div class="widget-content-wrapper">
                             <div class="widget-content-left">
                                 <div class="widget-heading">Jumlah Kelas</div>
-                                <div class="widget-subheading">Jumlah kelas yang di ajar</div>
+                                <div class="widget-subheading">Jumlah kelas yang ada</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{count($kelas)}}</span></div>
                             </div>
                         </div>
                     </div>
@@ -51,11 +57,11 @@
                         <div class="widget-content-wrapper ">
                             <div class="widget-content-left">
                                 <div class="widget-heading">Jumlah Siswa</div>
-                                <div class="widget-subheading">Total siswa yang di ajar</div>
+                                <div class="widget-subheading">Total siswa yang ada</div>
                             </div>
                             <!-- jumlah siswa masih salah -->
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{count($siswa)}}</span></div>
                             </div>
                             <!-- jumlah siswa masih salah -->
                         </div>
@@ -65,11 +71,11 @@
                     <div class="card mb-3 widget-content bg-heavy-rain ">
                         <div class="widget-content-wrapper ">
                             <div class="widget-content-left">
-                                <div class="widget-heading">Jumlah Ujian</div>
-                                <div class="widget-subheading">Total ujian yang di buat</div>
+                                <div class="widget-heading">Jumlah Guru</div>
+                                <div class="widget-subheading">Total guru yang ada</div>
                             </div>
                             <div class="widget-content-right">
-                                <div class="widget-numbers "><span>0</span></div>
+                                <div class="widget-numbers "><span>{{count($guru)}}</span></div>
                             </div>
                         </div>
                     </div>

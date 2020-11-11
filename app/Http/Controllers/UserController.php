@@ -24,16 +24,18 @@ class UserController extends Controller
             'role' => $request->role,
             'password' => bcrypt($request->password),
         ]);
-        // $guru = User::where('role',1)->get();
+        $guru = User::where('role',1)->get();
         // dd(dcryp)
         // dd(dec)
-        return redirect()->route('userguruData');
+        return redirect()->route('userguruData',compact('guru'));
     }
     public function dataGuru()
     {
         $guru = User::where('id','>',5)->where('role',1)->get();
         return view('admin.data_guru', compact('guru'));
     }
+
+
 
     // KELOLA AKUN SISWA
     public function createSiswa()

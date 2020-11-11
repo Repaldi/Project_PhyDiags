@@ -33,16 +33,27 @@ class UjianController extends Controller
     //METHOD MILIK GURU -----------------------------------------------------------------------
     public function getUjian()
     {
+        try {
         $ujian = Ujian::where('guru_id',auth()->user()->guru->id)->where('isdelete',0)->paginate(8);
         $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
         $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
         return view('ujian.guru.getUjian',compact('ujian','kelas','paket_soal'));
+    } catch (\Exception $e) {
+        return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+      }
+
     }
     public function createUjian()
     {
-        $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
-        $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
-        return view('ujian.guru.createUjian', compact('kelas','paket_soal'));
+        try {
+            $kelas      = Kelas::where('guru_id',auth()->user()->guru->id)->get();
+            $paket_soal = PaketSoal::where('guru_id',auth()->user()->guru->id)->where('isdelete',false)->get();
+            return view('ujian.guru.createUjian', compact('kelas','paket_soal'));
+          } catch (\Exception $e) {
+            return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
+          }
+       
+      
     }
     public function storeUjian(Request $request)
     {
@@ -103,7 +114,22 @@ class UjianController extends Controller
         $hasil_ujian = HasilUjian::join('peserta_ujian',function ($join){
             $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
         })->where('peserta_ujian.ujian_id','=',$ujian_id)->where('soal_satuan_id','=',$id)->get();
-        return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian]);
+
+        $sc  =  $hasil_ujian->where('hasil','SC')->count();
+        $fp  =  $hasil_ujian->where('hasil','FP')->count();
+        $lk  =  $hasil_ujian->where('hasil','LK')->count();
+        $fn  =  $hasil_ujian->where('hasil','FN')->count();
+        $msc =  $hasil_ujian->where('hasil','MSC')->count();
+
+        $array_column = [['Jumlah Siswa','SC','FP','LK','FN','MSC'], ['Kategori',$sc,$fp,$lk,$fn,$msc]];
+        $array_pie = [['Kategori', 'Jumlah siswa'],
+          ['SC', $sc],
+          ['FP', $fp],
+          ['LK', $lk],
+          ['FN', $fn],
+          ['MSC', $msc]
+        ];
+        return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian], compact('sc','fp','lk','fn','msc'))->with('array_column',json_encode($array_column))->with('array_pie',json_encode($array_pie));
 
     }
 
@@ -130,9 +156,16 @@ class UjianController extends Controller
     // METHOD UJIAN SISWA
     public function getUjianSiswa()
     {
-        $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
-                      ->where('status',0)->where('isdelete',0)->get();
-        return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
+        try {
+            $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
+            ->where('status',0)->where('isdelete',0)->get();
+           
+            return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
+          } catch (\Exception $e) {
+            return redirect()->route('profilSiswa')->with('error','Mohon lengkapi profil anda');
+          }
+    
+      
     }
 
     public function runUjian($id)
@@ -142,7 +175,7 @@ class UjianController extends Controller
       $paket_soal_id    = $ujian->paket_soal_id;
       $paket_soal       = PaketSoal::where('id',$paket_soal_id)->get();
       $soal_satuan      = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
-
+    
       return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
     }
 
@@ -359,7 +392,7 @@ class UjianController extends Controller
                         $hasil = "MSC";  $keterangan = "Misconception" ;// 0101
                     } else {
                         $hasil = "LK";  $keterangan = "Lack of Knowledge" ;// 0100
-                    }
+                    } 
                 }
             } else {
                 if ($jawaban_tk3_kode == 1) {
