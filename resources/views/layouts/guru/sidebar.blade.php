@@ -14,11 +14,11 @@
 .merah{
   background-color: red;
 }
-/* .btn {box-shadow: 3px 2px 5px grey;} */
+/* .btn {box-shadow:2px 5px grey;} */
 </style>
 <div class="app-sidebar sidebar-shadow merah" style="background: linear-gradient(180deg, #12C3CE 0%, #D7E8E9 100%); box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);">
     <div class="app-header__logo">
-        <img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt="" width="170px">
+        <img src="{{('Front_Home/s/img/logo/logo2.png')}}" alt="" width="170px">
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -52,8 +52,8 @@
             <ul class="vertical-nav-menu">
             <center>
             @if( Guru::where('user_id', Auth::user()->id )->first() != null )
-                <li class="app-sidebar__heading"> 
-                <img src="{{ asset('images/' . $guru->foto) }}" class="rounded-circle" style="width: 180px; height: 180px; display: block; margin: auto;" alt="{{ $guru->foto }}">
+                <li class="app-sidebar__heading">
+                <img src="{{ url('images/' . $guru->foto) }}" class="rounded-circle" style="width: 180px; height: 180px; display: block; margin: auto;" alt="{{ $guru->foto }}">
                 </li>
             @else
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>
@@ -149,7 +149,7 @@
                             <i class="metismenu-icon"></i>
                         </a>
                     </li>
-                    
+
                 </ul>
                 </li>
             </ul>

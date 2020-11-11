@@ -49,8 +49,8 @@
             <ul class="vertical-nav-menu">
             <center>
             @if( Siswa::where('user_id', Auth::user()->id )->first() != null )
-                <li class="app-sidebar__heading"> 
-                <img src="{{ asset('images/' . $siswa->foto) }}" class="rounded-circle" style="width: 180px; height: 180px; display: block; margin: auto;" alt="{{ $siswa->foto }}">
+                <li class="app-sidebar__heading">
+                <img src="{{ url('images/' . $siswa->foto) }}" class="rounded-circle" style="width: 180px; height: 180px; display: block; margin: auto;" alt="{{ $siswa->foto }}">
                 </li>
             @else
             <li class="app-sidebar__heading"> <img style="width: 100px; height: 100px; display: block; margin: auto;" class="rounded-circle" src="{{asset('assets/images/1.png')}}" alt=""></li>

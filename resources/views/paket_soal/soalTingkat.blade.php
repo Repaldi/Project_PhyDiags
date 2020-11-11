@@ -53,10 +53,10 @@
             <div class="tab-content" id="pills-tabContent">
                 <!-- soal tingkat 1 -->
                 <div class="tab-pane fade show active" id="pills-tk1" role="tabpanel" aria-labelledby="pills-tk1-tab">
-               
+
                         @if ( $soal_tk1 != null )
                         @if( $soal_tk1->gambar != null )
-                                <p> <img src="{{asset('images/soal/'.$soal_tk1->gambar)}}" width="250px"> </p>
+                                <p> <img src="{{url('images/soal/'.$soal_tk1->gambar)}}" width="250px"> </p>
                          @endif
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk1->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -136,11 +136,11 @@
 
                             </form>
                         @endif
-                       
+
                 </div>
                 <!-- soal tingkat 2 -->
                 <div class="tab-pane fade" id="pills-tk2" role="tabpanel" aria-labelledby="pills-tk2-tab">
-                  
+
                         @if ( $soal_tk2 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk2->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -196,11 +196,11 @@
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info" style="box-shadow: 3px 2px 5px grey;">Simpan</button></div></div>
                             </form>
                         @endif
-                       
+
                 </div>
                 <!-- soal tingkat 3 -->
                 <div class="tab-pane fade" id="pills-tk3" role="tabpanel" aria-labelledby="pills-tk3-tab">
-               
+
                         @if ( $soal_tk3 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk3->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -280,11 +280,11 @@
 
                             </form>
                         @endif
-                        
+
                 </div>
                 <!-- soal tingkat 4 -->
                 <div class="tab-pane fade" id="pills-tk4" role="tabpanel" aria-labelledby="pills-tk4-tab">
-                  
+
                         @if ( $soal_tk4 != null )
                             <p> <strong>Pertanyaan :</strong>  {!! $soal_tk4->pertanyaan !!} </p>
                             <p> <strong>Pilihan Jawaban : </strong></p>
@@ -340,12 +340,12 @@
                                 <div class="row"><div class="col-md-12 text-right"><button type="submit" class="btn btn-info">Simpan</button></div></div>
                             </form>
                         @endif
-                        
+
                 </div>
             </div>
             </div>
           </div>
-           
+
         </div>
     </div>
 </div>
@@ -370,7 +370,7 @@ $(document).ready(function(){
         $('#pil_b_tk1_update').val(pil_b_tk1_update);
         $('#pil_c_tk1_update').val(pil_c_tk1_update);
         $('#pil_d_tk1_update').val(pil_d_tk1_update);
-        $('#gambar_tk1_update').attr("src", "{{asset('images/soal')}}"+"/"+gambar_tk1_update);
+        $('#gambar_tk1_update').attr("src", "{{url('images/soal')}}"+"/"+gambar_tk1_update);
         $('#kunci_tk1_update').val(kunci_tk1_update);
     });
 });
@@ -413,7 +413,7 @@ $(document).ready(function(){
         $('#pil_b_tk3_update').val(pil_b_tk3_update);
         $('#pil_c_tk3_update').val(pil_c_tk3_update);
         $('#pil_d_tk3_update').val(pil_d_tk3_update);
-        $('#gambar_tk3_update').attr("src", "{{asset('images/soal')}}"+"/"+gambar_tk3_update);
+        $('#gambar_tk3_update').attr("src", "{{url('images/soal')}}"+"/"+gambar_tk3_update);
         $('#kunci_tk3_update').val(kunci_tk3_update);
     });
 });
@@ -468,13 +468,13 @@ function alertUpdate() {
                                     <div class="form-group text-center">
                                         <img src="" class="mb-3"  height="230px" width="100%"  id="gambar_tk1_update">
                                         <input type="file" name="gambar">
-                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p> 
+                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="hidden" name="id" id="soal_tk1_id_update" value="">
                                     <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk1_update" value="">
-                                   
+
                                     <div class="form-group">
                                         <label > <strong>Pertanyaan </strong> </label>
                                         <textarea class="form-control" value="" id="pertanyaan_tk1_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
@@ -522,7 +522,7 @@ function alertUpdate() {
                                     </div>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </div>
 
@@ -617,13 +617,13 @@ function alertUpdate() {
                                     <div class="form-group text-center">
                                         <img src="" class="mb-3" height="230px" width="100%" id="gambar_tk3_update">
                                         <input type="file" name="gambar">
-                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p> 
+                                        <p><strong>*biarkan kosong jika tidak ingin menambah gambar</strong></p>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="hidden" name="id" id="soal_tk3_id_update" value="">
                                     <input type="hidden" name="soal_satuan_id" id="soal_satuan_id_tk3_update" value="">
-                                    
+
                                     <div class="form-group">
                                         <label for="pertanyaan"> Pertanyaan </label>
                                         <textarea class="form-control" value="" id="pertanyaan_tk3_update" rows="2" name="pertanyaan" placeholder=""> </textarea>
