@@ -12,7 +12,7 @@
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="{{asset('/')}}main.css" rel="stylesheet">
+    <link href="{{asset('main.css')}}" rel="stylesheet">
     <!-- Jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script defer src="https://unpkg.com/ziggy-js@0.9.x/dist/js/route.min.js"></script>
