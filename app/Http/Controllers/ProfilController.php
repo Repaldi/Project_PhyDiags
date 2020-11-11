@@ -52,7 +52,7 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
-            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
+            'foto' => 'file|image|mimes:png,jpg,jpeg',
         ]);
 
         $guru = Guru::FindorFail(Auth::user()->guru->id); //tampilkan profil

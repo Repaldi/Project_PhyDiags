@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <div class="form-group text-center">
                                     <label for="foto"> <b> Foto :  </b></label> <br>
-                                    <img src="{{ asset('images/' . $guru->foto) }}" width="150px"  alt="{{ $guru->foto }}">
+                                    <img src="{{ url('images/' . $guru->foto) }}" width="150px"  alt="{{ $guru->foto }}">
                                     <hr>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="customFile"  name="foto">
