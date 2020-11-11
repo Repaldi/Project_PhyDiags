@@ -36,11 +36,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                               
+
                                     @foreach ($soal_satuan as $item)
                                     <tr>
                                         <td scope="row" class="text-center">{{$loop->iteration}}</td>
-                                       
+
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -84,11 +84,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php $i = 0; ?>
                                     @foreach ($peserta_ujian as $item)
                                     <tr>
-                                        <td scope="row" class="text-center"><?php   $i++;  echo $i; ?></td>
-                                        <?php $i++; ?>
+                                        <td scope="row" class="text-center">{{$loop->iteration}}</td>
                                         <td >{{ $item->siswa->nama_lengkap}}</td>
                                         <td >@if ($item->status == 0) Belum dikerjakan @else Telah dikerjakan @endif</td>
                                         <td></td>

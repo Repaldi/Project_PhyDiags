@@ -52,8 +52,8 @@ class UjianController extends Controller
           } catch (\Exception $e) {
             return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
           }
-       
-      
+
+
     }
     public function storeUjian(Request $request)
     {
@@ -81,9 +81,9 @@ class UjianController extends Controller
     }
     public function showUjian($id){
         $ujian          = Ujian::find($id);
-        $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->paginate(6);
+        $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->paginate(10);
         $paket_soal_id  = Ujian::where('id',$id)->value('paket_soal_id');
-        $soal_satuan    = SoalSatuan::where('paket_soal_id', $paket_soal_id)->paginate(6);
+        $soal_satuan    = SoalSatuan::where('paket_soal_id', $paket_soal_id)->paginate(10);
         return view('ujian.guru.showUjian',compact('ujian','peserta_ujian','soal_satuan'));
     }
     public function updateUjian(Request $request)
@@ -159,13 +159,13 @@ class UjianController extends Controller
         try {
             $ujian_saya = PesertaUjian::where('siswa_id',auth()->user()->siswa->id)
             ->where('status',0)->where('isdelete',0)->get();
-           
+
             return view('ujian.siswa.getUjianSiswa',compact('ujian_saya'));
           } catch (\Exception $e) {
             return redirect()->route('profilSiswa')->with('error','Mohon lengkapi profil anda');
           }
-    
-      
+
+
     }
 
     public function runUjian($id)
@@ -175,7 +175,7 @@ class UjianController extends Controller
       $paket_soal_id    = $ujian->paket_soal_id;
       $paket_soal       = PaketSoal::where('id',$paket_soal_id)->get();
       $soal_satuan      = SoalSatuan::where('paket_soal_id',$paket_soal_id)->orderBy('id','asc')->paginate(1);
-    
+
       return view('ujian.siswa.runUjian',compact(['ujian','peserta_ujian','paket_soal_id','paket_soal','soal_satuan']));
     }
 
@@ -392,7 +392,7 @@ class UjianController extends Controller
                         $hasil = "MSC";  $keterangan = "Misconception" ;// 0101
                     } else {
                         $hasil = "LK";  $keterangan = "Lack of Knowledge" ;// 0100
-                    } 
+                    }
                 }
             } else {
                 if ($jawaban_tk3_kode == 1) {
