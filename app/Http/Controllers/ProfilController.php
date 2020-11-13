@@ -47,15 +47,7 @@ class ProfilController extends Controller
 
     public function updateProfilGuru(Request $request)
     {
-        $this->validate($request,[
-            'user_id' => 'required',
-            'nama_lengkap' => 'required',
-            'nomor_induk' => 'required',
-            'jk' => 'required',
-            'foto' => 'file|image|mimes:png,jpg,jpeg',
-        ]);
-
-        $guru = Guru::FindorFail(Auth::user()->guru->id); //tampilkan profil
+        $guru = Guru::findorFail(Auth::user()->guru->id); //tampilkan profil
         $nama_file= $guru->foto; //simpan nama file foto yang sudah ada
 
         if ($request->hasFile('foto')) {
@@ -63,6 +55,7 @@ class ProfilController extends Controller
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images';
         $file->move($tujuan_upload,$nama_file);
+        File::delete('images'.$guru->gambar);
         }
         $update = [
             'user_id' => $request->user_id,
