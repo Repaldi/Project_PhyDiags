@@ -103,7 +103,7 @@ class UjianController extends Controller
     public function showHasilUjianPersiswa($id)
     {
         $peserta_ujian = PesertaUjian::find($id);
-        $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->paginate(6);
+        $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->paginate(10);
         return view('ujian.guru.showHasilUjianPersiswa',compact('hasil_ujian','peserta_ujian'));
     }
     public function showHasilUjianPersoal($ujian_id,$id)
