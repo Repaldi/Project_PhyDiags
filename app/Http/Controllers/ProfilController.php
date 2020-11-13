@@ -48,6 +48,10 @@ class ProfilController extends Controller
 
     public function updateProfilGuru(Request $request)
     {
+        $this->validate($request,[
+            'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
+        ]);
+
         $guru = Guru::findorFail(Auth::user()->guru->id); //tampilkan profil
         $nama_file= $guru->foto; //simpan nama file foto yang sudah ada
 
@@ -113,10 +117,6 @@ class ProfilController extends Controller
     public function updateProfilSiswa(Request $request)
     {
         $this->validate($request,[
-            'user_id' => 'required',
-            'nama_lengkap' => 'required',
-            'nomor_induk' => 'required',
-            'jk' => 'required',
             'foto' => 'nullable|file|image|mimes:png,jpg,jpeg',
         ]);
 
@@ -128,6 +128,7 @@ class ProfilController extends Controller
         $nama_file = time()."_".$file->getClientOriginalName();
         $tujuan_upload = 'images';
         $file->move($tujuan_upload,$nama_file);
+        File::delete('images'.$siswa->gambar);
         }
         $update = [
             'user_id' => $request->user_id,
