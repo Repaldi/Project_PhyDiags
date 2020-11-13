@@ -6,6 +6,7 @@ use App\User;
 use App\Guru;
 use App\Siswa;
 use Illuminate\Http\Request;
+use File;
 
 class ProfilController extends Controller
 {
