@@ -64,7 +64,7 @@
                             </div>
                             <!-- jumlah siswa masih salah -->
                             <div class="widget-content-right">
-                            @if(auth()->user()->guru->kelas->count() != 0)
+                            @if(auth()->user()->guru != null)
                                 <div class="widget-numbers "><span>{{$siswaku}}</span></div>
                             @else
                                 <div class="widget-numbers "><span>0</span></div>
