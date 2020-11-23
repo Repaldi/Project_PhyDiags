@@ -36,18 +36,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php $i = 1; ?>
                                     @foreach ($soal_satuan as $item)
                                     <tr>
-                                        <td scope="row" class="text-center">{{$loop->iteration}}</td>
-
+                                        <td scope="row" class="text-center">{{$i}}</td>
+                                        <?php $i++; ?>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td class="text-center">
-                                        <a href="{{route('showHasilUjianPersoal',['id'=> $item->id, 'ujian_id' => $ujian->id])}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
+                                        <a href="{{route('showHasilUjianPersoal',['id'=> $item->id, 'ujian_id' => $ujian->id,'nomor' => $i])}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                         </td>
                                     </tr>
                                     @endforeach

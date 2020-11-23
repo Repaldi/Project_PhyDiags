@@ -69,11 +69,11 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/','UjianController@getUjian')->name('getUjian');
         Route::get('/create','UjianController@createUjian')->name('createUjian');
         Route::post('/','UjianController@storeUjian')->name('storeUjian');
-        Route::get('/{id}','UjianController@showUjian')->name('showUjian');
+        Route::get('/{id}','UjianController@showUjian')->name('showUjian'); 
         Route::patch('/update','UjianController@updateUjian')->name('updateUjian');
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
         Route::get('/hasil/persiswa/{id}','UjianController@showHasilUjianPersiswa')->name('showHasilUjianPersiswa');
-        Route::get('/hasil/persoal/{ujian_id}/{id}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
+        Route::get('/hasil/persoal/{ujian_id}/{id}/{i}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
     });
 
     Route::get('/export/{id}','UjianController@exportExcelHasil')->name('exportExcelHasil');

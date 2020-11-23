@@ -106,9 +106,9 @@ class UjianController extends Controller
         $hasil_ujian = HasilUjian::where('peserta_ujian_id',$id)->paginate(10);
         return view('ujian.guru.showHasilUjianPersiswa',compact('hasil_ujian','peserta_ujian'));
     }
-    public function showHasilUjianPersoal($ujian_id,$id)
+    public function showHasilUjianPersoal($ujian_id,$id,$i)
     {
-
+        
         $soal_satuan = SoalSatuan::find($id);
         $ujian = Ujian::find($ujian_id);
         $hasil_ujian = HasilUjian::join('peserta_ujian',function ($join){
@@ -129,7 +129,7 @@ class UjianController extends Controller
           ['FN', $fn],
           ['MSC', $msc]
         ];
-        return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian], compact('sc','fp','lk','fn','msc'))->with('array_column',json_encode($array_column))->with('array_pie',json_encode($array_pie));
+        return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian], compact('sc','fp','lk','fn','msc','i'))->with('array_column',json_encode($array_column))->with('array_pie',json_encode($array_pie));
 
     }
 
