@@ -54,8 +54,10 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="row align-items-center">
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt=""></a>
+                                <div class="logo" style="display:flex;">
+                                    <a href=""><img src="{{asset('Front_Home/assets/img/unja.png')}}" alt="" style="width:70px;"></a>
+                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt="" style="padding-top:25px;"></a>
+
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -67,8 +69,8 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                             @if (Route::has('login'))
                                             @auth
                                                 <li class="active" ><a href="index.html">Beranda</a></li>
-                                                <li><a href="courses.html">Panduan</a></li>
-                                                <li><a href="about.html">Tentang</a></li>
+                                                <li><a href="#panduan">Panduan</a></li>
+                                                <li><a href="#tentang">Tentang</a></li>
                                                 <!-- <li><a href="#">Materi</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
@@ -76,7 +78,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li> -->
-                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li><a href="#kontak">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Keluar</a></li>
@@ -85,9 +87,9 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                     @csrf
                                                     </form>
                                             @else
-                                                <li class="active" ><a href="index.html">Beranda</a></li>
-                                                <li><a href="courses.html">Panduan</a></li>
-                                                <li><a href="about.html">Tentang</a></li>
+                                                <li class="active" ><a href="{{route('index')}}">Beranda</a></li>
+                                                <li><a href="#panduan">Panduan</a></li>
+                                                <li><a href="#tentang">Tentang</a></li>
                                                 <!-- <li><a href="#">Materi</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
@@ -95,7 +97,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li> -->
-                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li><a href="#kontak">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ route('login') }}" class="btn btn3">Masuk</a></li>
                                             @if (Route::has('register'))
                                                 <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Daftar</a></li>
@@ -128,14 +130,14 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
-                                <div class="hero__caption">
+                                <div class="hero__caption" id="panduan">
                                     <h1 data-animation="fadeInLeft" data-delay="0.2s">E-Diagnotic<br> Four Tier Test</h1>
                                     <p data-animation="fadeInLeft" data-delay="0.4s">
                                     Aplikasi berbasis web yang bertujuan untuk mengembangkan tes diagnostik dalam bentuk four-tier yang 
                                     berguna dalam mengidentifikasi profil konsepsi siswa SMA pada Materi Fluida 
                                     Statis. 
                                     </p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Panduan</a>
+                                    <a href="{{asset('Front_Home/assets/PANDUAN_PHYDIAGS.pdf')}}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Panduan</a>
                                 </div>
                             </div>
                         </div>
@@ -253,14 +255,14 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
         </div>
         <!-- Courses area End -->
         <!--? About Area-1 Start -->
-        <section class="about-area1 fix pt-10">
+        <section class="about-area1 fix pt-10" id="tentang">
             <div class="support-wrapper align-items-center">
                 <div class="left-content1">
                     <div class="about-icon">
                         <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt="">
                     </div>
                     <!-- section tittle -->
-                    <div class="section-tittle section-tittle2 mb-55">
+                    <div class="section-tittle section-tittle2 mb-55" >
                         <div class="front-text">
                             <h2 class="">Tentang Four-Tier Test</h2>
                             <p>Four Tier Test  merupakan tes diagnostik dengan empat tingkat pilihan. Four Tier Test ini merupakan pengembangan dari tes diagnostik pilihan ganda tiga tingkat, yaitu dengan menambah tingkat keyakinan pada masing-masing jawaban dan 
@@ -478,7 +480,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
         </section>
         <!-- About Area End -->
         <!--? Team -->
-        <section class="team-area section-padding40 fix">
+        <section class="team-area section-padding40 fix" id="kontak">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
@@ -490,7 +492,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="team-active">
                     <div class="single-cat text-center">
                         <div class="cat-icon">
-                            <img src="{{asset('Front_Home/assets/img/gallery/team1.png')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/me.JPG')}}" alt="" style="width:200px; border-radius: 50%;">
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Agustian</a></h5>

@@ -96,7 +96,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="jk"> <b> Jenis Kelamin : </b> </label>
                                             <select class="form-control" name="jk" id="jk"  value="{{$guru->jk}}" style="border-radius:10px; border-color:#c4cdcf; box-shadow: 3px 3px 5px grey;" >
-                                                <option selected disabled >{{$guru->jk}}</option>
+                                                <option selected >{{$guru->jk}}</option>
                                                 <option value="Laki-laki">Laki-laki</option>
                                                 <option value="Perempuan">Perempuan</option>
                                             </select>

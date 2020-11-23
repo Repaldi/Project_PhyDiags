@@ -20,13 +20,6 @@
       @include('ujian.siswa.pagination_data')
     </div>
 
-    <div class="row">
-      <div class="col-md-8"></div>
-      <div class="col-md-4">
-        <a href="{{route('finishUjian',$peserta_ujian->id)}}"> <button class="btn btn-danger" > Akhiri Test </button> </a>
-      </div>
-    </div>
-
   </div>
 </div>
 

@@ -46,7 +46,7 @@ use App\JawabanTk4;
                       @else
                    @endif
                       <tr>
-                          <td><b> 1.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
+                          <td><b> {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}.1 </b> :<br/> <p>{{$item->soal_tk1->pertanyaan}} </p> </td>
                       </tr>
                       <tr>
                           <td>
@@ -94,7 +94,7 @@ use App\JawabanTk4;
                   <div class="container">
                     <table>
                       <tr>
-                          <td><b> 1.2 </b> :<br/> <p>{{$item->soal_tk2->pertanyaan}} </p> </td>
+                          <td><b> {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}.2 </b> :<br/> <p>{{$item->soal_tk2->pertanyaan}} </p> </td>
                       </tr>
                       <tr>
                           <td>
@@ -137,7 +137,7 @@ use App\JawabanTk4;
                     @else
                    @endif
                       <tr>
-                          <td><b> 1.3 </b> :<br/> <p>{{$item->soal_tk3->pertanyaan}} </p> </td>
+                          <td><b> {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}.3 </b> :<br/> <p>{{$item->soal_tk3->pertanyaan}} </p> </td>
                       </tr>
                       <tr>
                           <td>
@@ -186,7 +186,7 @@ use App\JawabanTk4;
                   <div class="container">
                     <table>
                       <tr>
-                          <td><b> 1.4 </b> :<br/> <p>{{$item->soal_tk4->pertanyaan}} </p> </td>
+                          <td><b> {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}.4 </b> :<br/> <p>{{$item->soal_tk4->pertanyaan}} </p> </td>
                       </tr>
                       <tr>
                           <td>
@@ -234,7 +234,14 @@ use App\JawabanTk4;
               <div class="col-12 text-center " style=" overflow: Auto;">
               {!! $soal_satuan->links() !!}
               </div>
-            </div>
+            </div> 
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8"></div>
+          <div class="col-md-4">
+            <a href="{{route('finishUjian',$peserta_ujian->id)}}"> <button class="btn btn-danger" > Akhiri Test </button> </a>
           </div>
         </div>
       </div>
