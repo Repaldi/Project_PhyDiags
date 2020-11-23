@@ -49,10 +49,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0; ?>
+                        <?php $i = 1; ?>
                             @foreach ($paket_soal as $item)
                             <tr>
-                                <td scope="row" class="text-center"><?php   $i++;  echo $i; ?></td>
+                                <td scope="row" class="text-center"><?php   echo $i; ?></td>
                                 <?php $i++; ?>
                                 <td >{{ $item->nama_paket_soal }}</td>
                                 <td class="text-center">#</td>
