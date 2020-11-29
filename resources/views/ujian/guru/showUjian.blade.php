@@ -36,11 +36,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1; ?>
+                                    <?php $i = 0; ?>
                                     @foreach ($soal_satuan as $item)
                                     <tr>
-                                        <td scope="row" class="text-center">{{$i}}</td>
                                         <?php $i++; ?>
+                                        <td scope="row" class="text-center">{{$i}}</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -53,7 +53,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{$soal_satuan->links()}}
+                            
                         </div>
 
                         @endif
@@ -101,7 +101,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{$peserta_ujian->links()}}
+                            
                         </div>
                         @else
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">

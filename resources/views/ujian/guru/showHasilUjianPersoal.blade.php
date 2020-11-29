@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Detail Hasil Test Soal No. {{$i}} </div>
+                <div class="card-header">Detail Hasil Test Soal No. {{$nomor}} </div>
                 <div class="card-body">
                     <div class="table-inside">
                         <table class="table table-striped table-bordered table-md">
