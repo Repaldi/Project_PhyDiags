@@ -42,6 +42,7 @@ $(document).ready(function(){
           },
           success: function(soal_satuan)
           {
+            //   alert(soal_satuan);
               $('#table_data').html(soal_satuan);
           }
       });
