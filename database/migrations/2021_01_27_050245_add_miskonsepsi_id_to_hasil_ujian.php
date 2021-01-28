@@ -14,7 +14,7 @@ class AddMiskonsepsiIdToHasilUjian extends Migration
     public function up()
     {
         Schema::table('hasil_ujian', function (Blueprint $table) {
-            $table->integer('miskonsepsi_id')->nullable()->after('keterangan');
+            $table->integer('miskonsepsi_id')->after('keterangan')->nullable();
         });
     }
 

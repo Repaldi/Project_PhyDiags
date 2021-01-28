@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMiskonsepsiTable extends Migration
+class CreateMiskonsepsiDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateMiskonsepsiTable extends Migration
      */
     public function up()
     {
-        Schema::create('miskonsepsi', function (Blueprint $table) {
+        Schema::create('miskonsepsi_detail', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('jenis');
+            $table->integer('miskonsepsi_id');
+            $table->string('tk_1');
+            $table->string('tk_2');
+            $table->string('tk_3');
+            $table->string('tk_4');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateMiskonsepsiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('miskonsepsi');
+        Schema::dropIfExists('miskonsepsi_detail');
     }
 }

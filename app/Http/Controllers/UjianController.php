@@ -24,6 +24,7 @@ use App\JawabanTk3;
 use App\JawabanTk4;
 use App\HasilUjian;
 use App\Exports\HasilUjianExport;
+use App\Miskonsepsi;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -84,7 +85,54 @@ class UjianController extends Controller
         $peserta_ujian  = PesertaUjian::where('ujian_id',$id)->get();
         $paket_soal_id  = Ujian::where('id',$id)->value('paket_soal_id');
         $soal_satuan    = SoalSatuan::where('paket_soal_id', $paket_soal_id)->get();
-        return view('ujian.guru.showUjian',compact('ujian','peserta_ujian','soal_satuan'));
+        $miskonsepsi    = Miskonsepsi::orderBy('id','asc')->distinct()->get();
+        // $m1 = HasilUjian::where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',4)->count();
+        $m1 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',1)->count();
+
+        $m2 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',2)->count();
+
+        $m3 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',3)->count();
+
+        $m4 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',4)->count();
+
+        $m5 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',5)->count();
+
+        $m6 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',6)->count();
+
+        $m7 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',7)->count();
+
+        $m8 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',8)->count();
+
+        $m9 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',9)->count();
+
+        $m10 = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id',$id)->where('miskonsepsi_id',10)->count();
+
+        $array_grafik_miskonsepsi = [['Jenis Miskonsepsi','M1','M2','M3','M4','M5','M6','M7','M8','M9','M10'],
+                                    ['Jumlah',$m1,$m2,$m3,$m4,$m5,$m6,$m7,$m8,$m9,$m10]];
+
+
+        // dd($miskonsepsi);
+        return view('ujian.guru.showUjian',compact('ujian','peserta_ujian','soal_satuan','miskonsepsi'))->with('array_grafik_miskonsepsi',json_encode($array_grafik_miskonsepsi));
     }
     public function updateUjian(Request $request)
     {
@@ -133,6 +181,16 @@ class UjianController extends Controller
         ];
         return view('ujian.guru.showHasilUjianPersoal',['soal_satuan' => $soal_satuan, 'ujian' => $ujian, 'hasil_ujian' =>$hasil_ujian], compact('sc','fp','lk','fn','msc','nomor'))->with('array_column',json_encode($array_column))->with('array_pie',json_encode($array_pie));
 
+    }
+
+    public function detailMiskonsepsi($id,$miskonsepsi_id)
+    {
+        $ujian_id = $id;
+        $hasil_ujian = HasilUjian::join('peserta_ujian',function ($join){
+            $join->on('hasil_ujian.peserta_ujian_id','=', 'peserta_ujian.id');
+        })->where('peserta_ujian.ujian_id','=',$id)->where('miskonsepsi_id',$miskonsepsi_id)->get();
+        $miskonsepsi = Miskonsepsi::find($miskonsepsi_id);
+        return view('ujian.guru.showMiskonsepsi',compact(['hasil_ujian','miskonsepsi','ujian_id']));
     }
 
     public function exportExcelHasil($id)
@@ -406,71 +464,71 @@ class UjianController extends Controller
                                     $miskonsepsi_id = 2;
                                     //M2
                                 }elseif ($jawaban_tk1->jawaban == 'C' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'B' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 3;
+                                    $miskonsepsi_id = 2;
                                     //M2
                                 }
 
                             }elseif ($semua_soal_satuan[1]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'B' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'C' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 4;
+                                    $miskonsepsi_id = 3;
                                     //M3
                                 }elseif ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'B' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 6;
+                                    $miskonsepsi_id = 4;
                                     //M4
                                 }elseif ($jawaban_tk1->jawaban == 'D' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 7;
+                                    $miskonsepsi_id = 4;
                                     //M4
                                 }
                             }elseif ($semua_soal_satuan[2]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'C' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'C' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 5;
+                                    $miskonsepsi_id = 3;
                                     //M3
                                 }elseif ($jawaban_tk1->jawaban == 'B' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 8;
+                                    $miskonsepsi_id = 4;
                                     //M4
                                 }elseif ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 9;
+                                    $miskonsepsi_id = 4;
                                     //M4
                                 }
                             }elseif ($semua_soal_satuan[3]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'B' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'D' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 10;
+                                    $miskonsepsi_id = 5;
                                     //M5
                                 }elseif ($jawaban_tk1->jawaban == 'D' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'C' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 11;
+                                    $miskonsepsi_id = 5;
                                     //M5
                                 }elseif ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 12;
+                                    $miskonsepsi_id = 6;
                                     //M6
                                 }
                             }elseif ($semua_soal_satuan[4]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'B' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'C' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 13;
+                                    $miskonsepsi_id = 7;
                                     //M7
                                 }elseif ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 14;
+                                    $miskonsepsi_id = 7;
                                     //M7
                                 }elseif ($jawaban_tk1->jawaban == 'D' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'B' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 18;
+                                    $miskonsepsi_id = 9;
                                     //M9
                                 }
                             }elseif ($semua_soal_satuan[5]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'D' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 15;
+                                    $miskonsepsi_id = 8;
                                     //M8
                                 }elseif ($jawaban_tk1->jawaban == 'B' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'B' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 16;
+                                    $miskonsepsi_id = 8;
                                     //M8
                                 }elseif ($jawaban_tk1->jawaban == 'C' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'A' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 17;
+                                    $miskonsepsi_id = 8;
                                     //M8
                                 }
                             }elseif ($semua_soal_satuan[6]['id'] == $request->soal_satuan_id) {
                                 if ($jawaban_tk1->jawaban == 'A' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'B' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 19;
+                                    $miskonsepsi_id = 10;
                                     //M10
                                 }elseif ($jawaban_tk1->jawaban == 'C' && $jawaban_tk2->jawaban == 'A' && $jawaban_tk3->jawaban == 'D' && $jawaban_tk4->jawaban == 'A') {
-                                    $miskonsepsi_id = 20;
+                                    $miskonsepsi_id = 10;
                                     //M10
                                 }
                             }

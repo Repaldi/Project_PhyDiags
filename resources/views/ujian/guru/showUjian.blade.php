@@ -53,7 +53,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            
+
                         </div>
 
                         @endif
@@ -101,7 +101,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            
+
                         </div>
                         @else
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -113,6 +113,54 @@
                         @endif
 
                         </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-permiskonsepsi" role="tabpanel" aria-labelledby="pills-permiskonsepsi-tab">
+                <div class="card">
+                        <div class="card-header">
+                            Daftar Hasil {{$ujian->nama_ujian}}
+                        </div>
+                        <div class="card-body">
+                        @if($miskonsepsi->count() != 0)
+
+                            <div class="table-inside">
+                                <table class="table table-striped table-bordered table-md">
+                                    <thead class="text-center bg-dark" style="color:white;">
+                                        <tr>
+                                            <th scope="col" style="width:50px">Jenis Miskonsepsi</th>
+                                            <th scope="col" style="width:150px">Opsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($miskonsepsi as $item)
+                                        <tr>
+                                            <td scope="row" class="text-center">{{$item->jenis}}</td>
+                                            <td class="text-center">
+                                                <a href="{{route('detailMiskonsepsi',['id'=>$ujian->id,'miskonsepsi_id'=>$item->id])}}" class="btn btn-info btn-sm">Detail</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+                        @else
+
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong> Belum ada siswa yang mengikuti test ini!</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+
+                        @endif
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -129,9 +177,16 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="pills-persiswa-tab" data-toggle="pill" href="#pills-persiswa" role="tab" aria-controls="pills-persiswa" aria-selected="false">Per Siswa</a>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="pills-permiskonsepsi-tab" data-toggle="pill" href="#pills-permiskonsepsi" role="tab" aria-controls="pills-permiskonsepsi" aria-selected="false">Per Miskonsepsi</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
+    </div>
+    <div id="grafik_miskonsepsi">
+
     </div>
     <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>
     <a href="{{route('exportExcelHasil',$ujian->id)}}"><button class="btn btn-primary" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-download mr-1" ></i> Excel</button></a>
@@ -140,7 +195,22 @@
 
 @endsection
 
-@section('js')
-<script>
+@section('chart')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    var array_column = <?php echo $array_grafik_miskonsepsi; ?>;
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.arrayToDataTable(array_column);
+        var options = {
+            chart: {
+                title: '',
+            }
+            };
+        var chart = new google.charts.Bar(document.getElementById('grafik_miskonsepsi'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
 </script>
 @endsection

@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
         Route::get('/hasil/persiswa/{id}','UjianController@showHasilUjianPersiswa')->name('showHasilUjianPersiswa');
         Route::get('/hasil/persoal/{ujian_id}/{id}/{nomor}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
+        Route::get('/{id}/miskonsepsi/{miskonsepsi_id}','UjianController@detailMiskonsepsi')->name('detailMiskonsepsi');
     });
 
     Route::get('/export/{id}','UjianController@exportExcelHasil')->name('exportExcelHasil');

@@ -186,7 +186,7 @@ use App\JawabanTk4;
                   <div class="container">
                     <table>
                       <tr>
-                          <td><b> {{$soal_satuan ->perPage()*($soal_satuan->currentPage()-1)+$i}}.4 </b> :<br/> <p>{{$item->soal_tk4->pertanyaan}} </p> </td>
+                          <td><b> {{$soal_satuan->perPage()*($soal_satuan->currentPage()-1)+$i}}.4 </b> :<br/> <p>{{$item->soal_tk4->pertanyaan}} </p> </td>
                       </tr>
                       <tr>
                           <td>
@@ -234,8 +234,8 @@ use App\JawabanTk4;
               <div class="col-12 text-center " style=" overflow: Auto;">
               {!! $soal_satuan->links() !!}
               </div>
-            </div> 
-            
+            </div>
+
           </div>
         </div>
         <div class="row">
