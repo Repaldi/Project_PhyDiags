@@ -249,7 +249,7 @@
 
                 title: '',
                 width: 800,
-                height: 600,
+                height: 400,
 
             };
         var chart = new google.charts.Bar(document.getElementById('grafik_miskonsepsi'));
