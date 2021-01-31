@@ -55,7 +55,7 @@
                                 <td scope="row" class="text-center"><?php   echo $i; ?></td>
                                 <?php $i++; ?>
                                 <td >{{ $item->nama_paket_soal }}</td>
-                                <td class="text-center">#</td>
+                                <td class="text-center">{{$item->jumlah_soal()}}</td>
                                 <td class="text-center">
                                     <a href="{{route('soalSatuan',$item->id)}}"><button class="btn btn-warning btn-sm" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-eye"></i> Detail Soal</button></a>
                                     <button class="btn btn-danger btn-sm hapus" data-paket_soal_id="{{$item->id}}" data-nama_paket_soal="{{$item->nama_paket_soal}}" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-trash"></i> Hapus</button>

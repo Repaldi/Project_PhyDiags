@@ -32,11 +32,6 @@
                                 <thead class="text-center bg-dark" style="color:white;">
                                     <tr>
                                         <th scope="col">Nomor Soal</th>
-                                        <th>SC</th>
-                                        <th>FP</th>
-                                        <th>LK</th>
-                                        <th>FN</th>
-                                        <th>MSC</th>
                                         <th scope="col" style="width:150px">Opsi</th>
                                     </tr>
                                 </thead>
@@ -46,11 +41,6 @@
                                     <tr>
                                         <?php $i++; ?>
                                         <td scope="row" class="text-center">{{$i}}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
                                         <td class="text-center">
                                         <a href="{{route('showHasilUjianPersoal',['id'=> $item->id, 'ujian_id' => $ujian->id,'nomor' => $i])}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                         </td>
@@ -80,11 +70,6 @@
                                         <th scope="col" style="width:50px">No</th>
                                         <th scope="col" >Nama Siswa </th>
                                         <th scope="col" >Status</th>
-                                        <th>SC</th>
-                                        <th>FP</th>
-                                        <th>LK</th>
-                                        <th>FN</th>
-                                        <th>MSC</th>
                                         <th scope="col" style="width:150px">Opsi</th>
                                     </tr>
                                 </thead>
@@ -94,11 +79,6 @@
                                         <td scope="row" class="text-center">{{$loop->iteration}}</td>
                                         <td >{{ $item->siswa->nama_lengkap}}</td>
                                         <td >@if ($item->status == 0) Belum dikerjakan @else Telah dikerjakan @endif</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
                                         <td class="text-center">
                                         <a href="{{route('showHasilUjianPersiswa',$item->id)}}"><button type="button" class="btn btn-info btn-sm" style="box-shadow: 3px 2px 5px grey;" ><i class="fa fa-eye"></i> Detail Hasil </button> </a>
                                         </td>
@@ -186,16 +166,15 @@
             <div class="alert alert-success text-center" role="alert">
                 <p class="mb-0"><strong>Hasil</strong> </p> <hr>
                 <ul class="nav flex-column nav-pills mb-3 nav-justified" id="pills-tab" >
+                    <li class="nav-item" role="presentation">
+                        <a class="miskonsepsi nav-link" id="pills-permiskonsepsi-tab" data-toggle="pill" href="#pills-permiskonsepsi" role="tab" aria-controls="pills-permiskonsepsi" aria-selected="false">Per Miskonsepsi</a>
+                    </li>
                     <li class="nav-item " role="presentation">
                         <a class="nav-link" id="pills-persoal-tab" data-toggle="pill" href="#pills-persoal" role="tab" aria-controls="pills-persoal" aria-selected="true">Per Soal</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="pills-persiswa-tab" data-toggle="pill" href="#pills-persiswa" role="tab" aria-controls="pills-persiswa" aria-selected="false">Per Siswa</a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="miskonsepsi nav-link active" id="pills-permiskonsepsi-tab" data-toggle="pill" href="#pills-permiskonsepsi" role="tab" aria-controls="pills-permiskonsepsi" aria-selected="false">Per Miskonsepsi</a>
-                    </li>
-
                 </ul>
             </div>
         </div>
@@ -204,7 +183,7 @@
 
 
     <a href="{{route('showKelas',$ujian->kelas->id)}}"><button class="btn btn-warning" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-reply mr-1" ></i> Kembali</button></a>
-    <a href="{{route('exportExcelHasil',$ujian->id)}}"><button class="btn btn-primary" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-download mr-1" ></i> Excel</button></a>
+    {{-- <a href="{{route('exportExcelHasil',$ujian->id)}}"><button class="btn btn-primary" style="box-shadow: 3px 2px 5px grey;"><i class="fa fa-download mr-1" ></i> Excel</button></a> --}}
 </div>
 </main>
 

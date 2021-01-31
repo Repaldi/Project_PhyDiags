@@ -18,7 +18,7 @@ class KelasController extends Controller
     public function getKelas()
     {
       try {
-        $kelas         = Kelas::where('guru_id',Auth::user()->guru->id)->get();
+        $kelas         = Kelas::where('guru_id',Auth::user()->guru->id)->where('isdelete',false)->get();
         return view('kelas.getKelas',['kelas' => $kelas]);
       } catch (\Exception $e) {
         return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
@@ -31,7 +31,7 @@ class KelasController extends Controller
       try {
         $guru = Guru::where('guru_id',auth()->user()->guru->id);
         return view('kelas.createKelas');
-        
+
       } catch (\Exception $e) {
         return redirect()->route('profilGuru')->with('error','Mohon lengkapi profil anda');
       }
@@ -48,7 +48,7 @@ class KelasController extends Controller
             'kode_kelas' => $kode_kelas,
         ]);
         //dd('oke');
-        return redirect()->route('createKelas')->with('success','Kelas baru berhasil dibuat');
+        return redirect()->route('getKelas')->with('success','Kelas baru berhasil dibuat');
     }
 
     public function showKelas($id)
@@ -61,7 +61,16 @@ class KelasController extends Controller
         return view('kelas.showKelas', compact('kelas','anggotakelas','ujian'));
     }
 
-    //Bagian Siswa 
+    public function deleteKelas($id)
+    {
+        Kelas::whereId($id)->update([
+            'isdelete'=>true
+        ]);
+
+        return redirect()->back();
+    }
+
+    //Bagian Siswa
     public function getKelasSiswa()
     {
       try {
