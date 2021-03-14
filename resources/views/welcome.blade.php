@@ -72,7 +72,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                 <li><a href="#panduan">Panduan</a></li>
                                                 <li><a href="#tentang">Tentang</a></li>
                                              
-                                                <li><a href="#kontak">Kontak</a></li>
+                                                <li><a href="https://api.whatsapp.com/send?phone=6282291381986">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Keluar</a></li>
@@ -84,7 +84,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                 <li class="active" ><a href="index.html">Beranda</a></li>
                                                 <li><a href="#panduan">Panduan</a></li>
                                                 <li><a href="#tentang">Tentang</a></li>
-                                                <li><a href="#kontak">Kontak</a></li>
+                                                <li><a href="https://api.whatsapp.com/send?phone=6282291381986">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ route('login') }}" class="btn btn3">Masuk</a></li>
                                             @if (Route::has('register'))
                                                 <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Daftar</a></li>
