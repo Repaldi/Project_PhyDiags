@@ -67,7 +67,7 @@
                         <td>@if($item->jawaban_tk3->jawaban == $item->jawaban_tk3->soal_tk3->kunci) 1 @else 0 @endif</td>
                         <td>@if($item->jawaban_tk4->jawaban == $item->jawaban_tk4->soal_tk4->kunci) 1 @else 0 @endif</td>
                         <td>{{$item->keterangan}}</td>
-                        <td> @if ($item->hasil == 'SC') Anda memahami  @else Anda tidak memahami @endif</td>
+                        <td> Anda {{$item->keterangan}} </td>
                     </tr>
                     @endforeach
                 </tbody>

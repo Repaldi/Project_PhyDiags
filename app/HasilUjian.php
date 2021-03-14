@@ -33,4 +33,9 @@ class HasilUjian extends Model
     {
       return $this->belongsTo(JawabanTk4::class);
     }
+
+    public function miskonsepsi()
+    {
+        return $this->belongsTo(Miskonsepsi::class);
+    }
 }

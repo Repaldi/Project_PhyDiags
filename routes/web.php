@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::get('/create','KelasController@createKelas')->name('createKelas');
         Route::post('/','KelasController@storeKelas')->name('storeKelas');
         Route::get('/{id}','KelasController@showKelas')->name('showKelas');
+        Route::get('/delete/{id}','KelasController@deleteKelas')->name('deleteKelas');
     });
     Route::group(['prefix' => 'ujian'], function () {
         Route::get('/','UjianController@getUjian')->name('getUjian');
@@ -77,7 +78,8 @@ Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function
         Route::patch('/update','UjianController@updateUjian')->name('updateUjian');
         Route::get('/delete/{id}','UjianController@deleteUjian')->name('deleteUjian');
         Route::get('/hasil/persiswa/{id}','UjianController@showHasilUjianPersiswa')->name('showHasilUjianPersiswa');
-        Route::get('/hasil/persoal/{ujian_id}/{id}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
+        Route::get('/hasil/persoal/{ujian_id}/{id}/{nomor}','UjianController@showHasilUjianPersoal', ['$id'=>'id','$ujian_id' =>'ujian_id'])->name('showHasilUjianPersoal');
+        Route::get('/{id}/miskonsepsi/{miskonsepsi_id}','UjianController@detailMiskonsepsi')->name('detailMiskonsepsi');
     });
 
     Route::get('/export/{id}','UjianController@exportExcelHasil')->name('exportExcelHasil');

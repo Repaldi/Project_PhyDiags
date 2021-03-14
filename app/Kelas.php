@@ -23,4 +23,10 @@ class Kelas extends Model
     return $this->hasMany(Ujian::class,'kelas_id');
   }
 
+  public function jumlah_siswa()
+  {
+      $jumlah_siswa = AnggotaKelas::where('kelas_id',$this->id)->count();
+      return $jumlah_siswa;
+  }
+
 }

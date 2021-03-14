@@ -117,14 +117,14 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-7 col-md-12">
-                                <div class="hero__caption">
+                                <div class="hero__caption" id="panduan">
                                     <h1 data-animation="fadeInLeft" data-delay="0.2s">E-Diagnotic<br> Four Tier Test</h1>
                                     <p data-animation="fadeInLeft" data-delay="0.4s">
                                     Aplikasi berbasis web yang bertujuan untuk mengembangkan tes diagnostik dalam bentuk four-tier yang 
                                     berguna dalam mengidentifikasi profil konsepsi siswa SMA pada Materi Fluida 
                                     Statis. 
                                     </p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Panduan</a>
+                                    <a href="{{asset('Front_Home/assets/PANDUAN_PHYDIAGS.pdf')}}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Panduan</a>
                                 </div>
                             </div>
                         </div>
@@ -229,14 +229,14 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
         </div>
         <!-- Courses area End -->
         <!--? About Area-1 Start -->
-        <section class="about-area1 fix pt-10">
+        <section class="about-area1 fix pt-10" id="tentang">
             <div class="support-wrapper align-items-center">
                 <div class="left-content1">
                     <div class="about-icon">
                         <!-- <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt=""> -->
                     </div>
                     <!-- section tittle -->
-                    <div id="tentang" class="section-tittle section-tittle2 mb-55">
+                    <div class="section-tittle section-tittle2 mb-55" >
                         <div class="front-text">
                             <h2 class="">Tentang Four-Tier Test</h2>
                             <p>Four Tier Test  merupakan tes diagnostik dengan empat tingkat pilihan. Four Tier Test ini merupakan pengembangan dari tes diagnostik pilihan ganda tiga tingkat, yaitu dengan menambah tingkat keyakinan pada masing-masing jawaban dan 
@@ -416,7 +416,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
         </section>
         <!-- About Area End -->
         <!--? Team -->
-        <section class="team-area section-padding40 fix">
+        <section class="team-area section-padding40 fix" id="kontak">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
@@ -428,7 +428,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div id="kontak" class="team-active">
                     <div class="single-cat text-center">
                         <div class="cat-icon">
-                            <img src="{{asset('Front_Home/assets/img/gallery/team1.png')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/me.JPG')}}" alt="" style="width:200px; border-radius: 50%;">
                         </div>
                         <div class="cat-cap">
                             <h5><a href="#">Agustian</a></h5>
