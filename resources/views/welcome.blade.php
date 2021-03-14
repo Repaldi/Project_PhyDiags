@@ -55,7 +55,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logooo.png')}}" style="width:500px" alt=""></a>
+                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logooo.png')}}" style="width:250px" alt=""></a>
                                     
                                    
                                 </div>
@@ -294,86 +294,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             </div>
         </section>
         <!-- About Area End -->
-        <!--? top subjects Area Start -->
-        <div class="topic-area section-padding40">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="section-tittle text-center mb-55">
-                            <h2>Fitur-Fitur PhyDiags</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6t" >
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img"  >
-                                <img src="{{asset('Front_Home/assets/img/fitur/1.png')}}" alt="">
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/2.png')}}" alt="">
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/3.png')}}" alt="">
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/4.png')}}" alt="">
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/5.png')}}" alt="">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/6.png')}}" alt="">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/7.png')}}" alt="">
-                              
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="{{asset('Front_Home/assets/img/fitur/8.png')}}" alt="">
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
-            </div>
-        </div>
-        <!-- top subjects End -->
+       
         <!--? About Area-3 Start -->
         <section class="about-area3 fix">
             <div class="support-wrapper align-items-center">

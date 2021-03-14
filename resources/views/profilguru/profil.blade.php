@@ -60,6 +60,21 @@
                                     <td> : </td>
                                     <td>{{ $guru->jk }}</td>
                                 </tr>
+                                <tr>
+                                    <td col><b> Asal Sekolah</b> </td>
+                                    <td> : </td>
+                                    <td>{{ $guru->asal_sekolah }}</td>
+                                </tr>
+                                <tr>
+                                    <td col><b> Bidang Studi</b> </td>
+                                    <td> : </td>
+                                    <td>{{ $guru->bidang_studi }}</td>
+                                </tr>
+                                <tr>
+                                    <td col><b> Alamat </b> </td>
+                                    <td> : </td>
+                                    <td>{{ $guru->alamat }}</td>
+                                </tr>
                                 
                             </table>
                     </div>
@@ -147,6 +162,31 @@
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div> 
+                            </div>
+                            <div class="form-row mb-0 mt-0 pt-0">
+                                <div class="form-group col-md-6">
+                                    <label for="asal_sekolah"><b> Asal Sekolah : </b></label>
+                                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah"  style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('asal_sekolah'))
+                                    <span class="help-block">{{$errors->first('asal_sekolah')}}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="bidang_studi"> <b> Bidang Studi : </b> </label>
+                                    <input type="text" class="form-control" id="bidang_studi" name="bidang_studi"  style="border-radius:10px;  box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('bidang_studi'))
+                                    <span class="help-block">{{$errors->first('bidang_studi')}}</span>
+                                    @endif
+                                </div> 
+                            </div>
+                            <div class="form-row mb-0 mt-0 pt-0">
+                                <div class="form-group col-md-12">
+                                    <label for="alamat"> <b>Alamat: </b> </label>
+                                    <input type="text" class="form-control" id="alamat" name="alamat" style="border-radius:10px; box-shadow: 3px 0px 5px grey;">
+                                    @if($errors->has('alamat'))
+                                    <span class="help-block">{{$errors->first('alamat')}}</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>

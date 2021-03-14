@@ -22,6 +22,9 @@ class ProfilController extends Controller
             'nama_lengkap' => 'required',
             'nomor_induk' => 'required',
             'jk' => 'required',
+            'asal_sekolah' => 'required',
+            'bidang_studi' => 'required',
+            'alamat' => 'required',
             'foto' => 'required|file|image|mimes:png,jpg,jpeg',
         ]);
 
@@ -35,6 +38,9 @@ class ProfilController extends Controller
             'nama_lengkap' => $request->nama_lengkap,
             'nomor_induk' => $request->nomor_induk,
             'jk' => $request->jk,
+            'asal_sekolah' => $request->asal_sekolah,
+            'bidang_studi' => $request->bidang_studi,
+            'alamat' => $request->alamat,
             'foto' => $nama_file,
         ]);
         return redirect()->back()
@@ -67,6 +73,9 @@ class ProfilController extends Controller
             'nama_lengkap' => $request->nama_lengkap,
             'nomor_induk' => $request->nomor_induk,
             'jk' => $request->jk,
+            'asal_sekolah' => $request->asal_sekolah,
+            'bidang_studi' => $request->bidang_studi,
+            'alamat' => $request->alamat,
             'foto' => $nama_file,
         ];
 
