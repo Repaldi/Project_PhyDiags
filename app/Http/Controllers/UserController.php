@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Panduan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -57,6 +58,16 @@ class UserController extends Controller
     {
         $siswa = User::where('role',2)->get();
         return view('admin.data_siswa', compact('siswa'));
+    }
+    public function panduanGuru()
+    {
+        $panduan = Panduan::where('isfor',0)->get();
+        return view('admin.panduan_guru', compact('panduan'));
+    }
+    public function panduanSiswa()
+    {
+        $panduan = Panduan::where('isfor',1)->get();
+        return view('admin.panduan_siswa', compact('panduan'));
     }
 
 

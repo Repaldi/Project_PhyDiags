@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{asset('Front_Form/images/signin-image.jpg')}}" alt="sing up image"></figure>
+                        <figure><img src="{{asset('Front_Form/images/login.png')}}" alt="sing up image"></figure>
                         Belum Punya Akun? <a href="{{ route('register') }}">Klik Disini</a>
                     </div>
 

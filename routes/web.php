@@ -27,6 +27,10 @@ Route::group(['middleware' => ['auth','checkRole:0']], function(){
     Route::get('/usersiswa/data','UserController@dataSiswa')->name('usersiswaData');
     Route::get('/usersiswa/create','UserController@createSiswa')->name('usersiswaCreate');
     Route::post('/usersiswa/store','UserController@storeSiswa')->name('usersiswaStore');
+    Route::get('/panduan-guru','UserController@panduanGuru')->name('panduanGuru');
+    Route::post('/panduan-guru/store','UserController@storepanduanGuru')->name('panduanguruStore');
+    Route::get('/panduan-siswa','UserController@panduanSiswa')->name('panduanSiswa');
+    Route::post('/panduan-siswa/store','UserController@storepanduanSiswa')->name('panduansiswaStore');
 });
 
 Route::group(['middleware' => ['auth','checkRole:1'],'prefix'=>'guru'], function(){

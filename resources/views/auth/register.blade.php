@@ -48,7 +48,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="{{asset('Front_Form/images/signup-image.jpg')}}" alt="sing up image"></figure>
+                        <figure><img src="{{asset('Front_Form/images/daftar.png')}}" alt="sing up image"></figure>
                         Sudah Memiliki Akun? <a href="{{ route('login') }}" >Klik Disni</a>
                     </div>
                 </div>

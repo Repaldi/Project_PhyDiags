@@ -113,6 +113,28 @@
 
                 </ul>
                 </li>
+                <li>
+                    <a href="#" class="mb-2">
+                        <i class="metismenu-icon pe-7s-bookmarks"></i>
+                        <b>Panduan</b>
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                    <li>
+                        <a href="{{route('panduanGuru')}}">
+                          <b>Panduan Guru</b>
+                            <i class="metismenu-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('panduanSiswa')}}">
+                            <b>Panduan Siswa</b>
+                            <i class="metismenu-icon pe-7s-monitor"></i>
+                        </a>
+                    </li>
+
+                </ul>
+                </li>
             </ul>
         </div>
     </div>

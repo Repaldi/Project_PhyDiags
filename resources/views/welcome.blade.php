@@ -55,7 +55,9 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt=""></a>
+                                    <a href=""><img src="{{asset('Front_Home/assets/img/logo/logooo.png')}}" style="width:500px" alt=""></a>
+                                    
+                                   
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -66,17 +68,11 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                             <ul id="navigation">  
                                             @if (Route::has('login'))
                                             @auth
-                                                <li class="active" ><a href="index.html">Beranda</a></li>
-                                                <li><a href="courses.html">Panduan</a></li>
-                                                <li><a href="about.html">Tentang</a></li>
-                                                <!-- <li><a href="#">Materi</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
-                                                    </ul>
-                                                </li> -->
-                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li class="active" ><a href="#">Beranda</a></li>
+                                                <li><a href="#panduan">Panduan</a></li>
+                                                <li><a href="#tentang">Tentang</a></li>
+                                             
+                                                <li><a href="#kontak">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ url('/home') }}" class="btn btn3">Dashboard</a></li>
                                                 <li class="button-header margin-left "><a href="{{ route('logout') }}" class="btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Keluar</a></li>
@@ -86,16 +82,9 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                     </form>
                                             @else
                                                 <li class="active" ><a href="index.html">Beranda</a></li>
-                                                <li><a href="courses.html">Panduan</a></li>
-                                                <li><a href="about.html">Tentang</a></li>
-                                                <!-- <li><a href="#">Materi</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
-                                                    </ul>
-                                                </li> -->
-                                                <li><a href="contact.html">Kontak</a></li>
+                                                <li><a href="#panduan">Panduan</a></li>
+                                                <li><a href="#tentang">Tentang</a></li>
+                                                <li><a href="#kontak">Kontak</a></li>
                                                 <li class="button-header"><a href="{{ route('login') }}" class="btn btn3">Masuk</a></li>
                                             @if (Route::has('register'))
                                                 <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Daftar</a></li>
@@ -184,7 +173,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             </div>
         </div>
         <!-- Courses area start -->
-        <div class="courses-area section-padding40 fix">
+        <div id="panduan" class="courses-area section-padding40 fix">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8">
@@ -228,19 +217,6 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                 <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
                                 </p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
-                                    <!-- <div class="restaurant-name">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half"></i>
-                                        </div>
-                                        <p><span>(4.5)</span> based on 120</p>
-                                    </div>
-                                    <div class="price">
-                                        <span>$135</span>
-                                    </div> -->
                                 </div>
                                 <a href="#" class="border-btn border-btn2">Download</a>
                             </div>
@@ -257,10 +233,10 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             <div class="support-wrapper align-items-center">
                 <div class="left-content1">
                     <div class="about-icon">
-                        <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt="">
+                        <!-- <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt=""> -->
                     </div>
                     <!-- section tittle -->
-                    <div class="section-tittle section-tittle2 mb-55">
+                    <div id="tentang" class="section-tittle section-tittle2 mb-55">
                         <div class="front-text">
                             <h2 class="">Tentang Four-Tier Test</h2>
                             <p>Four Tier Test  merupakan tes diagnostik dengan empat tingkat pilihan. Four Tier Test ini merupakan pengembangan dari tes diagnostik pilihan ganda tiga tingkat, yaitu dengan menambah tingkat keyakinan pada masing-masing jawaban dan 
@@ -311,7 +287,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
 
                         <div class="video-icon" >
                             <!-- <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a> -->
-                            <img src="{{asset('Front_Home/assets/img/tentang.jpg')}}" alt="">
+                            <img src="{{asset('Front_Home/assets/img/icon/tentang.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -333,11 +309,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img"  >
                                 <img src="{{asset('Front_Home/assets/img/fitur/1.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Soal Four-Tier Test</a></h3>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                     </div>
@@ -345,11 +317,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/2.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Data Guru dan Siswa</a></h3>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                     </div>
@@ -357,11 +325,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/3.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Manajemen Sistem</a></h3>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                     </div>
@@ -369,11 +333,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/4.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Fleksibilitas Waktu</a></h3>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                     </div>
@@ -381,11 +341,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/5.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Import Soal</a></h3>
-                                    </div>
-                                </div> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -393,11 +349,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/6.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Analisis Butir Soal Auto</a></h3>
-                                    </div>
-                                </div> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -405,11 +357,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/7.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Klasifikasi Pemahaman Konsep Siswa Auto</a></h3>
-                                    </div>
-                                </div> -->
+                              
                             </div>
                         </div>
                     </div>
@@ -417,22 +365,12 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="single-topic text-center mb-30">
                             <div class="topic-img">
                                 <img src="{{asset('Front_Home/assets/img/fitur/8.png')}}" alt="">
-                                <!-- <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="#">Laporan Hasil untuk Siswa</a></h3>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row justify-content-center">
-                    <div class="col-xl-12">
-                        <div class="section-tittle text-center mt-20">
-                            <a href="courses.html" class="border-btn">View More</a>
-                        </div>
-                    </div>
-                </div> -->
+             
             </div>
         </div>
         <!-- top subjects End -->
@@ -442,7 +380,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                 <div class="right-content3">
                     <!-- img -->
                     <div class="right-img">
-                        <img src="{{asset('Front_Home/assets/img/gallery/Fungsi1.png')}}" width="15px" alt="">
+                        <img src="{{asset('Front_Home/assets/img/icon/fungsi.jpeg')}}" width="15px" alt="">
                     </div>
                 </div>
                 <div class="left-content3">
@@ -487,7 +425,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         </div>
                     </div>
                 </div>
-                <div class="team-active">
+                <div id="kontak" class="team-active">
                     <div class="single-cat text-center">
                         <div class="cat-icon">
                             <img src="{{asset('Front_Home/assets/img/gallery/team1.png')}}" alt="">
@@ -502,67 +440,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
             </div>
         </section>
         <!-- Services End -->
-         <!--? About Area-1 Start -->
-        <section class="about-area1 fix pt-10">
-            <div class="support-wrapper align-items-center">
-                <div class="left-content1">
-                    <div class="about-icon">
-                        <img src="{{asset('Front_Home/assets/img/icon/about.svg')}}" alt="">
-                    </div>
-                    <!-- section tittle -->
-                    <div class="section-tittle section-tittle2 mb-5">
-                        <div class="front-text">
-                            <h2 class="">Kelebihan PhyDiags</h2>
-                        </div>
-                    </div>
-                    <div class="single-features">
-                        <div class="features-icon">
-                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <p>Soal bisa di perbaharui dan di tambah </p>
-                        </div>
-                    </div>
-                    <div class="single-features">
-                        <div class="features-icon">
-                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <p>Tidak perlu melakukan instalasi aplikasi</p>
-                        </div>
-                    </div>
-
-                    <div class="single-features">
-                        <div class="features-icon">
-                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <p>Mengkoreksi dan menganalisis soal otomatis Hasil cepat</p>
-                        </div>
-                    </div>
-                    <div class="single-features mb-100">
-                        <div class="features-icon">
-                            <img src="{{asset('Front_Home/assets/img/icon/right-icon.svg')}}" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <p>Mengklasifikasikan siswa sesuai dengan hasil pemahaman konsep </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-content1 mb-100">
-                    <!-- img -->
-                    <div class="right-img">
-                        <img src="{{asset('Front_Home/assets/img/gallery/about.png')}}" alt="">
-
-                        <div class="video-icon" >
-                            <!-- <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a> -->
-                            <img src="{{asset('Front_Home/assets/img/tentang.jpg')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- About Area End -->
+        
       
     </main>
     <footer>
@@ -576,7 +454,8 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                         <div class="col-xl-12 ">
                             <div class="footer-copy-right text-center">
                                 <p>
-                                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                  <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+                                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Pendidikan Fisika Universitas Jambi
                                  </p>
                               </div>
                           </div>
