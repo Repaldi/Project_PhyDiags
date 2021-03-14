@@ -81,7 +81,7 @@ shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!
                                                     @csrf
                                                     </form>
                                             @else
-                                                <li class="active" ><a href="index.html">Beranda</a></li>
+                                                <li class="active" ><a href="#">Beranda</a></li>
                                                 <li><a href="#panduan">Panduan</a></li>
                                                 <li><a href="#tentang">Tentang</a></li>
                                                 <li><a href="https://api.whatsapp.com/send?phone=6282291381986">Kontak</a></li>

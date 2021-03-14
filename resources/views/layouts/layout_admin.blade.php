@@ -46,7 +46,7 @@
         <div class="app-header header-shadow bg-heavy-rain header-text-dark" style="box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.25);">
             <div class="app-header__logo">
               <!-- dibawah ini logonya nanti -->
-              <img src="{{asset('Front_Home/assets/img/logo/logo2.png')}}" alt="" class="logo-src">
+              <img src="{{asset('Front_Home/assets/img/logo/logoa.png')}}" style="width:150px; height:30px;" alt="" class="logo-src">
 
                 <div class="header__pane ml-auto">
                     <div>

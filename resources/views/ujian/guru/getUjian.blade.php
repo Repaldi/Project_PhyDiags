@@ -28,11 +28,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0; ?>
+                         <?php $i = 0; ?>
                             @foreach ($ujian as $item)
                             <tr>
                                 <td scope="row" class="text-center"><?php   $i++;  echo $i; ?></td>
-                                <?php $i++; ?>
                                 <td >{{ $item->nama_ujian}}</td>
                                 <td class="text-center">{{ $item->kelas->nama_kelas}}</td>
                                 <td class="text-center">

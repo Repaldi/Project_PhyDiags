@@ -4,7 +4,7 @@
     <title>PhyDiags | Education</title>
 @endsection
         <?php
-                $kelas	= \DB::select("SELECT * FROM kelas");
+                $kelas	= \DB::select("SELECT * FROM kelas ");
                 $siswa	= \DB::select("SELECT * FROM siswa");
                 $guru	= \DB::select("SELECT * FROM guru");
             ?>

@@ -23,7 +23,7 @@ class Guru extends Model
     }
     public function jumlah_kelas(){
       $guru_id  = $this->id;
-      $jumlah_kelas = Kelas::where('guru_id',$guru_id)->count();
+      $jumlah_kelas = Kelas::where('guru_id',$guru_id)->where('isdelete',false)->count();
     
       // if($cek_guru->count() != null){
       // $jumlah_kelas = Kelas::where('guru_id',$guru_id)->count();

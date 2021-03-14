@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-success" role="alert">
-                <h5 class="alert-heading mb-0"><strong>{{$miskonsepsi->jenis}} ({{$miskonsepsi->jenis}})</strong></h5>
+                <h5 class="alert-heading mb-0"><strong>{{$miskonsepsi->jenis}} ({{$miskonsepsi->deskripsi}})</strong></h5>
             </div>
         </div>
     </div>
